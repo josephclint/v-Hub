@@ -3,7 +3,7 @@ from django import forms
 from models import Video
 
 class VideoForm(forms.ModelForm):
-	video = forms.FileField(required=True, widget=forms.FileInput(attrs={'accept': 'video/*'}))
+	video = forms.FileField(widget=forms.FileInput(attrs={'accept': 'video/*'}))
 
 	class Meta:
 		model = Video
