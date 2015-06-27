@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>User Home</h1>
+    <p><a href="{% url 'videos:add' %}">Add Video</a></p>
+    {% if videos %}
+    	<ul>
+    	{% for video in videos %}
+    		<li><a href="{% url 'videos:detail' video.id %}">{{ video }}</a></li>
+    	{% endfor %}
+    	</ul>
+    {% else %}
+    	<p>You don't have any videos.</p>
+    {% endif %}
+    <a href="{% url 'accounts:logout' %}">Logout</a>
+</body>
+</html>
