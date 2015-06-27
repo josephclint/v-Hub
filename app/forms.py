@@ -1,8 +1,10 @@
-from django.forms import ModelForm
+from django import forms
 
 from models import Video
 
-class VideoForm(ModelForm):
+class VideoForm(forms.ModelForm):
+	video = forms.FileField(required=True, widget=forms.FileInput(attrs={'accept': 'video/*'}))
+
 	class Meta:
 		model = Video
 		exclude = ['owner', 'datetime_added', 'datetime_modified']
