@@ -7,7 +7,7 @@ urlpatterns = [
 	url(r'^', include('accounts.urls', namespace='accounts')),
 	url(r'^', include('sitemap.urls', namespace='sitemap')),
 	url(r'^videos/', include('app.urls', namespace='videos')),
-    url(r'^admin/', include(admin.site.urls)),
+	url(r'^admin/', include(admin.site.urls)),
 ]
 
 if settings.DEBUG:
