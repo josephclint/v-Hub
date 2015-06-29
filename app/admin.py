@@ -7,7 +7,7 @@ class ViewInline(admin.TabularInline):
 	extra = 0
 
 class LikeInline(admin.TabularInline):
-	model = Dislike
+	model = Like
 	extra = 0
 
 class DislikeInline(admin.TabularInline):
@@ -30,7 +30,6 @@ class VideoAdmin(admin.ModelAdmin):
 	search_fields = ('title', 'description')
 	fieldsets = [
 		(None, {'fields': ['title', 'description', 'video', 'owner']}),
-		('Additional Information', {'fields': ['genre']}),
 	]
 	inlines = [CategoryInline, TagInline, ViewInline, LikeInline, DislikeInline, ShareInline]
 
