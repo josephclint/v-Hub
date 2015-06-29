@@ -2,14 +2,6 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-GENRES = (
-	('Co', 'Comedy'),
-	('Ac', 'Action'),
-	('Ad', 'Adventure'),
-	('Dr', 'Drama'),
-	('Ro', 'Romance'),
-)
-
 
 class Tag(models.Model):
 	tag_text =  models.CharField(max_length=50)
@@ -35,7 +27,6 @@ class Video(models.Model):
 	description = models.TextField()
 	datetime_added = models.DateTimeField(auto_now_add=True)
 	datetime_modified = models.DateTimeField(auto_now=True)
-	genre = models.CharField(max_length=2, choices=GENRES)
 	tags = models.ManyToManyField(Tag)
 	categories = models.ManyToManyField(Category)
 
