@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Post Register</title>
+</head>
+<body>
+	<h1>Hi {{ user.first_name }}!</h1>
+	<h2>Thanks for registering!</h2>
+	<p>Congratulations! You successfully read this message.</p>
+	<p><a href="{% url 'accounts:login' %}">Login</a></p>
+	<p><a href="{% url 'accounts:index' %}">Home</a></p>
+</body>
+</html>

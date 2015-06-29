@@ -2,13 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Signup</title>
 </head>
 <body>
     <h1>Signup</h1>
-    <form action="{% url 'signup' %}" method="post">
+    
+    {{ error }}
+
+    {% if form.errors %}
+    	<p>{{ form.errors }}</p>
+    {% endif %}
+    
+    <form action="{% url 'accounts:signup' %}" method="post">
         {% csrf_token %}
-        Username: <input type="text" name="username" value=""/>
+        
+        <table>
+        {% for field in form %}
+        	<tr>
+        		<td>{{ field.label_tag }}</td>
+        		<td>{{ field }}</td>
+        	</tr>
+        {% endfor %}
+        </table>
+
         <button type="submit">Signup</button>
     </form>
 </body>
