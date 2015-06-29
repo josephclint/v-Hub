@@ -1,5 +1,4 @@
 from django.conf.urls import url
-
 from django.contrib.auth import views as auth_views
 
 from . import views
@@ -37,13 +36,16 @@ urlpatterns = [
 	url(
 		r'^password_reset/$', 
 		auth_views.password_reset, 
-		{'template_name': ''}, 
+		{
+			'template_name': 'accounts/password_reset.html', 
+			'post_reset_redirect': '/password_reset/done/', # lez not use reverse here XD
+		}, 
 		name='password_reset',
 	),
 	url(
 		r'^password_reset/done/$', 
 		auth_views.password_reset_done, 
-		{'template_name': ''}, 
+		{'template_name': 'accounts/password_reset_done.html'}, 
 		name='password_reset_done',
 	),
 	url(
@@ -68,4 +70,9 @@ urlpatterns = [
 		views.post_register,
 		name='post_register'
 	),
+]
+
+# User Auth AJAX
+urlpatterns += [
+	url(r'^login_ajax$', views.login_ajax, name='login_ajax'),
 ]
