@@ -26,17 +26,9 @@
 				</div><!--navbar-header-->
 			
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<!--Navbar Icons -->
+				<!--Profile Dropdown -->
 					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<div class="search"><!--Search icon & bar-->
-								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
-								<button type="submit" class="btn-search btn-default">
-									<img src="icons/search.png" height="25" width="25">
-								</button>
-							</div>
-						</li>
-						<li class="dropdown"><!--Profile icon & dropdown-->
+						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 								<img class="profile_logo" src="icons/profile.png">
 							</a>
@@ -48,7 +40,17 @@
 						    </ul>
 						</li>
 					</ul>
-
+				<!--Search bar-->
+					<form class="navbar-form" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<img src="icons/search.png" height="25" width="25">
+								</button>
+							</span>
+						</div>
+					</form>
 				</div><!--navbar-collapse-->
 			</div><!--container-fluid-->
 		</nav><!--navbar-->
