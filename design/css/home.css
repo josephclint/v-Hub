@@ -7,7 +7,6 @@ body {
 	margin-top: 20px;
 	margin-right: 40px;
 	margin-left: 40px;
-	background-color: transparent;
 	border: none;
 }
 
@@ -34,20 +33,14 @@ body {
 .navbar .nav li a:hover {
     font-size: 16px;
     text-decoration: underline;
-    color: #13D16C;
+    color: #1CA347;
     /*border-left: 1px solid rgba(255, 255, 255, .75);
     border-right: 1px solid rgba(0, 0, 0, .1);*/
 }
 
-/*#search {
-    float: right;
-    margin-top: 9px;
-    width: 250px;
-}*/
-
 .search {
     padding: 5px 0;
-    width: 430px;
+    width: 438px;
     height: 30px;
 
     position: relative;
@@ -76,12 +69,13 @@ body {
     width: 400px;
 
     margin-left: 0px;
-    border: 1px solid #13D16C;
+    border: 1px solid #1CA347;
 }
 
-.btn {
+.btn-search {
+	background-color: #ffffff;
+
 	border: none;
-	color: #ffffff;
     height: 35px;
     position: absolute;
     right: 0;
@@ -89,6 +83,6 @@ body {
     border-radius:1px;
 }
 
-.btn:hover {
-	border: 1px solid #13D16C;
+.btn-search:hover {
+	border: 1px solid #1CA347;
 }
