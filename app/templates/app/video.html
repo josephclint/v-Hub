@@ -1,27 +1,27 @@
 <html>
 <head>
-	<title>{{ title }}</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-	<h1>{{ title }}</h1>
-	
-	{% if form.errors %}
-		<p>{{ form.errors }}</p>
-	{% endif %}
+    <h1>{{ title }}</h1>
+    
+    {% if form.errors %}
+        <p>{{ form.errors }}</p>
+    {% endif %}
 
-	<form action="{{ form_action }}" method="post" enctype="multipart/form-data">
-		{% csrf_token %}
-		
-		<table>
-		{% for field in form %}
-			<tr>
-				<td>{{ field.label_tag }}</td>
-				<td>{{ field }}</td>
-			</tr>
-		{% endfor %}
-		</table>
+    <form action="{{ form_action }}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <table>
+        {% for field in form %}
+            <tr>
+                <td>{{ field.label_tag }}</td>
+                <td>{{ field }}</td>
+            </tr>
+        {% endfor %}
+        </table>
 
-		<button type="submit">{{ submit_label }}</button>
-	</form>
+        <button type="submit">{{ submit_label }}</button>
+    </form>
 </body>
 </html>

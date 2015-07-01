@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('category_text', models.CharField(max_length=50)),
             ],
         ),
+
         migrations.CreateModel(
             name='Dislike',
             fields=[
@@ -28,6 +29,7 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
+
         migrations.CreateModel(
             name='Like',
             fields=[
@@ -36,6 +38,7 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
+
         migrations.CreateModel(
             name='Share',
             fields=[
@@ -44,6 +47,7 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
+
         migrations.CreateModel(
             name='View',
             fields=[
@@ -52,52 +56,63 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
+
         migrations.RemoveField(
             model_name='video',
             name='dislikes',
         ),
+
         migrations.RemoveField(
             model_name='video',
             name='likes',
         ),
+
         migrations.RemoveField(
             model_name='video',
             name='shares',
         ),
+
         migrations.RemoveField(
             model_name='video',
             name='views',
         ),
+
         migrations.AddField(
             model_name='comment',
             name='user',
             field=models.ForeignKey(default=1, to=settings.AUTH_USER_MODEL),
             preserve_default=False,
         ),
+
         migrations.RemoveField(
             model_name='video',
             name='category',
         ),
+
         migrations.AddField(
             model_name='view',
             name='video',
             field=models.ForeignKey(to='app.Video'),
         ),
+
         migrations.AddField(
             model_name='share',
             name='video',
             field=models.ForeignKey(to='app.Video'),
         ),
+
         migrations.AddField(
             model_name='like',
             name='video',
             field=models.ForeignKey(to='app.Video'),
         ),
+
         migrations.AddField(
             model_name='dislike',
             name='video',
             field=models.ForeignKey(to='app.Video'),
         ),
+        
         migrations.AddField(
             model_name='video',
             name='category',

@@ -10,7 +10,7 @@
     {{ error }}
 
     {% if form.errors %}
-    	<p>{{ form.errors }}</p>
+        <p>{{ form.errors }}</p>
     {% endif %}
     
     <form action="{% url 'accounts:signup' %}" method="post">
@@ -18,10 +18,10 @@
         
         <table>
         {% for field in form %}
-        	<tr>
-        		<td>{{ field.label_tag }}</td>
-        		<td>{{ field }}</td>
-        	</tr>
+            <tr>
+                <td>{{ field.label_tag }}</td>
+                <td>{{ field }}</td>
+            </tr>
         {% endfor %}
         </table>
 

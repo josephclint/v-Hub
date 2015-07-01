@@ -1,18 +1,18 @@
 <html>
 <head>
-	<title>{{ video }}</title>
+    <title>{{ video }}</title>
 </head>
 <body>
-	<h1>{{ video }}</h1>
+    <h1>{{ video }}</h1>
 
-	<video src="{{ MEDIA_URL }}{{ video.video }}"></video>
+    <video src="{{ MEDIA_URL }}{{ video.video }}"></video>
 
-	<p>{{ video.description }}</p>
-	<p>
-		Views: {{ video.views }}<br>
-		Shares: {{ video.shares }}<br>
-		Likes: {{ video.likes }}<br>
-		Dislikes: {{ video.dislikes }}<br>
-	</p>
+    <p>{{ video.description }}</p>
+    <p>
+        Views: {{ video.views }}<br>
+        Shares: {{ video.shares }}<br>
+        Likes: {{ video.likes }}<br>
+        Dislikes: {{ video.dislikes }}<br>
+    </p>
 </body>
 </html>

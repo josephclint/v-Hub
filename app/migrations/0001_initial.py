@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
                 ('dislikes', models.IntegerField(default=0)),
             ],
         ),
+
         migrations.CreateModel(
             name='Tag',
             fields=[
@@ -28,6 +29,7 @@ class Migration(migrations.Migration):
                 ('tag_text', models.CharField(max_length=50)),
             ],
         ),
+
         migrations.CreateModel(
             name='Video',
             fields=[
@@ -45,6 +47,7 @@ class Migration(migrations.Migration):
                 ('tags', models.ManyToManyField(to='app.Tag')),
             ],
         ),
+
         migrations.AddField(
             model_name='comment',
             name='video',

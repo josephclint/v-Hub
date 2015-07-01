@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
             name='category',
             options={'verbose_name_plural': 'categories'},
         ),
+        
         migrations.RenameField(
             model_name='video',
             old_name='category',

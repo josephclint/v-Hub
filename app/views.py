@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.contrib.auth import logout
 
 from models import Video
 from forms import VideoForm
@@ -18,27 +19,27 @@ def index(request):
     })
 
 def detail(request, video_id):
-	video = get_object_or_404(Video, pk=video_id)
-	return render(request, 'app/detail.html', {'video': video})
+    video = get_object_or_404(Video, pk=video_id)
+    return render(request, 'app/detail.html', {'video': video})
 
 @login_required
 def add(request):
-	context = {
-		'title': 'Add Video',
-		'form_action': reverse('videos:add'),
-		'submit_label': 'Upload',
-	}
+    context = {
+        'title': 'Add Video',
+        'form_action': reverse('videos:add'),
+        'submit_label': 'Upload',
+    }
 
-	if request.method == 'POST':
-		form = VideoForm(request.POST, request.FILES)
-		if form.is_valid():
-			obj = form.save(commit=False)
-			obj.owner = request.user
-			obj.save()
-			return HttpResponseRedirect(reverse('accounts:index'))
-		else:
-			context['form'] = form
-	else:
-		context['form'] = VideoForm()
-	
-	return render(request, 'app/video.html', context)
+    if request.method == 'POST':
+        form = VideoForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.owner = request.user
+            obj.save()
+            return HttpResponseRedirect(reverse('accounts:index'))
+        else:
+            context['form'] = form
+    else:
+        context['form'] = VideoForm()
+    
+    return render(request, 'app/video.html', context)
