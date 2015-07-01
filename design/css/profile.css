@@ -17,11 +17,9 @@ body{
 	margin-bottom: -6px;
 }
 
+/*navigation bar*/
 .navbar {
 	background-color: white;
-	margin-top: 20px;
-	margin-left: 40px;
-	margin-right: 40px;
 	border: none;
 }
 
@@ -70,4 +68,50 @@ body{
 
 .btn-search:hover {
 	border: 1px solid #13D16C;
+}
+
+/*carousel*/
+.item {
+	display: block;
+	position: absolute;
+	height: 600px;
+	width: auto;
+}
+
+.item img {
+	height: auto;
+	width: 100%;
+}
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 0 0 10px 25px;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 0 25px 25px 0;
+  text-align: right;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
 }
