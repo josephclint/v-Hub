@@ -85,6 +85,6 @@ urlpatterns = [
 ]
 
 # User Auth AJAX
-urlpatterns += [
-    url(r'^login_ajax$', views.login_ajax, name='login_ajax'),
-]
+#urlpatterns += [
+#    url(r'^login_ajax$', views.login_ajax, name='login_ajax'),
+#]

@@ -33,9 +33,9 @@ def signup(request):
 
 def post_register(request):
     flag = request.session.get('post_register_user', False)
-    
-        if request.user.is_authenticated() or not flag:
-            return HttpResponseRedirect(reverse('accounts:index'))
+
+    if request.user.is_authenticated() or not flag:
+        return HttpResponseRedirect(reverse('accounts:index'))
 
     del request.session['post_register_user']
     return render(request, 'accounts/post_register.html', {
