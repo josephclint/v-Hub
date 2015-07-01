@@ -115,3 +115,16 @@ body{
 .carousel-control.right {
   background-image: none;
 }
+
+/*Categories*/
+.category {
+	margin-top: 110px;
+}
+.cat_head{
+	text-align: center;
+}
+
+.cat_btn {
+	border: none;
+	background: transparent;
+}
