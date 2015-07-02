@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^videos/', include('app.urls', namespace='videos')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/sitemap/favicon.ico')),
+    url(r'', include('social_auth.urls')),
 ]
 
 if settings.DEBUG:
