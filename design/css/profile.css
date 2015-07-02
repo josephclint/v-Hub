@@ -1,6 +1,6 @@
 body{
 	padding-top: 70px;
-	background-image: 
+  background-image: url("../images/wood.jpg");
 }
 
 .logo {
@@ -70,6 +70,10 @@ body{
 	border: 1px solid #13D16C;
 }
 
+#user_icon {
+  color: green;
+}
+
 /*carousel*/
 .item {
 	display: block;
@@ -118,13 +122,51 @@ body{
 
 /*Categories*/
 .category {
+  border-top-width: 5px;
+  border-top-style: ridge;
+  border-top-color: white;
+  border-bottom-width: 5px;
+  border-bottom-style: ridge;
+  border-bottom-color: white;  
+  background-image: url("../images/grass.jpg");
 	margin-top: 110px;
 }
-.cat_head{
-	text-align: center;
+
+#cat_name {
+   background: rgba(122, 130, 136, 0.0)!important;
+   border: none;
 }
+
+.#cat_body {
+  background: rgba(122, 130, 136, 0.2)!important;
+}
+
+.cat_head{
+  color: green;
+  text-align: center;
+}
+
 
 .cat_btn {
 	border: none;
 	background: transparent;
+}
+
+.cat_cap {
+  color: white;
+}
+
+/*footer*/
+.footer {
+  background-color: white;
+  margin-top: 110px;
+}
+
+.abt_panel {
+  margin-top: 20px;
+  margin-right: -10px; 
+}
+
+.ctc_panel {
+  margin-top: 20px;
 }

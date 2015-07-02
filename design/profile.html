@@ -41,10 +41,10 @@
 								<img class="profile_logo" src="icons/profile.png">
 							</a>
 						    <ul class="dropdown-menu" role="menu">
-						       	<li><a href="#">My Profile</a></li>
-						        <li><a href="#">Settings</a></li>
+						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
+						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
 						        <li class="divider"></li>
-						        <li><a href="#">Log Out</a></li>
+						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
 						    </ul>
 						</li>
 					</ul>
@@ -109,39 +109,39 @@
 		<section class="category">
 			<div class="container-fluid">
 				<div class="cat_pan panel-default">
-					<div class="panel-heading">
-						<h2 class="cat_head">CATEGORIES</h2>
+					<div class="panel-heading" id="cat_name">
+						<h2 class="cat_head"><strong>CATEGORIES</strong></h2>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body" id="cat_body">
 						<div class="row">
 							<div class="col-md-4">
 								<button type="button" class="cat_btn btn-default btn-lg btn-block">
 									<img class="cat_icon" src="icons/movie.png">
-									<h3>Animation & Film</h3>
+									<h3 class="cat_cap">Animation & Film</h3>
 								</button>
 								<button type="button" class="cat_btn btn-default btn-lg btn-block">
 									<img class="cat_icon" src="icons/people.png">
-									<h3>People & Blogs</h3>
+									<h3 class="cat_cap">People & Blogs</h3>
 								</button>
 							</div>
 							<div class="col-md-4">
 								<button type="button" class="cat_btn btn-default btn-lg btn-block">
 									<img class="cat_icon" src="icons/music.png">
-									<h3>Music</h3>
+									<h3 class="cat_cap">Music</h3>
 								</button>
 								<button type="button" class="cat_btn btn-default btn-lg btn-block">
 									<img class="cat_icon" src="icons/science.png">
-									<h3>Science & Technology</h3>
+									<h3 class="cat_cap">Science & Technology</h3>
 								</button>
 							</div>
 							<div class="col-md-4">
 								<button type="button" class="cat_btn btn-default btn-lg btn-block">
 									<img class="cat_icon" src="icons/news.png">
-									<h3>News & Politics</h3>
+									<h3 class="cat_cap">News & Politics</h3>
 								</button>
 								<button type="button" class="cat_btn btn-default btn-lg btn-block">
 									<img class="cat_icon" src="icons/sports.png">
-									<h3>Sports</h3>
+									<h3 class="cat_cap">Sports</h3>
 								</button>
 							</div>
 						</div><!--row-->
@@ -149,6 +149,33 @@
 				</div><!--cat-pan-->	
 			</div>
 		</section><!--Categories-->
+		<!--Footer-->
+		<section class="footer">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="abt_panel panel-default">
+							<div class="panel-heading">
+								<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right"></span></h3>
+							</div>
+							<div id="abt_body" class="panel-body">
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="ctc_panel panel-default">
+							<div class="panel-heading">
+								<h3 class="cont_text">Contact us<span id="icon_ft" class="glyphicon glyphicon-phone-alt pull-right"></span></h3>
+							</div>
+							<div id="cont_body" class="panel-body">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--footer-->
 		<!-- for javascrpit plugins -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
