@@ -81,4 +81,10 @@ urlpatterns = [
         name='post_register'
     ),
 
+    url(
+        r'^profile/$',
+        views.UserProfileView.as_view(),
+        name='user_profile'
+    ),
+
 ]

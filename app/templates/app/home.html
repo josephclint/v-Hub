@@ -7,9 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}VHub{% endblock %}</title>
-        <link rel="shortcut icon" href="{% static 'sitemap/images/icon.png' %}">
+        <link rel="shortcut icon" href="{% static 'images/icon.png' %}">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link href="{% static 'sitemap/css/profile.css' %}" rel="stylesheet">
+        <link href="{% static 'styles/home_logged_in.css' %}" rel="stylesheet">
     </head>
     <body>
         <!--Navigation Bar-->
@@ -24,9 +24,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=""> <!-- go back to profile after registration 
-                                                    {% url 'app:home' %}-->
-                        <img class="logo" src="{% static 'sitemap/images/logo.png' %}" alt="">
+                    <a class="navbar-brand" href=""> <!-- go back to profile after registration app:home-->
+                        <img class="logo" src="{% static 'images/logo.png' %}" alt="">
                     </a>
                 </div><!--navbar-header-->
             
@@ -37,13 +36,13 @@
                             <div class="search"><!--Search icon & bar-->
                                 <input type="text" class="form-control" maxlength="64" placeholder="Search" />
                                 <button type="submit" class="btn-search">
-                                    <img src="{% static 'sitemap/images/search.png' %}" height="25" width="25">
+                                    <img src="{% static 'images/search.png' %}" height="25" width="25">
                                 </button>
                             </div>
                         </li>
                         <li class="dropdown"><!--Profile icon & dropdown-->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <img class="profile_logo" src="{% static 'sitemap/images/profile.png' %}">
+                                <img class="profile_logo" src="{% static 'images/profile.png' %}">
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
@@ -124,13 +123,13 @@
                             <div class="col-md-4">
                                 <a href="">
                                     <button type="button" class="cat_btn btn-default btn-lg btn-block">
-                                        <img class="cat_icon" src="{% static 'sitemap/images/movie.png' %}">
+                                        <img class="cat_icon" src="{% static 'icons/movie.png' %}">
                                         <h3 class="cat_cap">Animation & Film</h3>
                                     </button>
                                 </a>
                                 <a href="">
                                     <button type="button" class="cat_btn btn-default btn-lg btn-block">
-                                        <img class="cat_icon" src="{% static 'sitemap/images/people.png' %}">
+                                        <img class="cat_icon" src="{% static 'icons/people.png' %}">
                                         <h3 class="cat_cap">People & Blogs</h3>
                                     </button>
                                 </a>
@@ -138,13 +137,13 @@
                             <div class="col-md-4">
                                 <a href="">
                                     <button type="button" class="cat_btn btn-default btn-lg btn-block">
-                                        <img class="cat_icon" src="{% static 'sitemap/images/music.png' %}">
+                                        <img class="cat_icon" src="{% static 'icons/music.png' %}">
                                         <h3 class="cat_cap">Music</h3>
                                     </button>
                                 </a>
                                 <a href="">
                                     <button type="button" class="cat_btn btn-default btn-lg btn-block">
-                                        <img class="cat_icon" src="{% static 'sitemap/images/science.png' %}">
+                                        <img class="cat_icon" src="{% static 'icons/science.png' %}">
                                         <h3 class="cat_cap">Science & Technology</h3>
                                     </button>
                                 </a>
@@ -152,13 +151,13 @@
                             <div class="col-md-4">
                                 <a href="">
                                     <button type="button" class="cat_btn btn-default btn-lg btn-block">
-                                        <img class="cat_icon" src="{% static 'sitemap/images/news.png' %}">
+                                        <img class="cat_icon" src="{% static 'icons/news.png' %}">
                                         <h3 class="cat_cap">News & Politics</h3>
                                     </button>
                                 </a>
                                 <a href="">
                                     <button type="button" class="cat_btn btn-default btn-lg btn-block">
-                                        <img class="cat_icon" src="{% static 'sitemap/images/sports.png' %}">
+                                        <img class="cat_icon" src="{% static 'icons/sports.png' %}">
                                         <h3 class="cat_cap">Sports</h3>
                                     </button>
                                 </a>
@@ -198,9 +197,11 @@
         </section><!--footer-->
         
         <!-- for javascrpit plugins -->
+        </nav>
+
+        <!-- JavaScript Dependencies -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="{% static 'sitemap/js/profile.js' %}"></script>
+        <script src="{% static 'js/profile.js' %}"></script>
     </body>
 </html>

@@ -1,19 +1,15 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>VHub</title>
-		<link rel="shortcut icon" href="{% static 'sitemap/images/icon.png' %}">
+		<title>V-hub</title>
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<link href="{% static 'styles/index.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'styles/profile.css' %}">
 	</head>
 	<body>
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+		<!--Navigation Bar-->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
 			<!--Logo-->
@@ -25,44 +21,37 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{% url 'accounts:index' %}">
+					<a class="navbar-brand" href="#profile.html">
 						<img class="logo" src="{% static 'images/logo.png' %}" alt="">
 					</a>
 				</div><!--navbar-header-->
 			
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<!--Profile Dropdown -->
-					
+				<!--Navbar Icons -->
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<div class="search">
+							<div class="search"><!--Search icon & bar-->
 								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
-								<!--<button type="submit" class="btn btn-primary">Search</button>-->
-								<button type="submit" class="btn-search">
-									<img src="{% static 'images/search.png' %}" height="25" width="25">
+								<button type="submit" class="btn-search btn-default">
+									<img src="{% static 'icons/search.png' %}" height="25" width="25">
 								</button>
 							</div>
 						</li>
-						<li><a href="{% url 'accounts:login' %}">Log In</a></li>
-						<li><a href="{% url 'accounts:signup' %}">Register</a></li>
-						<!--<li class="active"><a href="#">Link</a></li>-->
-						<!--<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>-->
+						<li class="dropdown"><!--Profile icon & dropdown-->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								<img class="profile_logo" src="{% static 'icons/profile.png' %}">
+							</a>
+						    <ul class="dropdown-menu" role="menu">
+						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
+						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
+						        <li class="divider"></li>
+						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						    </ul>
+						</li>
 					</ul>
 				</div><!--navbar-collapse-->
 			</div><!--container-fluid-->
 		</nav><!--navbar-->
-
 		<!--Featured Videos-->
 		<section class="feat_vids">
 			<div class="container-fluid">
@@ -77,33 +66,33 @@
 					<!--THUMBNAILS-->
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="http://i.ytimg.com/vi/jc86EFjLFV4/maxresdefault.jpg" alt="...">
+							<img src="{% static 'images/minion.jpg' %}" alt="...">
 							<div class="carousel-caption">
 								<h2>MINIONS THE MOVIE</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="http://static.guim.co.uk/sys-images/Observer/Columnist/Columnists/2014/10/24/1414169836312/taylor-swift-009.jpg" alt="...">
+							<img src="{% static 'images/taylor.jpg' %}" alt="...">
 							<div class="carousel-caption">
 								<h2>Shake it off - Taylor Swift</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="http://newsinfo.inquirer.net/files/2014/05/Binay.jpg" alt="...">
+							<img src="{% static 'images/Binay.jpg' %}" alt="...">
 							<div class="carousel-caption">
 								<h2>VP Binay Resigns</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="http://i.ytimg.com/vi/OgPm-yaLoyo/maxresdefault.jpg" alt="...">
+							<img src="{% static 'images/john.jpg' %}" alt="...">
 							<div class="carousel-caption">
-								<h2>Pitch Perfect 2</h2>
+								<h2>Nerdfighters - Capitalism</h2>
 							</div>
 						</div>
 						<div class="item">
-							<img src="http://i.ytimg.com/vi/RFinNxS5KN4/maxresdefault.jpg" alt="...">
+							<img src="{% static 'images/minion.jpg' %}" alt="...">
 							<div class="carousel-caption">
-								<h2>Jurassic World</h2>
+								<h2>MINIONS THE MOVIE</h2>
 							</div>
 						</div>
 					</div><!--carousel-inner-->
@@ -117,7 +106,6 @@
 				</div><!--carousel slide-->
 			</div>
 		</section><!--feat_vids-->
-
 		<!--Categories-->
 		<section class="category">
 			<div class="container-fluid">
@@ -128,53 +116,40 @@
 					<div class="panel-body" id="cat_body">
 						<div class="row">
 							<div class="col-md-4">
-								<a href="">
-									<button type="button" class="cat_btn btn-default btn-lg btn-block">
-										<img class="cat_icon" src="{% static 'sitemap/images/movie.png' %}">
-										<h3 class="cat_cap">Animation & Film</h3>
-									</button>
-								</a>
-								<a href="">
-									<button type="button" class="cat_btn btn-default btn-lg btn-block">
-										<img class="cat_icon" src="{% static 'sitemap/images/people.png' %}">
-										<h3 class="cat_cap">People & Blogs</h3>
-									</button>
-								</a>
+								<button type="button" class="cat_btn btn-default btn-lg btn-block">
+									<img class="cat_icon" src="{% static 'icons/movie.png' %}">
+									<h3 class="cat_cap">Animation & Film</h3>
+								</button>
+								<button type="button" class="cat_btn btn-default btn-lg btn-block">
+									<img class="cat_icon" src="{% static 'icons/people.png' %}">
+									<h3 class="cat_cap">People & Blogs</h3>
+								</button>
 							</div>
 							<div class="col-md-4">
-								<a href="">
-									<button type="button" class="cat_btn btn-default btn-lg btn-block">
-										<img class="cat_icon" src="{% static 'sitemap/images/music.png' %}">
-										<h3 class="cat_cap">Music</h3>
-									</button>
-								</a>
-								<a href="">
-									<button type="button" class="cat_btn btn-default btn-lg btn-block">
-										<img class="cat_icon" src="{% static 'sitemap/images/science.png' %}">
-										<h3 class="cat_cap">Science & Technology</h3>
-									</button>
-								</a>
+								<button type="button" class="cat_btn btn-default btn-lg btn-block">
+									<img class="cat_icon" src="{% static 'icons/music.png' %}">
+									<h3 class="cat_cap">Music</h3>
+								</button>
+								<button type="button" class="cat_btn btn-default btn-lg btn-block">
+									<img class="cat_icon" src="{% static 'icons/science.png' %}">
+									<h3 class="cat_cap">Science & Technology</h3>
+								</button>
 							</div>
 							<div class="col-md-4">
-								<a href="">
-									<button type="button" class="cat_btn btn-default btn-lg btn-block">
-										<img class="cat_icon" src="{% static 'sitemap/images/news.png' %}">
-										<h3 class="cat_cap">News & Politics</h3>
-									</button>
-								</a>
-								<a href="">
-									<button type="button" class="cat_btn btn-default btn-lg btn-block">
-										<img class="cat_icon" src="{% static 'sitemap/images/sports.png' %}">
-										<h3 class="cat_cap">Sports</h3>
-									</button>
-								</a>
+								<button type="button" class="cat_btn btn-default btn-lg btn-block">
+									<img class="cat_icon" src="{% static 'icons/news.png' %}">
+									<h3 class="cat_cap">News & Politics</h3>
+								</button>
+								<button type="button" class="cat_btn btn-default btn-lg btn-block">
+									<img class="cat_icon" src="{% static 'icons/sports.png' %}">
+									<h3 class="cat_cap">Sports</h3>
+								</button>
 							</div>
 						</div><!--row-->
 					</div><!--panel-body-->
 				</div><!--cat-pan-->	
 			</div>
 		</section><!--Categories-->
-
 		<!--Footer-->
 		<section class="footer">
 			<div class="container-fluid">
@@ -202,10 +177,10 @@
 				</div>
 			</div>
 		</section><!--footer-->
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- for javascrpit plugins -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="{% static 'sitemap/js/home.js' %}"></script>
+		<script type="{% static 'scripts/profile.js' %}"></script>
 	</body>
 </html>

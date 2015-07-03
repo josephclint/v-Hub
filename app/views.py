@@ -15,7 +15,6 @@ class IndexView(generic.View):
     """
     Displays home page of a user with his uploaded videos
     """
-    @method_decorator(login_required)
     def get(self, request):
         current_user = User.objects.get(pk=request.user.id)
         videos = current_user.video_set.all()
@@ -36,7 +35,7 @@ class AddView(generic.View):
         'submit_label': 'Upload',
     }
 
-    @method_decorator(login_required)
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def post(self, request):
         form = VideoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -48,7 +47,7 @@ class AddView(generic.View):
             self.context['form'] = form
             return render(request, 'app/video.html', self.context)
 
-    @method_decorator(login_required)
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         self.context['form'] = VideoForm()
         return render(request, 'app/video.html', self.context)

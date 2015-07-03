@@ -1,0 +1,184 @@
+{% load static %}
+
+body {
+  background-image: url("../images/wood.jpg");
+  padding-top: 70px;
+}
+
+
+a, a:hover {
+  color: #000000;
+}
+
+.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
+  background-color: #1CA347;
+}
+
+.logo {
+	width: 150px;
+	height: 40px;
+	margin-top: -10px;
+	margin-left: 10px;
+}
+
+.profile_logo {
+	width: 30px;
+	height: 30px;
+	margin-top: -12px;
+	margin-bottom: -6px;
+}
+
+/*navigation bar*/
+.navbar {
+	background-color: white;
+	border: none;
+}
+
+.search {
+  padding: 5px;
+  width: 700px;
+  height: 30px;
+
+  position: relative;
+  left: -30px;
+  float: left;
+  line-height: 22px;
+}
+
+.search input {
+  position: absolute;
+  width: 0px;
+  float: left;
+  margin-left: 658px;
+
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+
+  height: 35px;
+  line-height: 18px;
+  padding: 0 2px 0 2px;
+  border-radius:1px;
+}
+
+.search:hover input, .search input:focus {
+  width: 658px;
+  margin-left: 0px;
+  border: 1px solid #13D16C;
+}
+
+.btn-search {
+  background-color: #ffffff;
+	border: none;
+  height: 35px;
+  position: absolute;
+  right: 0;
+  border-radius:1px;
+}
+
+.btn-search:hover {
+	border: 1px solid #13D16C;
+}
+
+/*carousel*/
+.item {
+	display: block;
+	position: absolute;
+	height: 600px;
+	width: auto;
+}
+
+.item img {
+	height: auto;
+	width: 100%;
+}
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 0 0 10px 25px;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 0 25px 25px 0;
+  text-align: right;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+
+/*Categories*/
+.category {
+    border-top-width: 5px;
+    border-top-style: ridge;
+    border-top-color: white;
+    border-bottom-width: 5px;
+    border-bottom-style: ridge;
+    border-bottom-color: white;  
+    background-image: url("../images/grass.jpg");
+    margin-top: 110px;
+}
+
+#cat_name {
+   background: rgba(122, 130, 136, 0.0)!important;
+   border: none;
+}
+
+#cat_body {
+  background: rgba(122, 130, 136, 0.0)!important;
+}
+
+.cat_head{
+  color: green;
+  text-align: center;
+}
+
+
+.cat_btn {
+    border: none;
+    background: transparent;
+}
+
+.cat_cap {
+  color: white;
+}
+
+/*footer*/
+.footer {
+  background-color: white;
+  margin-top: 110px;
+}
+
+.abt_panel {
+  margin-top: 20px;
+  margin-right: -10px; 
+}
+
+.ctc_panel {
+  margin-top: 20px;
+}
+
+a, a:hover {
+  text-decoration: none;
+}

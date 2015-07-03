@@ -9,8 +9,8 @@
 		<title>{% block title %}VHub{% endblock %}</title>
 		<link rel="shortcut icon" href="{% static 'sitemap/images/icon.png' %}">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<link href="{% static 'sitemap/css/index.css' %}" rel="stylesheet">
-		<link href="{% static 'sitemap/css/login.css' %}" rel="stylesheet">
+		<link href="{% static 'styles/index.css' %}" rel="stylesheet">
+		<link href="{% static 'styles/login.css' %}" rel="stylesheet">
 	</head>
 	<body>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="{% url 'sitemap:index' %}">
-						<img class="logo" src="{% static 'sitemap/images/logo.png' %}" alt="">
+						<img class="logo" src="{% static 'images/logo.png' %}" alt="">
 					</a>
 				</div><!--navbar-header-->
 			
@@ -40,7 +40,7 @@
 								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
 								<!--<button type="submit" class="btn btn-primary">Search</button>-->
 								<button type="submit" class="btn-search">
-									<img src="{% static 'sitemap/images/search.png' %}" height="25" width="25">
+									<img src="{% static 'images/search.png' %}" height="25" width="25">
 								</button>
 							</div>
 						</li>
