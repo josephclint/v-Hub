@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}VHub{% endblock %}</title>
+        <link rel="shortcut icon" href="{% static 'sitemap/images/icon.png' %}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static 'sitemap/css/profile.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+            <!--Logo-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="">
+                        <img class="logo" src="{% static 'sitemap/images/logo.png' %}" alt="">
+                    </a>
+                </div><!--navbar-header-->
+            
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--Navbar Icons -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="search"><!--Search icon & bar-->
+                                <input type="text" class="form-control" maxlength="64" placeholder="Search" />
+                                <button type="submit" class="btn-search">
+                                    <img src="{% static 'sitemap/images/search.png' %}" height="25" width="25">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="dropdown"><!--Profile icon & dropdown-->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                <img class="profile_logo" src="{% static 'sitemap/images/profile.png' %}">
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">My Profile</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="logout">Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--navbar-collapse-->
+            </div><!--container-fluid-->
+        </nav><!--navbar-->
+        
+        <!-- for javascrpit plugins -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="{% static 'sitemap/js/profile.js' %}"></script>
+    </body>
+</html>
