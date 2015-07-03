@@ -1,5 +1,15 @@
+body{
+  padding-top: 70px;
+  background-image: none;
+}
+
 .container {
   margin-top: 50px;
+}
+
+h1 {
+  text-align: center;
+  color: #1CB94E;
 }
 
 .errors {

@@ -1,0 +1,14 @@
+.glyphicon {
+	background-color: #ffffff;
+	border: none;
+}
+
+#seek-bar {
+	color: black;
+	width: 100px;
+}
+
+#volume-bar {
+	color: black;
+	width: 100px;
+}

@@ -1,17 +1,18 @@
-{% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{% block title %}VHub{% endblock %}</title>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<link href="{% static 'styles/index.css' %}" rel="stylesheet">
-		<link href="{% static 'styles/login.css' %}" rel="stylesheet">
+		<title>Video Details</title>
+		<link rel="shortcut icon" href="images/icon.png">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/home.css" rel="stylesheet">
+		<link href="css/detail.css" rel="stylesheet">
+
 	</head>
 	<body>
+
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -25,12 +26,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{% url 'sitemap:index' %}">
-<<<<<<< HEAD
-						<img class="logo" src="{% static 'images/logo.png' %}" alt="">
-=======
-						<img class="logo" src="{% static 'images/logo_lapad.png' %}" alt="">
->>>>>>> d4a9476c2b45711b0f754eaf1fefee8d1541766c
+					<a class="navbar-brand" href="home.html">
+						<img class="logo" src="images/logo.png" alt="">
 					</a>
 				</div><!--navbar-header-->
 			
@@ -43,12 +40,12 @@
 								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
 								<!--<button type="submit" class="btn btn-primary">Search</button>-->
 								<button type="submit" class="btn-search">
-									<img src="{% static 'images/search.png' %}" height="25" width="25">
+									<img src="icons/search.png" height="25" width="25">
 								</button>
 							</div>
 						</li>
-						<li><a href="{% url 'accounts:login' %}">Log In</a></li>
-						<li><a href="{% url 'accounts:signup' %}">Register</a></li>
+						<li><a href="login.html">Log In</a></li>
+						<li><a href="signup.html">Register</a></li>
 						<!--<li class="active"><a href="#">Link</a></li>-->
 						<!--<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -67,11 +64,33 @@
 			</div><!--container-fluid-->
 		</nav><!--navbar-->
 
-		{% block body %}{% endblock %}
+		<div id="container" align="center">
+		  <!-- Video -->
+			<video id="video" width="700" height="400">
+				<source src="video.mp4" type="video/mp4">
+			</video>
+		</div>
+		<div id="container" align="center">
+		  <!-- Video Controls -->
+			<div id="video-controls">
+				<button type="button" id="play-pause" class="glyphicon glyphicon-play"></button>
+				
+				<input type="range" id="seek-bar" value="0">
+				
+				<button type="button" id="mute" class="glyphicon glyphicon-volume-up"></button>
+				
+				<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+				
+				<button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen"></button>
+			</div>
+		</div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="{% static 'scripts/home.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/home.js"></script>
+		<script src="js/detail.js"></script>
+
 	</body>
 </html>
