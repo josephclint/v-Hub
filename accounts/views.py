@@ -49,3 +49,7 @@ class PostRegisterView(generic.View):
         return render(request, 'accounts/post_register.html', {
             'user': flag
         })
+
+
+class UserProfileView(generic.TemplateView):
+    template_name = 'accounts/profile.html'
