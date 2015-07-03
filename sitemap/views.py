@@ -1,14 +1,29 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
 
-def index(request):
-    return render(request, 'sitemap/index.html')
 
-def about(request):
-    return HttpResponse('About Page')
+class IndexView(generic.TemplateView):
+    """
+    This is the home page of the site when no one is logged in
+    """
+    template_name = 'sitemap/index.html'
 
-def faq(request):
-    return HttpResponse('FAQ Page')
 
-def tos(request):
-    return HttpResponse('TOS Page')
+class AboutView(generic.TemplateView):
+    """
+    This is about page of the site
+    """
+    template_name = 'sitemap/about.html'
+
+
+class FaqView(generic.TemplateView):
+    """
+    This is FAQ(Frequently Asked Questions) page of the site
+    """
+    template_name = 'sitemap/faq.html'
+
+
+class TosView(generic.TemplateView):
+    """
+    This is TOS(Terms of Service) page of the site
+    """
+    template_name = 'sitemap/tos.html'

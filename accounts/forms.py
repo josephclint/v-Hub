@@ -1,7 +1,29 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.utils.translation import ugettext_lazy as _
+
 
 class UserSignupForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
+    attributes = {'class': 'form-control', 'placeholder': 'Email Address'}
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs=attributes))
+
+    attributes['placeholder'] = 'Username'
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs=attributes))
+
+    attributes['placeholder'] = 'Password'
+    password1 = forms.CharField(required=True,
+                                label=_("Password"),
+                                widget=forms.PasswordInput(attrs=attributes))
+
+    attributes['placeholder'] = 'Confirm Password'
+    password2 = forms.CharField(required=True,
+                                label=_("Password confirmation"),
+                                widget=forms.PasswordInput(attrs=attributes),
+                                help_text=_("Enter the same password as above, for verification."))
+
+    attributes['placeholder'] = 'First Name'
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs=attributes))
+
+    attributes['placeholder'] = 'Last Name'
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs=attributes))
+

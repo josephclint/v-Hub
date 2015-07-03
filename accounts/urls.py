@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     url(
         r'^$',
-        views.index,
+        views.IndexView.as_view(),
         name='index',
     ),
 
@@ -71,20 +71,14 @@ urlpatterns = [
 
     url(
         r'^signup/$',
-        views.signup,
+        views.SignupView.as_view(),
         name='signup',
     ),
     
     url(
         r'^registration_complete$',
-        views.post_register,
+        views.PostRegisterView.as_view(),
         name='post_register'
     ),
 
-
 ]
-
-# User Auth AJAX
-#urlpatterns += [
-#    url(r'^login_ajax$', views.login_ajax, name='login_ajax'),
-#]
