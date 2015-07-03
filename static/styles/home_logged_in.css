@@ -164,10 +164,15 @@ a, a:hover {
   color: white;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
+
 /*footer*/
 .footer {
   background-color: white;
-  margin-top: 110px;
+  margin-top: 150px;
 }
 
 .abt_panel {
@@ -179,6 +184,67 @@ a, a:hover {
   margin-top: 20px;
 }
 
-a, a:hover {
-  text-decoration: none;
+.abt_btns {
+  width: 380px;
 }
+
+.abt_btn { 
+  height: 45px;
+  border: none;
+  margin-bottom: -4px;
+}
+
+.abt_btn h5{
+  text-align: left;
+  color: green;
+}
+
+#site_contacts {
+  margin-left: -10px;
+  margin-bottom: 13px;
+}
+
+#social_site {
+  margin-bottom: 13px;
+}
+
+#site_contacts h5{
+  text-indent: 10px;
+  margin-top: 20px;
+}
+
+.text-center {
+  margin-top: 50px;
+}
+
+.text-center img {
+  height: 50px;
+  width: 50px;
+}
+
+.panel-footer {
+  border: none;
+  background-color: white;
+}
+
+.panel-footer h6{
+  color: green;
+  text-align: center;
+}
+
+#social:hover {
+  -webkit-transform:scale(2.0); 
+  -moz-transform:scale(2.0); 
+  -o-transform:scale(2.0); 
+}
+
+#social {
+  -webkit-transform:scale(1.1);
+  /* Browser Variations: */
+  -moz-transform:scale(1.1);
+  -o-transform:scale(1.1); 
+  -webkit-transition-duration: 0.5s; 
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
