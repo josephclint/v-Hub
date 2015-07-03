@@ -7,7 +7,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}VHub{% endblock %}</title>
-		<link rel="shortcut icon" href="{% static 'sitemap/images/icon.png' %}">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 		<link href="{% static 'styles/index.css' %}" rel="stylesheet">
 		<link href="{% static 'styles/login.css' %}" rel="stylesheet">
@@ -27,7 +26,11 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="{% url 'sitemap:index' %}">
+<<<<<<< HEAD
 						<img class="logo" src="{% static 'images/logo.png' %}" alt="">
+=======
+						<img class="logo" src="{% static 'images/logo_lapad.png' %}" alt="">
+>>>>>>> d4a9476c2b45711b0f754eaf1fefee8d1541766c
 					</a>
 				</div><!--navbar-header-->
 			
@@ -69,6 +72,6 @@
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="{% static 'sitemap/js/home.js' %}"></script>
+		<script src="{% static 'scripts/home.js' %}"></script>
 	</body>
 </html>
