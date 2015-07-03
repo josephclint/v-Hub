@@ -45,6 +45,8 @@ INSTALLED_APPS = (
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.twitter.TwitterBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -119,9 +121,13 @@ LOGIN_ERROR_URL    = '/login-error/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook')
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook','google-oauth2','twitter')
 FACEBOOK_APP_ID              = '1459500787684454'
 FACEBOOK_API_SECRET          = 'dd3a73a0581ea87b5e5d27948de90835'
+GOOGLE_OAUTH2_CLIENT_ID      = '160224018800-gcci4g4b1h6dvrc2nqk1gbh3egtfonc4.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET  = 'VOk0OyBC1Ct5k4QbfCOFsmWS'
+TWITTER_CONSUMER_KEY         = ''
+TWITTER_CONSUMER_SECRET      = ''
 
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
@@ -138,6 +144,7 @@ SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
+GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'access_type': 'offline'}
 SOCIAL_AUTH_SANITIZE_REDIRECTS = False
 SOCIAL_AUTH_URLOPEN_TIMEOUT = 30
 
@@ -146,4 +153,8 @@ FACEBOOK_EXTRA_DATA = [
     ('login', 'login'),
 ]
 
+#GOOGLE_EXTRA_DATA = [
+ #   ('avatar_url', 'avatar'),
+  #  ('login', 'login'),
+#]
 SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'

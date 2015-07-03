@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/sitemap/favicon.ico')),
     url(r'', include('social_auth.urls')),
+    #url(r'^complete/(?P<backend>[^/]+)/$', 'account.views.complete', name='complete'),
 ]
 
 if settings.DEBUG:
