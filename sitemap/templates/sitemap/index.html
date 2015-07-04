@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>VHub</title>
+		<title>{% block title %}VHub{% endblock %}</title>
 		<link rel="shortcut icon" href="{% static 'images/icon.png' %}">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 		<link href="{% static 'styles/index.css' %}" rel="stylesheet">
@@ -188,15 +188,21 @@
 								<div id="abt_body" class="panel-body">
 									<p>Vhub description here</p>
 									<div class="abt_btns btn-group-vertical">
-										<button type="button" class="abt_btn btn-lg btn-block">
-											<h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
-										</button>
-										<button type="button" class="abt_btn btn-lg btn-block">
-											<h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
-										</button>
-										<button type="button" class="abt_btn btn-lg btn-block">
-											<h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
-										</button>
+										<a href="">
+                                            <button type="button" class="abt_btn btn-lg btn-block">
+                                                <h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button type="button" class="abt_btn btn-lg btn-block">
+                                                <h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button type="button" class="abt_btn btn-lg btn-block">
+                                                <h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
+                                            </button>
+                                        </a>
 									</div><!--abt_btns-->
 									<hr>
 								</div><!--abt_body-->
@@ -221,13 +227,13 @@
 												<div class="text-center center-block">
 													<div class="row">
 														<div id="social_icons" class="col-md-4">
-															<a href="facebook.com/vhub"><img class="social_fb" id="social" src="{% static 'icons/facebook.png' %}"></a>
+															<a href=""><img class="social_fb" id="social" src="{% static 'icons/facebook.png' %}"></a>
 														</div>
 														<div id="social_icons" class="col-md-4">
-															<a href="twitter.com/vhub"><img  class="social_tw" id="social" src="{% static 'icons/twitter.png' %}"></a>
+															<a href=""><img  class="social_tw" id="social" src="{% static 'icons/twitter.png' %}"></a>
 														</div>
 														<div id="social_icons" class="col-md-4">
-															<a href="google.com/vhub"><img class="social_gp" id="social" src="{% static 'icons/google.png' %}"></a>
+															<a href=""><img class="social_gp" id="social" src="{% static 'icons/google.png' %}"></a>
 														</div>
 													</div>
 												</div><!--text-center-->
