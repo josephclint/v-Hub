@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>V-hub</title>
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/profile_page.css">
+		<link rel="shortcut icon" href="images/icon.png">
+	</head>
+	<body>
+		<!--Navigation Bar-->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+			<!--Logo-->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#profile.html">
+						<img class="logo" src="images/logo.png" alt="">
+					</a>
+				</div><!--navbar-header-->
+			
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<!--Navbar Icons -->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="search"><!--Search icon & bar-->
+								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
+								<button type="submit" class="btn-search btn-default">
+									<img src="icons/search.png" height="25" width="25">
+								</button>
+							</div>
+						</li>
+						<li class="dropdown"><!--Profile icon & dropdown-->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								<img class="profile_logo" src="icons/profile.png">
+							</a>
+						    <ul class="dropdown-menu" role="menu">
+						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
+						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
+						        <li class="divider"></li>
+						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						    </ul>
+						</li>
+					</ul>
+				</div><!--navbar-collapse-->
+			</div><!--container-fluid-->
+		</nav><!--navbar-->
+		<!--Profile Panel-->
+		<div class="profile_pan">
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">user name</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div id="profile_pic" class="col-md-3 col-lg-3" align="center">
+								<img src="icons/profile.png">
+							</div>
+							<div id="profile_det" class="col-md-9 col-lg-9">
+								<div class="row overview">
+									<div class="container-fluid">
+										<div class="btn-group btn-group-justified col-md-8 col-xs-12" role="group">	
+											<div class="btn-group" role"group">
+												<button type="button" class="overview_btn btn-default btn-block">
+													<h3>Video</h3><h4>20</h4>
+												</button>
+											</div>
+											<div class="btn-group" role"group">
+												<button type="button" class="overview_btn btn-default btn-block">
+													<h3>Followers</h3><h4>20</h4>
+												</button>
+											</div>
+											<div class="btn-group" role"group">
+												<button type="button" class="overview_btn btn-default btn-block">
+													<h3>Following</h3><h4>20</h4>
+												</button>
+											</div>
+										</div><!--overview_buttons-->
+									</div>
+								</div><!--overview-->
+								<hr>
+								<div class="user_det">
+									<div class="container-fluid">
+										<form id="name_form" class="form-inline">
+											<div class="form-group">
+												<div class="name input-group">
+													<input type="text" class="form-control" placeholder="First Name">
+													<span class="input-group-btn">
+														<button type="button" class="btn btn-default">
+															<span class="glyphicon glyphicon-cog"></span>
+														</button>
+													</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="name input-group">
+													<input type="text" class="form-control" placeholder="Last Name">
+													<span class="input-group-btn">
+														<button type="button" class="btn btn-default">
+															<span class="glyphicon glyphicon-cog"></span>
+														</button>
+													</span>
+												</div>
+											</div>
+										</form>
+										<form id="gen_dob_form" class="form-inline">
+											<div class="form-group">
+												<label class="gen_label control-label"><h4>Gender</h4></label>
+											</div>
+											<div class="form-group">
+												<label class="gen_rad radio-inline">
+													<input type="radio" name="inlineRadioOptions" id="male_rad" value="male"> Male
+												</label>
+												<label class="gen_rad radio-inline">
+													<input type="radio" name="inlineRadioOptions" id="fem_rad" value="female"> Female
+												</label>
+											</div>
+											<div id="birth_panel" class="form-group">
+												<label class="bday_label control-label"><h4>Date of Birth</h4></label>
+											</div>
+											<div class="form-group">
+												<input id="dob_pan" type="date" name="dob" class="form-control" min="1920-01-01">
+											</div>
+										</form>
+									</div>
+								</div><!--user_det-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Footer-->
+		<section class="footer">
+			<div class="footer_panel panel-default">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="abt_panel panel-default">
+								<div class="panel-heading">
+									<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right"></span></h3>
+								</div>
+								<div id="abt_body" class="panel-body">
+									<p>Vhub description here</p>
+									<div class="abt_btns btn-group-vertical">
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
+										</button>
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
+										</button>
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
+										</button>
+									</div><!--abt_btns-->
+									<hr>
+								</div><!--abt_body-->
+							</div><!--abt_panel-->
+						</div>
+						<div class="col-md-8">
+							<div class="ctc_panel panel-default">
+								<div class="panel-heading">
+									<h3 class="cont_text">Contact us
+									<span id="icon_ft" class="glyphicon glyphicon-phone-alt pull-right"></span>
+									</h3>
+								</div>
+								<div id="cont_body" class="panel-body">
+									<div class="container-fluid">
+										<div class="row">
+											<div id="site_contacts" class="col-md-4"><hr>
+												<h5><span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232</h5>
+												<h5><span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com</h5>
+												<h5><span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city</h5>
+											</div>
+											<div id="social_site" class="col-md-8"><hr>
+												<div class="text-center center-block">
+													<div class="row">
+														<div id="social_icons" class="col-md-4">
+															<a href="facebook.com/vhub"><img class="social_fb" id="social" src="icons/facebook.png"></a>
+														</div>
+														<div id="social_icons" class="col-md-4">
+															<a href="twitter.com/vhub"><img  class="social_tw" id="social" src="icons/twitter.png"></a>
+														</div>
+														<div id="social_icons" class="col-md-4">
+															<a href="goggle.com/vhub"><img class="social_gp" id="social" src="icons/google.png"></a>
+														</div>
+													</div>
+												</div><!--text-center-->
+											</div><!--social_site-->
+										</div>	
+									</div>
+								</div><!--cont_body-->
+							</div><!--ctc_panel--><hr>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<h6><span class="glyphicon glyphicon-copyright-mark"></span>VHUB</h6>
+				</div>
+			</div>
+		</section><!--footer-->
+		<!-- for javascrpit plugins -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script type="js/profile.js"></script>
+	</body>
+</html>

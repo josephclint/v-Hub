@@ -1,0 +1,185 @@
+body{
+	padding-top: 70px;
+  background-image: url("../images/wood.jpg");
+}
+
+.logo {
+	width: 150px;
+	height: 40px;
+	margin-top: -10px;
+	margin-left: 10px;
+}
+
+.profile_logo {
+	width: 30px;
+	height: 30px;
+	margin-top: -12px;
+	margin-bottom: -6px;
+}
+
+/*navigation bar*/
+.navbar {
+	background-color: white;
+	border: none;
+}
+
+.search {
+    padding: 5px;
+    width: 700px;
+    height: 30px;
+
+    position: relative;
+    left: -30px;
+    float: left;
+    line-height: 22px;
+}
+
+.search input {
+    position: absolute;
+    width: 0px;
+    float: Left;
+    margin-left: 680px;
+
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+
+    height: 35px;
+    line-height: 18px;
+    padding: 0 2px 0 2px;
+    border-radius:1px;
+}
+
+.search:hover input, .search input:focus {
+    width: 680px;
+    margin-left: 0px;
+    border: 1px solid #13D16C;
+}
+
+.btn-search {
+	border: none;
+	color: #ffffff;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    border-radius:1px;
+}
+
+.btn-search:hover {
+	border: 1px solid #13D16C;
+}
+
+#user_icon {
+  color: green;
+}
+
+/*profile panel*/
+.overview_btn {
+  text-transform: uppercase;
+}
+
+.user_det {
+  margin-left: 20px;
+}
+
+.name {
+  width: 430px;
+}
+
+#gen_dob_form {
+  margin-top: 20px;
+}
+
+.gen_label {
+  margin-right: 10px;
+}
+
+#birth_panel {
+  margin-left: 150px;
+}
+
+#dob_pan {
+  margin-left: 10px;
+  width: 357px;
+  text-transform: uppercase;
+}
+
+/*footer*/
+.footer {
+  background-color: white;
+  margin-top: 150px;
+}
+
+.abt_panel {
+  margin-top: 20px;
+  margin-right: -10px; 
+}
+
+.ctc_panel {
+  margin-top: 20px;
+}
+
+.abt_btns {
+  width: 380px;
+}
+
+.abt_btn { 
+  height: 45px;
+  border: none;
+  margin-bottom: -4px;
+}
+
+.abt_btn h5{
+  text-align: left;
+  color: green;
+}
+
+#site_contacts {
+  margin-left: -10px;
+  margin-bottom: 13px;
+}
+
+#social_site {
+  margin-bottom: 13px;
+}
+
+#site_contacts h5{
+  text-indent: 10px;
+  margin-top: 20px;
+}
+
+.text-center {
+  margin-top: 50px;
+}
+
+.text-center img {
+  height: 50px;
+  width: 50px;
+}
+
+.panel-footer {
+  border: none;
+  background-color: white;
+}
+
+.panel-footer h6{
+  color: green;
+  text-align: center;
+}
+
+#social:hover {
+  -webkit-transform:scale(2.0); 
+  -moz-transform:scale(2.0); 
+  -o-transform:scale(2.0); 
+}
+
+#social {
+  -webkit-transform:scale(1.1);
+  /* Browser Variations: */
+  -moz-transform:scale(1.1);
+  -o-transform:scale(1.1); 
+  -webkit-transition-duration: 0.5s; 
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
