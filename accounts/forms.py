@@ -4,13 +4,10 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class UserSignupForm(UserCreationForm):
-    attributes = {'class': 'form-control', 'required': 'required','placeholder': 'Email Address'}
+    attributes = {'class': 'form-control', 'required': 'required', 'placeholder': 'Email Address'}
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs=attributes))
 
-    #attributes['placeholder'] = 'Username'
-    #username = forms.CharField(required=True, widget=forms.TextInput(attrs=attributes))
-
-    attribute = {'class': 'form-control', 'required': 'required', 'placeholder': 'Username', 'autofocus':'autofocus'}
+    attribute = {'class': 'form-control', 'required': 'required', 'placeholder': 'Username', 'autofocus': 'autofocus'}
     username = forms.CharField(required=True, widget=forms.TextInput(attrs=attribute))
 
     attributes['placeholder'] = 'Password'
@@ -29,3 +26,10 @@ class UserSignupForm(UserCreationForm):
 
     attributes['placeholder'] = 'Last Name'
     last_name = forms.CharField(required=True, widget=forms.TextInput(attrs=attributes))
+
+    def save(self, commit=True):
+        user = super(UserSignupForm, self).save(commit=commit)
+        user.email = self.cleaned_data['email']
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.save()
