@@ -75,6 +75,16 @@ body{
 }
 
 /*profile panel*/
+
+#follower-panel {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+h3 {
+  font-weight: bold;
+}
+
 .overview_btn {
   text-transform: uppercase;
 }

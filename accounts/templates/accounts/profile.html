@@ -28,14 +28,18 @@
                                             </button>
                                         </div>
                                         <div class="btn-group" role"group">
-                                            <button type="button" class="overview_btn btn-default btn-block">
-                                                <h3>Followers</h3><h4>20</h4>
-                                            </button>
+                                            <a href="{% url 'accounts:followers' %}">
+                                                <button type="button" class="overview_btn btn-default btn-block">
+                                                    <h3>Followers</h3><h4>20</h4>
+                                                </button>
+                                            </a>
                                         </div>
                                         <div class="btn-group" role"group">
-                                            <button type="button" class="overview_btn btn-default btn-block">
-                                                <h3>Following</h3><h4>20</h4>
-                                            </button>
+                                            <a href="{% url 'accounts:following' %}">
+                                                <button type="button" class="overview_btn btn-default btn-block">
+                                                    <h3>Following</h3><h4>20</h4>
+                                                </button>
+                                            </a>
                                         </div>
                                     </div><!--overview_buttons-->
                                 </div>
