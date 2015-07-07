@@ -151,3 +151,4 @@ SOCIAL_AUTH_SANITIZE_REDIRECTS = False
 SOCIAL_AUTH_URLOPEN_TIMEOUT = 30
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+

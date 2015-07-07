@@ -1,11 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect 
 from django.core.urlresolvers import reverse
+from django.contrib.auth import views as auth_views 
+from django.contrib.auth.views import login 
+
 from django.views import generic
 
 from app import views as app_views
 from sitemap import views as sitemap_views
 from forms import UserSignupForm
+
+from django.conf import settings
 
 
 class IndexView(generic.View):
@@ -14,6 +19,14 @@ class IndexView(generic.View):
             return app_views.IndexView.as_view()(request)
 
         return sitemap_views.IndexView.as_view()(request)
+
+
+class LoginView(generic.View):
+    def get(self, request, **kwargs):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
+
+        return login(request, **kwargs)
 
 
 class SignupView(generic.View):
@@ -53,3 +66,7 @@ class PostRegisterView(generic.View):
 
 class UserProfileView(generic.TemplateView):
     template_name = 'accounts/profile.html'
+
+
+
+
