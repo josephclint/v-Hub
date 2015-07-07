@@ -12,7 +12,7 @@ urlpatterns = [
 
     url(
         r'^login/$', 
-        auth_views.login, 
+        views.LoginView.as_view(),
         {'template_name': 'accounts/login.html'}, 
         name='login',
     ),
