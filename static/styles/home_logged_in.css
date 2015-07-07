@@ -248,3 +248,63 @@ a, a:hover {
   -o-transition-duration: 0.5s;
 }
 
+#change_password {
+  display: none;
+}
+
+.btn-save {
+  background-color: #ffffff;
+  border: 1px solid #13D16C;
+}
+
+.btn-save:hover {
+  text-decoration: underline;
+  border: 1px solid #13D16C;
+}
+
+#show_options {
+  display: none;
+}
+
+
+/*profile panel*/
+.overview_btn {
+  text-transform: uppercase;
+  border: 1px solid #000000;
+}
+
+.overview_btn:hover {
+  color: #13D16C;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.user_det {
+  margin-left: 20px;
+}
+
+.name {
+  width: 430px;
+}
+
+#gen_dob_form {
+  margin-top: 20px;
+}
+
+.gen_label {
+  margin-right: 10px;
+}
+
+#birth_panel {
+  margin-left: 150px;
+}
+
+#dob_pan {
+  margin-left: 10px;
+  width: 357px;
+  text-transform: uppercase;
+}

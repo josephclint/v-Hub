@@ -87,4 +87,16 @@ urlpatterns = [
         name='user_profile'
     ),
 
+    url(
+        r'^deactivate/$',
+        views.DisableAccountView.as_view(),
+        name='deactivate'
+    ),
+
+    url(
+        r'^settings/$',
+        views.SettingsView.as_view(),
+        name='settings'
+    ),
+
 ]

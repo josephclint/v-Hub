@@ -68,5 +68,13 @@ class UserProfileView(generic.TemplateView):
     template_name = 'accounts/profile.html'
 
 
+class LogOutView(generic.TemplateView):
+    template_name = 'accounts/logout.html'
 
+class SettingsView(generic.TemplateView):
+    template_name = 'accounts/settings.html'
 
+class DisableAccountView(generic.TemplateView):
+    template_name = 'accounts/account_disabled.html'
+    #This only redirects to the page. The user still needs
+    #to be logged out when disabling account
