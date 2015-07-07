@@ -45,10 +45,10 @@
                                 <img class="profile_logo" src="{% static 'images/profile.png' %}">
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
-                                <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                                <li><a href="{% url 'accounts:user_profile' %}">{{user.username}}<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
+                                <li><a href="{% url 'accounts:settings' %}">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
                                 <li class="divider"></li>
-                                <li><a href="logout">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                <li><a href="{% url 'accounts:logout' %}">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                             </ul>
                         </li>
                     </ul>
