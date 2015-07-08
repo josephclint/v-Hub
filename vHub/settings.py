@@ -50,6 +50,15 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+# PASSWORD_HASHERS = (
+#         'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#         'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+#         'django.contrib.auth.hashers.BCryptPasswordHasher',
+#         'django.contrib.auth.hashers.SHA1PasswordHasher',
+#         'django.contrib.auth.hashers.MD5PasswordHasher',
+#         'django.contrib.auth.hashers.CryptPasswordHasher',
+# )
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -136,11 +145,6 @@ TWITTER_CONSUMER_SECRET = 'pOo2Aa6vM0KAIUmWkE3NHtLafIYt0Wo4gWoczXQilVBgNSzjoD'
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
-
-SOCIAL_AUTH_UID_LENGTH = 16
-SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
-SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
-SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
 
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}

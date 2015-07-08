@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect 
 from django.core.urlresolvers import reverse
 from django.contrib.auth import views as auth_views 
-from django.contrib.auth.views import login 
 
 from django.views import generic
 
@@ -11,22 +10,21 @@ from sitemap import views as sitemap_views
 from forms import UserSignupForm
 
 from django.conf import settings
+from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse, reverse_lazy
 
-# def anonymous_required( view_function, redirect_to = None ):
-#     return AnonymousRequired( view_function, redirect_to )
- 
-# class AnonymousRequired( object ):
-#     def __init__( self, view_function, redirect_to ):
-#         if redirect_to is None:
-#             from django.conf import settings
-#             redirect_to = settings.LOGIN_REDIRECT_URL
-#         self.view_function = view_function
-#         self.redirect_to = redirect_to
- 
-#     def __call__( self, request, *args, **kwargs ):
-#         if request.user is not None and request.user.is_authenticated():
-#             return HttpResponseRedirect( self.redirect_to ) 
-#         return self.view_function( request, *args, **kwargs )
+
+def anonymous_required(function):
+    def as_view(request, *args, **kwargs):
+        redirect_to = kwargs.get('next', settings.LOGIN_REDIRECT_URL )
+        if request.user.is_authenticated():
+            return redirect(redirect_to)
+
+        response = function(request, *args, **kwargs)
+        return response
+    return as_view
 
         
 class IndexView(generic.View):
@@ -35,14 +33,6 @@ class IndexView(generic.View):
             return app_views.IndexView.as_view()(request)
 
         return sitemap_views.IndexView.as_view()(request)
-
-
-class LoginView(generic.View):
-    def get(self, request, **kwargs):
-        if request.user.is_authenticated():
-            return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
-
-        return login(request, **kwargs)
 
 
 class SignupView(generic.View):
@@ -81,22 +71,35 @@ class PostRegisterView(generic.View):
 
 
 class UserProfileView(generic.TemplateView):
-    template_name = 'accounts/profile.html'
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request,'accounts/profile.html',)
 
 
 class LogOutView(generic.TemplateView):
     template_name = 'accounts/logout.html'
 
 class SettingsView(generic.TemplateView):
-    template_name = 'accounts/settings.html'
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request,'accounts/settings.html',)
 
 class DisableAccountView(generic.TemplateView):
-    template_name = 'accounts/account_disabled.html'
-    #This only redirects to the page. The user still needs
-    #to be logged out when disabling account
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request,'accounts/account_disabled.html',)
 
 class FollowersView(generic.TemplateView):
-    template_name = 'app/followers.html'
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request,'app/followers.html',)
 
 class FollowingView(generic.TemplateView):
-    template_name = 'app/following.html'
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        if request.user.is_authenticated():
+            return render(request,'app/following.html',)

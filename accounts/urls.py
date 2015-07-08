@@ -11,9 +11,8 @@ urlpatterns = [
     ),
 
     url(
-        r'^login/$', 
-        auth_views.login, 
-        #views.LoginView.as_view(),
+        r'^login/$',
+        views.anonymous_required(auth_views.login),
         {'template_name': 'accounts/login.html'}, 
         name='login',
     ),
