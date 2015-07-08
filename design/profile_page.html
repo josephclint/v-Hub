@@ -60,8 +60,16 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div id="profile_pic" class="col-md-3 col-lg-3" align="center">
-								<img src="icons/profile.png">
+							<div id="profile_pic" class="thumbnail col-md-3 col-lg-3" align="center">
+								<div class="caption btn-group-vertical">
+									<button class="btn btn-default btn-block btn-lg" rel="tooltip" title="Upload">
+										Upload<span class="glyphicon glyphicon-upload pull-right"></span>
+									</button>
+									<button class="btn btn-default btn-block btn-lg" rel="tooltip" title="Remove">
+										Remove<span class="glyphicon glyphicon-remove-sign pull-right"></span>
+									</button>
+								</div>
+								<img class="user_pic" src="icons/profile.png">
 							</div>
 							<div id="profile_det" class="col-md-9 col-lg-9">
 								<div class="row overview">
@@ -91,7 +99,7 @@
 										<form id="name_form" class="form-inline">
 											<div class="form-group">
 												<div class="name input-group">
-													<input type="text" class="form-control" placeholder="First Name">
+													<input type="text" class="form-control" placeholder="First Name" disabled="">
 													<span class="input-group-btn">
 														<button type="button" class="btn btn-default">
 															<span class="glyphicon glyphicon-cog"></span>
@@ -101,7 +109,7 @@
 											</div>
 											<div class="form-group">
 												<div class="name input-group">
-													<input type="text" class="form-control" placeholder="Last Name">
+													<input type="text" class="form-control" placeholder="Last Name" disabled="">
 													<span class="input-group-btn">
 														<button type="button" class="btn btn-default">
 															<span class="glyphicon glyphicon-cog"></span>
@@ -127,6 +135,20 @@
 											</div>
 											<div class="form-group">
 												<input id="dob_pan" type="date" name="dob" class="form-control" min="1920-01-01">
+											</div>
+										</form>
+										<form id="email_form" class="form-inline">
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+													</span>
+													<input id="email_bar" type="email" placeholder="Email" class="form-control" disabled="">
+													<span class="input-group-btn">
+														<button type="button" class="btn btn-default">
+															<span class="glyphicon glyphicon-cog"></span>
+														</button>
+													</span>
+												</div>
 											</div>
 										</form>
 									</div>
@@ -210,6 +232,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
-		<script type="js/profile.js"></script>
+		<script src="js/profile_page.js"></script>
 	</body>
 </html>

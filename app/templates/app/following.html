@@ -1,0 +1,62 @@
+{% extends 'app/base_profile.html' %}
+
+{% block title %}{{ 'VHub | Following' }}{% endblock %}
+
+{% block body %}
+
+	<!-- following -->
+	<div class="profile_pan">
+		<div class="container-fluid">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Following</h3>
+				</div>
+				<div class="panel-body" align="center">
+					<!-- loop following here -->
+					<div class="col-md-4" id="follower-panel">
+						<a href="" class="follower">
+							<span id="user_icon" class="glyphicon glyphicon-user">
+								&nbsp;FOLLOWING 1&nbsp;
+							</span>
+						</a>
+						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
+					</div>
+					<div class="col-md-4" id="follower-panel">
+						<a href="" class="follower">
+							<span id="user_icon" class="glyphicon glyphicon-user">
+								&nbsp;FOLLOWING 2&nbsp;
+							</span>
+						</a>
+						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
+					</div>
+					<div class="col-md-4" id="follower-panel">
+						<a href="" class="follower">
+							<span id="user_icon" class="glyphicon glyphicon-user">
+								&nbsp;FOLLOWING 3&nbsp;
+							</span>
+						</a>
+						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
+					</div>
+					<div class="col-md-4" id="follower-panel">
+						<a href="" class="follower">
+							<span id="user_icon" class="glyphicon glyphicon-user">
+								&nbsp;FOLLOWING 4&nbsp;
+							</span>
+						</a>
+						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
+					</div>
+					<div class="col-md-4" id="follower-panel">
+						<a href="" class="follower">
+							<span id="user_icon" class="glyphicon glyphicon-user">
+								&nbsp;FOLLOWING 5&nbsp;
+							</span>
+						</a>
+						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
+					</div>
+					<!-- end loop here -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

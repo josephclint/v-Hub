@@ -94,3 +94,9 @@ class DisableAccountView(generic.TemplateView):
     template_name = 'accounts/account_disabled.html'
     #This only redirects to the page. The user still needs
     #to be logged out when disabling account
+
+class FollowersView(generic.TemplateView):
+    template_name = 'app/followers.html'
+
+class FollowingView(generic.TemplateView):
+    template_name = 'app/following.html'
