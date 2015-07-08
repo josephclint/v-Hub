@@ -12,7 +12,8 @@ urlpatterns = [
 
     url(
         r'^login/$', 
-        views.LoginView.as_view(),
+        auth_views.login, 
+        #views.LoginView.as_view(),
         {'template_name': 'accounts/login.html'}, 
         name='login',
     ),
