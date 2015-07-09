@@ -9,7 +9,7 @@
     <!--Profile Panel-->
     <div class="profile_pan">
         <div class="container-fluid">
-            <div class="panel panel-default">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <a href="{% url 'accounts:user_profile' %}">
                         <h3 class="panel-title">{{user.username}}</h3>
@@ -19,10 +19,10 @@
                     <div class="row">
                         <div id="profile_pic" class="thumbnailpro col-md-3 col-lg-3" align="center">
                             <div class="captionpro btn-group-vertical">
-                                <button class="btn btn-default btn-block btn-lg" rel="tooltip">
+                                <button class="btn btn-default btn-block btn-lg">
                                     Upload<span class="glyphicon glyphicon-upload pull-right"></span>
                                 </button>
-                                <button class="btn btn-default btn-block btn-lg" rel="tooltip">
+                                <button class="btn btn-default btn-block btn-lg">
                                     Remove<span class="glyphicon glyphicon-remove-sign pull-right"></span>
                                 </button>
                             </div>
@@ -57,28 +57,30 @@
                             <hr>
                             <div class="user_det">
                                 <div class="container-fluid">
-                                    <form id="name_form" class="form-inline">
-                                        <div class="form-group">
-                                            <div class="name input-group">
-                                                <input id="fn_txt" type="text" class="form-control" value="{{user.first_name}}" disabled>
-                                                <span class="input-group-btn">
-                                                    <button id="fn_btn" type="button" class="btn btn-default toggle" data-target="#fn_txt">
-                                                        <span class="glyphicon glyphicon-cog"></span>
-                                                    </button>
-                                                </span>
+                                    <div class="row">
+                                        <form id="name_form" class="form-inline">
+                                            <div class="form-group">
+                                                <div class="name input-group">
+                                                    <input id="fn_txt" type="text" class="form-control" value="{{user.first_name}}" disabled>
+                                                    <span class="input-group-btn">
+                                                        <button id="fn_btn" type="button" class="btn btn-default toggle" data-target="#fn_txt">
+                                                            <span class="glyphicon glyphicon-cog"></span>
+                                                        </button>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="name input-group">
-                                                <input id="ln_txt" type="text" class="form-control" value="{{user.last_name}}" disabled>
-                                                <span class="input-group-btn">
-                                                    <button id="ln_btn" type="button" class="btn btn-default toggle" data-target="#ln_txt">
-                                                        <span class="glyphicon glyphicon-cog"></span>
-                                                    </button>
-                                                </span>
+                                            <div class="form-group">
+                                                <div class="name input-group">
+                                                    <input id="ln_txt" type="text" class="form-control" value="{{user.last_name}}" disabled>
+                                                    <span class="input-group-btn">
+                                                        <button id="ln_btn" type="button" class="btn btn-default toggle" data-target="#ln_txt">
+                                                            <span class="glyphicon glyphicon-cog"></span>
+                                                        </button>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                     <form id="gen_dob_form" class="form-inline">
                                         <div class="form-group">
                                             <label class="gen_label control-label"><h4>Gender</h4></label>
