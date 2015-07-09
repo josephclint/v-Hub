@@ -11,32 +11,42 @@
         <div class="container-fluid">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{user.username}}</h3>
+                    <a href="{% url 'accounts:user_profile' %}">
+                        <h3 class="panel-title">{{user.username}}</h3>
+                    </a>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div id="profile_pic" class="col-md-3 col-lg-3" align="center">
-                            <img src="{% static 'icons/profile.png' %}">
+                        <div id="profile_pic" class="thumbnailpro col-md-3 col-lg-3" align="center">
+                            <div class="captionpro btn-group-vertical">
+                                <button class="btn btn-default btn-block btn-lg" rel="tooltip">
+                                    Upload<span class="glyphicon glyphicon-upload pull-right"></span>
+                                </button>
+                                <button class="btn btn-default btn-block btn-lg" rel="tooltip">
+                                    Remove<span class="glyphicon glyphicon-remove-sign pull-right"></span>
+                                </button>
+                            </div>
+                            <img class="user_pic" src="{% static 'icons/profile.png' %}">
                         </div>
                         <div id="profile_det" class="col-md-9 col-lg-9">
                             <div class="row overview">
                                 <div class="container-fluid">
                                     <div class="btn-group btn-group-justified col-md-8 col-xs-12" role="group"> 
                                         <div class="btn-group" role"group">
-                                            <button type="button" class="overview_btn btn-default btn-block">
-                                                <h3>Video</h3><h4>20</h4>
+                                            <button type="button" id="ovnoborderbtnn" class="overview_btn btn-default btn-block">
+                                                <h3>Videos</h3><h4>20</h4>
                                             </button>
                                         </div>
                                         <div class="btn-group" role"group">
-                                            <a href="{% url 'accounts:followers' %}">
-                                                <button type="button" class="overview_btn btn-default btn-block">
+                                            <a href="{% url 'app:followers' %}">
+                                                <button type="button" id="ovlrborderbtnn" class="overview_btn btn-default btn-block">
                                                     <h3>Followers</h3><h4>20</h4>
                                                 </button>
                                             </a>
                                         </div>
                                         <div class="btn-group" role"group">
-                                            <a href="{% url 'accounts:following' %}">
-                                                <button type="button" class="overview_btn btn-default btn-block">
+                                            <a href="{% url 'app:following' %}">
+                                                <button type="button" id="ovnoborderbtnn" class="overview_btn btn-default btn-block">
                                                     <h3>Following</h3><h4>20</h4>
                                                 </button>
                                             </a>
@@ -50,9 +60,9 @@
                                     <form id="name_form" class="form-inline">
                                         <div class="form-group">
                                             <div class="name input-group">
-                                                <input type="text" class="form-control" value="{{user.first_name}}">
+                                                <input id="fn_txt" type="text" class="form-control" value="{{user.first_name}}" disabled>
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default">
+                                                    <button id="fn_btn" type="button" class="btn btn-default toggle" data-target="#fn_txt">
                                                         <span class="glyphicon glyphicon-cog"></span>
                                                     </button>
                                                 </span>
@@ -60,9 +70,9 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="name input-group">
-                                                <input type="text" class="form-control" value="{{user.last_name}}">
+                                                <input id="ln_txt" type="text" class="form-control" value="{{user.last_name}}" disabled>
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default">
+                                                    <button id="ln_btn" type="button" class="btn btn-default toggle" data-target="#ln_txt">
                                                         <span class="glyphicon glyphicon-cog"></span>
                                                     </button>
                                                 </span>
@@ -86,6 +96,20 @@
                                         </div>
                                         <div class="form-group">
                                             <input id="dob_pan" type="date" name="dob" class="form-control" min="1920-01-01">
+                                        </div>
+                                    </form>
+                                    <form id="email_form" class="form-inline">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                                </span>
+                                                <input id="email_bar" type="email" value="{{user.email}}" class="form-control" disabled>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default toggle" data-target="#email_bar">
+                                                        <span class="glyphicon glyphicon-cog"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

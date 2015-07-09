@@ -191,13 +191,20 @@ a, a:hover {
 }
 
 .abt_btns {
-  width: 380px;
+  /*width: 380px;*/
+  width: 100%;
 }
 
 .abt_btn { 
   height: 45px;
   border: none;
   margin-bottom: -4px;
+  background-color: white;
+}
+
+.abt_btn:hover {
+  color: green;  
+  text-decoration: underline;
 }
 
 .abt_btn h5{
@@ -252,4 +259,39 @@ a, a:hover {
   -webkit-transition-duration: 0.5s; 
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
+}
+
+/* Modal */
+
+.modal-header {
+  padding-bottom: 5px;
+}
+
+.modal-footer {
+  padding: 0;
+}
+    
+.modal-footer .btn-group button {
+  height:40px;
+  border-top-left-radius : 0;
+  border-top-right-radius : 0;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+  
+.modal-footer .btn-group:last-child > button {
+  border-right: 0;
+}
+
+.modal-dialog {
+  margin-top: 100px;
+}
+
+.modal-title {
+  color: green;
+  font-weight: bold;
+}
+
+.modal-footer .btn-group button:hover {
+  color: green;
 }

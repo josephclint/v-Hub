@@ -11,7 +11,7 @@ a, a:hover {
 }
 
 .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
-  background-color: #1CA347;
+  background-color: #13D16C;
 }
 
 .logo {
@@ -185,14 +185,22 @@ a, a:hover {
 }
 
 .abt_btns {
-  width: 380px;
+  /*width: 380px;*/
+  width: 100%;
 }
 
 .abt_btn { 
   height: 45px;
   border: none;
   margin-bottom: -4px;
+  background-color: white;
 }
+
+.abt_btn:hover {
+  color: green;  
+  text-decoration: underline;
+}
+
 
 .abt_btn h5{
   text-align: left;
@@ -255,11 +263,8 @@ a, a:hover {
 .btn-save {
   background-color: #ffffff;
   border: 1px solid #13D16C;
-}
-
-.btn-save:hover {
-  text-decoration: underline;
-  border: 1px solid #13D16C;
+  width: 70px;
+  text-align: center;
 }
 
 #show_options {
@@ -268,8 +273,38 @@ a, a:hover {
 
 
 /*profile panel*/
+#noborderbtn {
+  border: none;
+}
+
+#lrborderbtn {
+  border-top: none;
+  border-bottom: none;
+  border-right: 1px solid silver;
+  border-left: 1px solid silver;
+}
+
+#ovnoborderbtnn {
+  border: none;
+}
+
+#ovlrborderbtnn {
+  border-top: none;
+  border-bottom: none;
+  border-right: 1px solid silver;
+  border-left: 1px solid silver;
+}
+
+#ovnoborderbtnn:hover, #ovlrborderbtnn:hover {
+  color: #13D16C;
+} 
+
 h3 {
   font-weight: bold;
+}
+
+.panel-title:hover, h3.active, h4.active{
+  color: #13D16C;
 }
 
 .overview_btn {
@@ -278,7 +313,7 @@ h3 {
 }
 
 .overview_btn:hover {
-  color: #13D16C;
+  color: #59B2E0;
   background-color: #ffffff;
   border: 1px solid #000000;
 }
@@ -286,6 +321,10 @@ h3 {
 #follower-panel {
   padding-bottom: 10px;
   padding-top: 10px;
+}
+
+.follower:hover {
+  color: #59B2E0;
 }
 
 .btn-xs {
@@ -316,4 +355,82 @@ h3 {
   margin-left: 10px;
   width: 357px;
   text-transform: uppercase;
+}
+
+#email_form {
+  margin-top: 15px;
+}
+
+#email_bar {
+  width: 750px;
+}
+
+.thumbnailpro {
+  margin-top: 30px;
+  position: relative;
+  border: none;
+  overflow: hidden;
+}
+
+.captionpro {
+  position:absolute;
+  top:0;
+  right:0;
+  background:rgba(66, 139, 202, 0.75);
+  width:100%;
+  height:100%;
+  padding:2%;
+  display: none;
+  text-align:center;
+  color:#fff !important;
+  z-index:2;
+}
+
+.captionpro btn {
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+  outline: none;  
+}
+
+#propic {
+  width: 60px;
+  height: 60px;
+  margin-right:10px;
+  margin-left:5px;
+}
+
+/* Modal */
+
+.modal-header {
+  padding-bottom: 5px;
+}
+
+.modal-footer {
+  padding: 0;
+}
+    
+.modal-footer .btn-group button {
+  height:40px;
+  border-top-left-radius : 0;
+  border-top-right-radius : 0;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+  
+.modal-footer .btn-group:last-child > button {
+  border-right: 0;
+}
+
+.modal-dialog {
+  margin-top: 100px;
+}
+
+.modal-title {
+  color: green;
+  font-weight: bold;
+}
+
+.modal-footer .btn-group button:hover {
+  color: green;
 }

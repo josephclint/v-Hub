@@ -1,62 +1,140 @@
 {% extends 'app/base_profile.html' %}
 
+{% load staticfiles %}
+
 {% block title %}{{ 'VHub | Followers' }}{% endblock %}
 
 {% block body %}
 
-	<!-- followers -->
 	<div class="profile_pan">
-		<div class="container-fluid">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Followers</h3>
-				</div>
-				<div class="panel-body" align="center">
-					<!-- loop followers here -->
-					<div class="col-md-4" id="follower-panel">
-						<a href="" class="follower">
-							<span id="user_icon" class="glyphicon glyphicon-user">
-								&nbsp;FOLLOWER 1&nbsp;
-							</span>
-						</a>
-						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
-					</div>
-					<div class="col-md-4" id="follower-panel">
-						<a href="" class="follower">
-							<span id="user_icon" class="glyphicon glyphicon-user">
-								&nbsp;FOLLOWER 2&nbsp;
-							</span>
-						</a>
-						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Follow" />
-					</div>
-					<div class="col-md-4" id="follower-panel">
-						<a href="" class="follower">
-							<span id="user_icon" class="glyphicon glyphicon-user">
-								&nbsp;FOLLOWER 3&nbsp;
-							</span>
-						</a>
-						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
-					</div>
-					<div class="col-md-4" id="follower-panel">
-						<a href="" class="follower">
-							<span id="user_icon" class="glyphicon glyphicon-user">
-								&nbsp;FOLLOWER 4&nbsp;
-							</span>
-						</a>
-						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Follow"/>
-					</div>
-					<div class="col-md-4" id="follower-panel">
-						<a href="" class="follower">
-							<span id="user_icon" class="glyphicon glyphicon-user">
-								&nbsp;FOLLOWER 5&nbsp;
-							</span>
-						</a>
-						<input id="flwbtn" type="button" class="btn btn-success btn-xs" value="Following" />
-					</div>
-					<!-- end loop here -->
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{% url 'accounts:user_profile' %}">
+                        <h3 class="panel-title">{{user.username}}</h3>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row overview">
+					        <div class="container-fluid">
+					            <div class="btn-group btn-group-justified col-md-8 col-xs-12" role="group"> 
+					                <div class="btn-group" role"group">
+					                    <button type="button" class="overview_btn btn-default btn-block"id="noborderbtn">
+					                        <h3>Videos</h3><h4>20</h4>
+					                    </button>
+					                </div>
+					                <div class="btn-group" role"group">
+					                    <a href="{% url 'app:followers' %}">
+					                        <button type="button" class="overview_btn btn-default btn-block" id="lrborderbtn">
+					                            <h3 class="active">Followers</h3><h4 class="active">20</h4>
+					                        </button>
+					                    </a>
+					                </div>
+					                <div class="btn-group" role"group">
+					                    <a href="{% url 'app:following' %}">
+					                        <button type="button" class="overview_btn btn-default btn-block" id="noborderbtn">
+					                            <h3>Following</h3><h4>20</h4>
+					                        </button>
+					                    </a>
+					                </div>
+					            </div><!--overview_buttons-->
+					        </div>
+					    </div><!--overview-->
+					    <br>
+					    <!-- followers -->
+						<div class="profile_pan">
+							<div class="container-fluid">
+								<div class="panel-body">
+									<!-- loop followers here -->
+									<ul class="thumbnails" style="list-style-type:none; padding-left:0;">
+										<li class="span4 clearfix col-md-4">
+											<div class="thumbnail clearfix">
+												<a href="#">
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+												</a>
+												<div class="caption" class="pull-left">
+													<a href="#" class="btn btn-success icon  pull-right">Follow</a>
+													<h4>      
+														<a href="#" >Follower 1</a>
+													</h4>  
+												</div>
+											</div>
+										</li>
+										<li class="span4 clearfix col-md-4">
+											<div class="thumbnail clearfix">
+												<a href="#">
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+												</a>
+												<div class="caption" class="pull-left">
+													<a href="#" class="btn btn-success icon  pull-right">Follow</a>
+													<h4>      
+														<a href="#" >Follower 2</a>
+													</h4>  
+												</div>
+											</div>
+										</li>
+										<li class="span4 clearfix col-md-4">
+											<div class="thumbnail clearfix">
+												<a href="#">
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+												</a>
+												<div class="caption" class="pull-left">
+													<a href="#" class="btn btn-success icon  pull-right">Follow</a>
+													<h4>      
+														<a href="#" >Follower 3</a>
+													</h4>  
+												</div>
+											</div>
+										</li>
+										<li class="span4 clearfix col-md-4">
+											<div class="thumbnail clearfix">
+												<a href="#">
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+												</a>
+												<div class="caption" class="pull-left">
+													<a href="#" class="btn btn-success icon  pull-right">Follow</a>
+													<h4>      
+														<a href="#" >Follower 4</a>
+													</h4>  
+												</div>
+											</div>
+										</li>
+										<li class="span4 clearfix col-md-4">
+											<div class="thumbnail clearfix">
+												<a href="#">
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+												</a>
+												<div class="caption" class="pull-left">
+													<a href="#" class="btn btn-success icon  pull-right">Follow</a>
+													<h4>      
+														<a href="#" >Follower 5</a>
+													</h4>  
+												</div>
+											</div>
+										</li>
+										<li class="span4 clearfix col-md-4">
+											<div class="thumbnail clearfix">
+												<a href="#">
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+												</a>
+												<div class="caption" class="pull-left">
+													<a href="#" class="btn btn-success icon  pull-right">Follow</a>
+													<h4>      
+														<a href="#" >Follower 6</a>
+													</h4>  
+												</div>
+											</div>
+										</li>
+						            </ul>
+									<!-- end loop here -->
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

@@ -10,7 +10,8 @@
         <link rel="shortcut icon" href="{% static 'images/icon.png' %}">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link href="{% static 'styles/home_logged_in.css' %}" rel="stylesheet">
-        {% block link %} {% endblock %}    </head>
+        {% block link %} {% endblock %}    
+    </head>
     <body>
         <!--Navigation Bar-->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -71,21 +72,81 @@
                                 <div id="abt_body" class="panel-body">
                                     <p>Vhub description here</p>
                                     <div class="abt_btns btn-group-vertical">
-                                        <a href="">
-                                            <button type="button" class="abt_btn btn-lg btn-block">
-                                                <h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button type="button" class="abt_btn btn-lg btn-block">
-                                                <h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button type="button" class="abt_btn btn-lg btn-block">
-                                                <h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
-                                            </button>
-                                        </a>
+                                        <button type="button" data-toggle="modal" data-target="#creators" class="abt_btn btn-lg btn-block">
+                                            <h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
+                                        </button>
+                                        <!-- line modal -->
+                                        <div class="modal fade" id="creators" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <h3 class="modal-title" id="lineModalLabel">Creators</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- content goes here -->
+                                                        Lorem ipsum
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- line modal -->
+                                        <button type="button" data-toggle="modal" data-target="#policy" class="abt_btn btn-lg btn-block">
+                                            <h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
+                                        </button>
+                                        <!-- line modal -->
+                                        <div class="modal fade" id="policy" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <h3 class="modal-title" id="lineModalLabel">Policy & Safety</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- content goes here -->
+                                                        Lorem ipsum
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- line modal -->
+                                        <button type="button" data-toggle="modal" data-target="#terms" class="abt_btn btn-lg btn-block">
+                                            <h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
+                                        </button>
+                                        <!-- line modal -->
+                                        <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <h3 class="modal-title" id="lineModalLabel">Terms & Privacy</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- content goes here -->
+                                                        Lorem ipsum
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                                                            <div class="btn-group" role="group">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- line modal -->
                                     </div><!--abt_btns-->
                                     <hr>
                                 </div><!--abt_body-->
@@ -139,5 +200,6 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="{% static 'scripts/settings.js' %}"></script>
+        <script src="{% static 'scripts/profile.js' %}"></script>
     </body>
 </html>

@@ -98,17 +98,4 @@ urlpatterns = [
         views.SettingsView.as_view(),
         name='settings'
     ),
-
-    url(
-        r'^followers/$',
-        views.FollowersView.as_view(),
-        name='followers'
-    ),
-
-    url(
-        r'^following/$',
-        views.FollowingView.as_view(),
-        name='following'
-    ),
-
 ]
