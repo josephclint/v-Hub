@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>V-hub</title>
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/videos.css">
+		<link rel="shortcut icon" href="images/icon.png">
+	</head>
+	<body>
+		<!--Navigation Bar-->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+			<!--Logo-->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#profile.html">
+						<img class="logo" src="images/logo.png" alt="">
+					</a>
+				</div><!--navbar-header-->
+			
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<!--Navbar Icons -->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="search"><!--Search icon & bar-->
+								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
+								<button type="submit" class="btn-search btn-default">
+									<img src="icons/search.png" height="25" width="25">
+								</button>
+							</div>
+						</li>
+						<li class="dropdown"><!--Profile icon & dropdown-->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								<img class="profile_logo" src="icons/profile.png">
+							</a>
+						    <ul class="dropdown-menu" role="menu">
+						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
+						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
+						        <li class="divider"></li>
+						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						    </ul>
+						</li>
+					</ul>
+				</div><!--navbar-collapse-->
+			</div><!--container-fluid-->
+		</nav><!--navbar-->
+		<!--videos-->
+		<div class="videos_panel panel-default">
+			<div class="panel-heading">
+				<span class="input-group pull-right" id="vid_search">
+					<input type="text" class="form-control" placeholder="Search">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" value="submit">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							Sort By <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="">Title</a></li>
+							<li><a href="">Duration</a></li>
+							<li role="separator" class="divider"></li>
+						</ul>
+					</span>
+				</span>
+				<h3>Videos <span class="badge">0</span></h3>
+			</div><!--panel-heading-->
+			<div class="panel-body">
+				<div class="top_row row">
+					<div class="btn-group btn-lg pull-right" role="group">
+						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#upload_vid">
+							<span class="glyphicon glyphicon-upload"></span> Upload
+						</button>
+					</div>
+				</div>
+				<div class="list-group vid_list">
+					<a href="#" class="list-group-item container-fluid" id="vid_item">
+						<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+						<button type="button" class="btn btn-default pull-right" id="remove_vid">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
+						<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
+						<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+					</a>
+					<a href="#" class="list-group-item container-fluid" id="vid_item">
+						<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+						<button type="button" class="btn btn-default pull-right" id="remove_vid">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
+						<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
+						<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+					</a>
+					<a href="#" class="list-group-item container-fluid" id="vid_item">
+						<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+						<button type="button" class="btn btn-default pull-right" id="remove_vid">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
+						<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
+						<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+					</a>
+					<a href="#" class="list-group-item container-fluid" id="vid_item">
+						<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+						<button type="button" class="btn btn-default pull-right" id="remove_vid">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
+						<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
+						<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+					</a>
+					<a href="#" class="list-group-item container-fluid" id="vid_item">
+						<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+						<button type="button" class="btn btn-default pull-right" id="remove_vid">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
+						<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
+						<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+					</a>
+					<a href="#" class="list-group-item container-fluid" id="vid_item">
+						<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+						<button type="button" class="btn btn-default pull-right" id="remove_vid">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
+						<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
+						<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+					</a>
+				</div><!--vid_list-->
+				<div class="modal fade" id="upload_vid" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span class="glyphicon glyphicon-remove-sign"></span>
+								</button>
+								<h4 class="modal-title" id="upload_mod_title">Upload Video</h4>
+							</div>
+							<div class="modal-body">
+								<div class="container-fluid">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-default btn-file">
+														Browse&hellip; <input type="file" name="vid_up" accept="video/*">
+													</button>
+												</span>
+												<input type="text" class="form-control" readonly>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label">Title</label>
+											<input type="text" class="form-control" id="up_vid_title" placeholder="Title">
+										</div>
+										<div class="form-group">
+											<label class="control-label">Description</label>
+											<textarea class="form-control" id="up_vid_des" placeholder="Description" rows="3" 
+											wrap="hard"></textarea>
+										</div>
+										<div class="form-group">
+											<label class="control-label">Category</label>
+											<select class="form-control" id="up_vid_cat" name="Category">
+												<option value="-">-----</option>
+												<option value="anf">Animation & Film</option>
+												<option value="mus">Music</option>
+												<option value="nnp">News & Politics</option>
+												<option value="pnb">People & Blogs</option>
+												<option value="snt">Science & Technology</option>
+												<option value="spt">Sports</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="control-label" id="tags_label">Tags 
+												<span class="glyphicon glyphicon-info-sign" id="tags_info" data-toggle="tooltip"title="Use a semi-colon (;) to separate tags"></span>
+											</label>
+											<input type="text" class="form-control" id="tags_panel" placeholder="Tags">
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary">Upload</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							</div>
+						</div><!--modal-content-->
+					</div><!--modal-dialog-->
+				</div><!--upload_vid-->
+			</div><!--panel-body-->
+		</div><!--videos-->
+		<!--Footer-->
+		<section class="footer"> 
+			<div class="footer_panel panel-default">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="abt_panel panel-default">
+								<div class="panel-heading">
+									<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right"></span></h3>
+								</div>
+								<div id="abt_body" class="panel-body">
+									<p>Vhub description here</p>
+									<div class="abt_btns btn-group-vertical">
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
+										</button>
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
+										</button>
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
+										</button>
+									</div><!--abt_btns-->
+									<hr>
+								</div><!--abt_body-->
+							</div><!--abt_panel-->
+						</div>
+						<div class="col-md-8">
+							<div class="ctc_panel panel-default">
+								<div class="panel-heading">
+									<h3 class="cont_text">Contact us
+									<span id="icon_ft" class="glyphicon glyphicon-phone-alt pull-right"></span>
+									</h3>
+								</div>
+								<div id="cont_body" class="panel-body">
+									<div class="container-fluid">
+										<div class="row">
+											<div id="site_contacts" class="col-md-4"><hr>
+												<h5><span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232</h5>
+												<h5><span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com</h5>
+												<h5><span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city</h5>
+											</div>
+											<div id="social_site" class="col-md-8"><hr>
+												<div class="text-center center-block">
+													<div class="row">
+														<div id="social_icons" class="col-md-4">
+															<a href="facebook.com/vhub"><img class="social_fb" id="social" src="icons/facebook.png"></a>
+														</div>
+														<div id="social_icons" class="col-md-4">
+															<a href="twitter.com/vhub"><img  class="social_tw" id="social" src="icons/twitter.png"></a>
+														</div>
+														<div id="social_icons" class="col-md-4">
+															<a href="goggle.com/vhub"><img class="social_gp" id="social" src="icons/google.png"></a>
+														</div>
+													</div>
+												</div><!--text-center-->
+											</div><!--social_site-->
+										</div>	
+									</div>
+								</div><!--cont_body-->
+							</div><!--ctc_panel--><hr>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<h6><span class="glyphicon glyphicon-copyright-mark"></span>VHUB</h6>
+				</div>
+			</div>
+		</section><!--footer-->
+		<!-- for javascrpit plugins -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script type="js/videos.js"></script>
+	</body>
+</html>
