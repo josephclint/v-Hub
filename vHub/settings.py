@@ -46,18 +46,18 @@ INSTALLED_APPS = (
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.facebook.FacebookBackend',
     'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.twitter.TwitterBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
-# PASSWORD_HASHERS = (
-#         'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-#         'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-#         'django.contrib.auth.hashers.BCryptPasswordHasher',
-#         'django.contrib.auth.hashers.SHA1PasswordHasher',
-#         'django.contrib.auth.hashers.MD5PasswordHasher',
-#         'django.contrib.auth.hashers.CryptPasswordHasher',
-# )
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.user.get_username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details'
+)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -139,18 +139,13 @@ FACEBOOK_APP_ID = '1459500787684454'
 FACEBOOK_API_SECRET = 'dd3a73a0581ea87b5e5d27948de90835'
 GOOGLE_OAUTH2_CLIENT_ID = '160224018800-gcci4g4b1h6dvrc2nqk1gbh3egtfonc4.apps.googleusercontent.com'
 GOOGLE_OAUTH2_CLIENT_SECRET = 'VOk0OyBC1Ct5k4QbfCOFsmWS'
-TWITTER_CONSUMER_KEY = 'NWktxBHHB285U4f1FUvJVNFbL'
-TWITTER_CONSUMER_SECRET = 'pOo2Aa6vM0KAIUmWkE3NHtLafIYt0Wo4gWoczXQilVBgNSzjoD'
 
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
-SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
-FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
+
 FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-TWITTER_EXTENDED_PERMISSIONS = ['email'] #wala pa
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'ru_RU'}
 GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'access_type': 'offline'}
 SOCIAL_AUTH_SANITIZE_REDIRECTS = False
 SOCIAL_AUTH_URLOPEN_TIMEOUT = 30
