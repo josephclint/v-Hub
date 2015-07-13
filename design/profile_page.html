@@ -95,63 +95,60 @@
 								</div><!--overview-->
 								<hr>
 								<div class="user_det">
-									<div class="container-fluid">
-										<form id="name_form" class="form-inline">
-											<div class="form-group">
-												<div class="name input-group">
-													<input id="fn_txt" type="text" class="form-control" placeholder="First Name" disabled>
-													<span class="input-group-btn">
-														<button id="fn_btn" type="button" class="btn btn-default toggle" data-target="#fn_txt">
-															<span class="glyphicon glyphicon-cog"></span>
-														</button>
-													</span>
-												</div>
+									<div class="row names">
+										<div class="col-md-6">
+											<div class="input-group">
+												<input id="fn_txt" type="text" class="form-control" placeholder="First Name" disabled>
+												<span class="input-group-btn">
+													<button id="fn_btn" type="button" class="btn btn-default toggle" 
+													data-target="#fn_txt">
+														<span class="glyphicon glyphicon-cog"></span>
+													</button>
+												</span>
 											</div>
-											<div class="form-group">
-												<div class="name input-group">
-													<input id="ln_txt" type="text" class="form-control" placeholder="Last Name" disabled>
-													<span class="input-group-btn">
-														<button id="ln_btn" type="button" class="btn btn-default toggle" data-target="#ln_txt">
-															<span class="glyphicon glyphicon-cog"></span>
-														</button>
-													</span>
-												</div>
+										</div>
+										<div class="col-md-6">
+											<div class="input-group">
+												<input id="ln_txt" type="text" class="form-control" placeholder="Last Name" disabled>
+												<span class="input-group-btn">
+													<button id="ln_btn" type="button" class="btn btn-default toggle" 
+													data-target="#ln_txt">
+														<span class="glyphicon glyphicon-cog"></span>
+													</button>
+												</span>
 											</div>
-										</form>
-										<form id="gen_dob_form" class="form-inline">
-											<div class="form-group">
-												<label class="gen_label control-label"><h4>Gender</h4></label>
-											</div>
-											<div class="form-group">
-												<label class="gen_rad radio-inline">
-													<input type="radio" name="inlineRadioOptions" id="male_rad" value="male"> Male
-												</label>
-												<label class="gen_rad radio-inline">
-													<input type="radio" name="inlineRadioOptions" id="fem_rad" value="female"> Female
-												</label>
-											</div>
-											<div id="birth_panel" class="form-group">
-												<label class="bday_label control-label"><h4>Date of Birth</h4></label>
-											</div>
-											<div class="form-group">
+										</div>
+									</div><!--row names-->
+									<div class="row dob_gen">
+										<div class="col-md-6">
+											<label class="gen_label"><h4>Gender</h4></label>
+											<label class="radio-inline">
+												<input type="radio" name="inlineRadioOptions" id="m_rad" value="Male"> Male
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="inlineRadioOptions" id="f_rad" value="Female"> Female
+											</label>
+										</div>
+										<div class="col-md-6">
+											<div class="input-group">
+												<span class="input-group-addon" id="basic-addon1">Date of Birth</span>
 												<input id="dob_pan" type="date" name="dob" class="form-control" min="1920-01-01">
 											</div>
-										</form>
-										<form id="email_form" class="form-inline">
-											<div class="form-group">
-												<div class="input-group">
-													<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-													</span>
-													<input id="email_bar" type="email" placeholder="Email" class="form-control" disabled>
-													<span class="input-group-btn">
-														<button type="button" class="btn btn-default toggle" data-target="#email_bar">
-															<span class="glyphicon glyphicon-cog"></span>
-														</button>
-													</span>
-												</div>
+										</div>
+									</div><!--row dob_gen-->
+									<div class="row email">
+										<div class="col-md-12">
+											<div class="input-group">
+												<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+												<input id="email_bar" type="email" placeholder="Email" class="form-control" disabled>
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-default toggle" data-target="#email_bar">
+														<span class="glyphicon glyphicon-cog"></span>
+													</button>
+												</span> 
 											</div>
-										</form>
-									</div>
+										</div>
+									</div>	
 								</div><!--user_det-->
 							</div>
 						</div>
