@@ -83,10 +83,6 @@ body{
   margin-left: 20px;
 }
 
-.name {
-  width: 430px;
-}
-
 .thumbnail {
   margin-top: 30px;
   position: relative;
@@ -115,30 +111,12 @@ body{
   outline: none;  
 }
 
-#gen_dob_form {
-  margin-top: 15px;
+.dob_gen {
+  margin-top: 20px;
 }
 
-.gen_label {
-  margin-right: 10px;
-}
-
-#birth_panel {
-  margin-left: 150px;
-}
-
-#dob_pan {
-  margin-left: 10px;
-  width: 357px;
-  text-transform: uppercase;
-}
-
-#email_form {
-  margin-top: 15px;
-}
-
-#email_bar {
-  width: 750px;
+.email {
+  margin-top: 10px;
 }
 
 /*footer*/
