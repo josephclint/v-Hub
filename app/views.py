@@ -55,12 +55,10 @@ class AddView(generic.View):
 class FollowersView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-        if request.user.is_authenticated():
             return render(request,'app/followers.html',)
 
 
 class FollowingView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-        if request.user.is_authenticated():
             return render(request,'app/following.html',)
