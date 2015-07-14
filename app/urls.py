@@ -26,4 +26,10 @@ urlpatterns = [
         views.FollowingView.as_view(),
         name='following'
     ),
+
+    url(
+        r'^videos/$',
+        views.VideosView.as_view(),
+        name='videos'
+    ),
 ]

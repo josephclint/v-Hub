@@ -17,4 +17,43 @@ $( document ).ready(function() {
  			target.prop('disabled', !isDisabled);
  		}
  	);
+
+ 	$('#show_password').on('click', 
+ 		function() {
+ 			div = document.getElementById('change_password');
+	 		div.style.display = "block";
+            
+ 		}
+ 	);
+
+ 	$('#cancel_password').on('click', 
+ 		function() {
+ 			div = document.getElementById('change_password');
+	 		div.style.display = "none";
+ 		}
+ 	);
+
+ 	$('#close_password').on('click', 
+ 		function() {
+ 			div = document.getElementById('change_password');
+	 		div.style.display = "none";
+ 		}
+ 	);
+
+    // $("#passwordd").change(function(){
+    //     var enablebtn = true;
+    //     $("#passwordd").each(function(){
+    //         if($(this).val() == '')
+    //             enablebtn = false;
+    //     });
+
+    //     if(enablebtn)
+    //         $("#save_password").attr('disabled', false);
+    //     else
+    //         $("#save_password").attr('disabled', true);
+    // });
+
+    $( document ).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
 });

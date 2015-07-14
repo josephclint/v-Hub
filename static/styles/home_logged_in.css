@@ -331,36 +331,12 @@ h3 {
   margin-left: 20px;
 }
 
-.name {
-  width: 100%;
-}
-
-#gen_dob_form {
+.dob_gen {
   margin-top: 20px;
 }
 
-.gen_label {
-  margin-right: 10px;
-}
-
-#birth_panel {
-  margin-left: 150px;
-}
-
-#dob_pan {
-  margin-left: 10px;
-  /*width: 100%;*/
-  width: 250px;
-  text-transform: uppercase;
-}
-
-#email_form {
-  margin-top: 15px;
-}
-
-#email_bar {
-  /*width: 100%;*/
-  width: 250px;
+.email {
+  margin-top: 10px;
 }
 
 .thumbnailpro {
@@ -398,7 +374,7 @@ h3 {
   margin-left:5px;
 }
 
-/* Modal */
+/* Modal Footer */
 
 .modal-header {
   padding-bottom: 5px;
@@ -412,6 +388,8 @@ h3 {
   height:40px;
   border-top-left-radius : 0;
   border-top-right-radius : 0;
+  border-bottom-left-radius : 0;
+  border-bottom-right-radius : 0;
   border: none;
   border-right: 1px solid #ddd;
 }
@@ -431,4 +409,84 @@ h3 {
 
 .modal-footer .btn-group button:hover {
   color: green;
+}
+
+/*videos panel*/
+
+/*header*/
+#vid_search {
+  margin-top: 15px;
+  width: 45%;
+}
+
+/*body*/
+#remove_vid {
+  margin-top: -5px;
+}
+
+.videos_panel{
+  background-color: white;
+}
+
+.vid_list {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+#vid_item:hover {
+  color: green;
+}
+
+#vid_item span{
+  color: green;
+}
+
+.top_row div button:hover {
+  color: green;
+} 
+
+#vid_thumb {
+  margin-right: 20px;
+  height: 100px;
+  width: 200px;
+}
+
+#vid_des {
+  margin-left: 20px;
+}
+
+#vid_time {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*modal_upload*/
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+#up_vid_des {
+  resize: none;
 }

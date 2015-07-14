@@ -73,7 +73,7 @@ class PostRegisterView(generic.View):
 class UserProfileView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-            return render(request,'accounts/profile.html',)
+        return render(request,'accounts/profile.html',)
 
 
 class LogOutView(generic.TemplateView):
@@ -83,11 +83,11 @@ class LogOutView(generic.TemplateView):
 class SettingsView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-            return render(request,'accounts/settings.html',)
+        return render(request,'accounts/settings.html',)
 
 
 class DisableAccountView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-            request.user.delete()
-            return render(request,'accounts/account_disabled.html',)
+        request.user.delete()
+        return render(request,'accounts/account_disabled.html',)

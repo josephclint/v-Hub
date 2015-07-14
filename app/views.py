@@ -61,4 +61,10 @@ class FollowersView(generic.TemplateView):
 class FollowingView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-            return render(request,'app/following.html',)
+        return render(request,'app/following.html',)
+
+
+class VideosView(generic.TemplateView):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        return render(request,'app/videos.html',)
