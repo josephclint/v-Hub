@@ -87,6 +87,12 @@ body{
   background-color: white;
 }
 
+.no_vid {
+  text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
 .vid_list {
   height: 350px;
   overflow-y: scroll;
@@ -152,6 +158,10 @@ input[readonly] {
 
 #up_vid_des {
   resize: none;
+}
+
+#delete_vid .btn {
+  margin-left: 15px;
 }
 
 /*footer*/
