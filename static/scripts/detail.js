@@ -178,8 +178,6 @@ $(document).ready(function(){
 				glyphButton.className = "glyphicon glyphicon-repeat";
 			}
 
-			console.log(curr);
-
 			timehead = video.currentTime / 60;
 			time_of_comment = 0.2;
 			min_time_of_comment = time_of_comment - 0.01;
@@ -242,5 +240,13 @@ $(document).ready(function(){
 	// $().change(function() {
 	// 	
 	// });
+
+	$("#myComment").keypress(function (event) {
+		if (event.keyCode === 13) {
+			$.post('/videos/add_comment', {'time': video.currentTime, 'comment': $(this).val(), 'video': ''}, function () {
+				
+			});
+		}
+	});
 
 });

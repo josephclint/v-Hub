@@ -10,10 +10,11 @@
     <div class="container col-md-8 col-md-offset-2">
         <div class="video-body">
 
-            <h3>Motivation Speech - Shia LaBeouf</h3>
+            <h3>{{ video.title }}</h3>
 
             <video id="video" autoplay muted>
-                <source src="{% static 'video/video.mp4' %}" type="video/mp4">
+                <source src="{{ MEDIA_URL }}{{ video.video }}" type="video/mp4">
+                <!-- <source src="{% static 'video/video.mp4' %}" type="video/mp4"> -->
             </video>
 
             <div id="vid-control">

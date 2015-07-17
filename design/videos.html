@@ -80,26 +80,32 @@
 						</a>
 					</div>
 				</div>
-				<!--For no uploaded videos-->
-				<div class="jumbotron">
-					<div class="container-fluid">
-						<h1 class="no_vid">NO VIDEOS</h1>
+
+				{% if videos %}
+					{% for video in videos %}
+						<div class="list-group vid_list">
+							<div class="list-group-item">
+								<button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+								<a href="#" class="container-fluid" id="vid_item">
+									<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+									<h3 class="list-group-item-heading" id="vid_title">{{ video.title }}</h3>
+									<caption class="list-group-item-text" id="vid_des">{{ video.description }}</caption>
+									<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<!--For no uploaded videos-->
+					<div class="jumbotron">
+						<div class="container-fluid">
+							<h1 class="no_vid">NO VIDEOS</h1>
+						</div>
 					</div>
-				</div>
-				<!--For Having existing videos-->
-				<div class="list-group vid_list">
-					<div class="list-group-item">
-						<button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
-							<span class="glyphicon glyphicon-trash"></span>
-						</button>
-						<a href="#" class="container-fluid" id="vid_item">
-							<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
-							<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
-							<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
-							<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-						</a>
-					</div>
-				</div><!--vid_list-->
+				{% endif %}
+				
 				<div class="modal fade" id="delete_vid" tabindex="-1" role="dialog">
 					<div class="modal-dialog modal-sm" role="document">
 						<div class="modal-content">

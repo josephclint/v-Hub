@@ -29,25 +29,44 @@
         <div class="panel-body">
             <div class="top_row row">
                 <div class="btn-group btn-lg pull-right" role="group">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#upload_vid">
+                    <a type="button" class="btn btn-default" href="{% url 'videos:upload' %}">
                         <span class="glyphicon glyphicon-upload"></span> Upload
-                    </button>
+                    </a>
                 </div>
             </div>
-            <!--For no uploaded videos-->
-           <!--  <div class="jumbotron">
-                <div class="container-fluid">
-                    <h1 class="no_vid">NO VIDEOS</h1>
+
+            {% if videos %}
+                {% for video in videos %}
+                    <div class="list-group vid_list">
+                        <div class="list-group-item">
+                            <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <a href="{% url 'videos:detail' video.id %}" class="container-fluid" id="vid_item">
+                                <img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+                                <h3 class="list-group-item-heading" id="vid_title">{{ video.title }}</h3>
+                                <caption class="list-group-item-text" id="vid_des">{{ video.description }}</caption>
+                                <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <!--For no uploaded videos-->
+                <div class="jumbotron">
+                    <div class="container-fluid">
+                        <h1 class="no_vid">NO VIDEOS</h1>
+                    </div>
                 </div>
-            </div> -->
-            <!--For Having existing videos-->
+            {% endif %}
+            <!-- 
             <div class="list-group vid_list">
-                <!-- iterate videos here -->
+                <!-- iterate videos here -
                 <div class="list-group-item">
                     <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
-                    <a href="{% url 'app:detail' %}" class="container-fluid" id="vid_item">
+                    <a href="{% url 'videos:detail' 1 %}" class="container-fluid" id="vid_item">
                         <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
                         <h3 class="list-group-item-heading" id="vid_title">Test Video</h3>
                         <caption class="list-group-item-text" id="vid_des">video for testing</caption>
@@ -75,7 +94,7 @@
                         <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
                         <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
                     </a>
-                </div>
+                </div> -->
                 <!-- end loop -->
             </div><!--vid_list-->
             <div class="modal fade" id="delete_vid" tabindex="-1" role="dialog">
@@ -111,7 +130,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="container-fluid">
-                                <form action="{% url 'videos:add' %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                <form action="{% url 'videos:upload' %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                     
                                     <!-- Video Title -->
                                     <div class="form-group">

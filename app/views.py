@@ -18,7 +18,7 @@ class IndexView(generic.View):
     def get(self, request):
         current_user = User.objects.get(pk=request.user.id)
         videos = current_user.video_set.all()
-        return render(request, 'app/home.html', {
+        return render(request, 'app/videos.html', {
             'videos': videos,
         })
 
@@ -28,7 +28,7 @@ class DetailView(generic.DetailView):
     template_name = 'app/detail.html'
 
 
-class AddView(generic.View):
+class UploadView(generic.View):
     context = {
         'title': 'Add Video',
         'form_action': reverse_lazy('videos:add'),
@@ -45,12 +45,12 @@ class AddView(generic.View):
             return HttpResponseRedirect(reverse('accounts:index'))
         else:
             self.context['form'] = form
-            return render(request, 'app/video.html', self.context)
+            return render(request, 'app/upload.html', self.context)
 
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-        self.context['form'] = VideoForm()
-        return render(request, 'app/video.html', self.context)
+        self.context['video_upload_form'] = VideoForm()
+        return render(request, 'app/upload.html', self.context)
 
 
 class FollowersView(generic.TemplateView):
@@ -70,7 +70,7 @@ class VideosView(generic.TemplateView):
     def get(self, request):
         return render(request, 'app/videos.html',)
 
-class DetailView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
-    def get(self, request):
-        return render(request, 'app/detail.html',)
+
+class AddComment(generic.View):
+    def post(self, request):
+        pass

@@ -40,7 +40,7 @@ class Comment(models.Model):
     comment_text = models.TextField()
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
-    time = models.DecimalField()
+    time = models.DecimalField(decimal_places=10, max_digits=10)
     datetime_added = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
 
