@@ -169,8 +169,8 @@ $(document).ready(function(){
 
 			commentTime = video.currentTime / 60;
 
-			cur.innerHTML = (Math.round(curr * 100) / 100).toString().replace(".", ":");
-			dur.innerHTML = (Math.round(durr * 100) / 100).toString().replace(".", ":");
+			cur.innerHTML = parseFloat(Math.round(curr * 100) / 100).toFixed(2).toString().replace(".", ":");
+			dur.innerHTML = parseFloat(Math.round(durr * 100) / 100).toFixed(2).toString().replace(".", ":");
 
 			time_comment.innerHTML = (Math.round(commentTime * 100) / 100).toString().replace(".", ":");
 
