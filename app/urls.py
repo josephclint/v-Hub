@@ -4,15 +4,15 @@ from . import views
 
 urlpatterns = [
     url(
-    	r'^(?P<pk>\d+)/$', 
-    	views.DetailView.as_view(), 
-    	name='detail'
+        r'^(?P<pk>\d+)/$',
+        views.DetailView.as_view(),
+        name='detail'
     ),
 
     url(
-    	r'^add/$', 
-    	views.AddView.as_view(), 
-    	name='add'
+        r'^add/$',
+        views.AddView.as_view(),
+        name='add'
     ),
 
     url(

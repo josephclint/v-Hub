@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect 
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.contrib.auth import views as auth_views 
+from django.contrib.auth import views as auth_views
 
 from django.views import generic
 
@@ -18,7 +18,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 
 def anonymous_required(function):
     def as_view(request, *args, **kwargs):
-        redirect_to = kwargs.get('next', settings.LOGIN_REDIRECT_URL )
+        redirect_to = kwargs.get('next', settings.LOGIN_REDIRECT_URL)
         if request.user.is_authenticated():
             return redirect(redirect_to)
 
@@ -26,7 +26,7 @@ def anonymous_required(function):
         return response
     return as_view
 
-        
+
 class IndexView(generic.View):
     def get(self, request):
         if request.user.is_authenticated():
@@ -73,7 +73,7 @@ class PostRegisterView(generic.View):
 class UserProfileView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-        return render(request,'accounts/profile.html',)
+        return render(request, 'accounts/profile.html',)
 
 
 class LogOutView(generic.TemplateView):
@@ -83,11 +83,11 @@ class LogOutView(generic.TemplateView):
 class SettingsView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-        return render(request,'accounts/settings.html',)
+        return render(request, 'accounts/settings.html',)
 
 
 class DisableAccountView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         request.user.delete()
-        return render(request,'accounts/account_disabled.html',)
+        return render(request, 'accounts/account_disabled.html',)

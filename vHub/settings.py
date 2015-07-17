@@ -137,7 +137,8 @@ MEDIA_URL = '/media/'
 
 FACEBOOK_APP_ID = '1459500787684454'
 FACEBOOK_API_SECRET = 'dd3a73a0581ea87b5e5d27948de90835'
-GOOGLE_OAUTH2_CLIENT_ID = '160224018800-gcci4g4b1h6dvrc2nqk1gbh3egtfonc4.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_ID = '160224018800-gcci4g4b1h6dvrc2nqk1gb' \
+    'h3egtfonc4.apps.googleusercontent.com'
 GOOGLE_OAUTH2_CLIENT_SECRET = 'VOk0OyBC1Ct5k4QbfCOFsmWS'
 
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
@@ -151,4 +152,3 @@ SOCIAL_AUTH_SANITIZE_REDIRECTS = False
 SOCIAL_AUTH_URLOPEN_TIMEOUT = 30
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-

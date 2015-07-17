@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class Tag(models.Model):
-    tag_text =  models.CharField(max_length=50)
-    
+    tag_text = models.CharField(max_length=50)
+
     def __unicode__(self):
         return self.tag_text
 

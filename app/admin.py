@@ -38,10 +38,12 @@ class VideoAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['title', 'description', 'video', 'owner']}),
     ]
-    inlines = [CategoryInline, TagInline, ViewInline, LikeInline, DislikeInline, ShareInline]
+    inlines = [
+        CategoryInline, TagInline, ViewInline,
+        LikeInline, DislikeInline, ShareInline
+    ]
 
 
 admin.site.register(Video, VideoAdmin)
 admin.site.register(Tag)
 admin.site.register(Category)
-
