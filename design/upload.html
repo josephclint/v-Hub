@@ -4,7 +4,7 @@
 		<title>V-hub</title>
 		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/videos.css">
+		<link rel="stylesheet" href="css/upload.css">
 		<link rel="shortcut icon" href="images/icon.png">
 	</head>
 	<body>
@@ -41,98 +41,94 @@
 								<img class="profile_logo" src="icons/profile.png">
 							</a>
 						    <ul class="dropdown-menu" role="menu">
-						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span></a></li>
-						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span></a></li>
+						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span>
+						       	</a></li>
+						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span>
+						        </a></li>
 						        <li class="divider"></li>
-						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span>
+						        </a></li>
 						    </ul>
 						</li>
 					</ul>
 				</div><!--navbar-collapse-->
 			</div><!--container-fluid-->
 		</nav><!--navbar-->
-		<!--videos-->
-		<div class="videos_panel panel-default">
-			<div class="panel-heading">
-				<span class="input-group pull-right" id="vid_search">
-					<input type="text" class="form-control" placeholder="Search">
-					<span class="input-group-btn">
-						<button type="button" class="btn btn-default" value="submit">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-							Sort By <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li><a href="">Title</a></li>
-							<li><a href="">Duration</a></li>
-							<li role="separator" class="divider"></li>
-						</ul>
-					</span>
-				</span>
-				<h3>Videos <span class="badge">0</span></h3>
-			</div><!--panel-heading-->
-			<div class="panel-body">
-				<div class="top_row row">
-					<div class="btn-group btn-lg pull-right" role="group">
-						<a class="btn btn-default" href="upload.html">
-							<span class="glyphicon glyphicon-upload"></span> Upload
-						</a>
-					</div>
-				</div>
-				<!--For no uploaded videos-->
-				<div class="jumbotron">
-					<div class="container-fluid">
-						<h1 class="no_vid">NO VIDEOS</h1>
-					</div>
-				</div>
-				<!--For Having existing videos-->
-				<div class="list-group vid_list">
-					<div class="list-group-item">
-						<button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
-							<span class="glyphicon glyphicon-trash"></span>
-						</button>
-						<a href="#" class="container-fluid" id="vid_item">
-							<img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
-							<h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
-							<caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
-							<time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-						</a>
-					</div>
-				</div><!--vid_list-->
-				<div class="modal fade" id="delete_vid" tabindex="-1" role="dialog">
-					<div class="modal-dialog modal-sm" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">
-									<span class="glyphicon glyphicon-remove-sign"></span>
-								</button>
-								<h4 class="modal-title">Remove video?</h4>
-							</div>
-							<div class="modal-body">
-								<div class="container-fluid">
-									<button type="submit" class="btn btn-danger">Remove 
-										<span class="glyphicon glyphicon-remove"></span>
-									</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal">Cancel 
-										<span class="glyphicon glyphicon-ban-circle"></span>
-									</button>
-								</div>
-							</div>
+
+		<!--Upload Video Panel-->
+		<form class="upload_vid">
+			<div class="container">
+				<div class="row">
+					<div class="panel panel-success col-md-8 col-md-offset-2">
+						<div class="panel-heading">
+							<h3 class="panel-title"><span class="glyphicon glyphicon-upload pull-right"></span> Upload Video</h3>
 						</div>
-					</div>
-				</div><!--delete_vid-->
-			</div><!--panel-body-->
-		</div><!--videos-->
+						<div class="panel-body">
+							<form class="form-horizontal">
+								<div class="input-group">
+									<span class="input-group-btn">
+										<span class="btn btn-success" id="browse_vid_btn">
+											<span class="glyphicon glyphicon-folder-open"></span>
+											Browse&hellip; <input type="file" class="file_input" name="video_file" accept="video/*">
+										</span>
+									</span>
+									<input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
+								</div>
+								<div class="form-group vid_title">
+									<label for="up_vid_title" class="control-label">
+										<h4>Title</h4>
+									</label>
+									<input type="text" class="form-control" id="up_vid_title" maxlength="50" placeholder="Title">
+								</div>
+								<div class="form-group vid_description">
+									<label for="up_vid_des" class="control-label">
+										<h4>Description</h4>
+									</label>
+									<textarea class="form-control" id="up_vid_des" wrap="hard" maxlength="160" placeholder="Description"></textarea>
+								</div>
+								<div class="form-group vid_category">
+									<label for="up_vid_cat" class="control-label">
+										<h4>Category</h4>
+									</label>
+									<select class="form-control" id="up_vid_cat">
+										<option value="">Choose Category. . .</option>
+										<option value="af">Animation & Film</option>
+										<option value="m">Music</option>
+										<option value="np">News & Politics</option>
+										<option value="pb">People & Blogs</option>
+										<option value="st">Science & Technology</option>
+										<option value="s">Sports</option>
+									</select>
+								</div>
+								<div class="form-group vid_tags">
+									<label for="tags_panel" class="control-label">
+										<h4>Tags <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
+										</h4>
+									</label>
+									<input type="text" id="tags_panel" class="form-control" placeholder="Tags">
+								</div>
+							</form>
+						</div>
+						<div class="panel-footer">
+							<button type="button" class="btn btn-success btn-lg btn-block upload_btn" disabled>
+								upload <span class="glyphicon glyphicon-upload"></span>
+							</button>
+						</div>
+					</div><!--panel-->
+				</div>
+			</div>
+		</form><!--upload_vid-->
+
 		<!--Footer-->
-		<section class="footer"> 
+		<section class="footer">
 			<div class="footer_panel panel-default">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-4">
 							<div class="abt_panel panel-default">
 								<div class="panel-heading">
-									<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right"></span></h3>
+									<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right">
+									</span></h3>
 								</div>
 								<div id="abt_body" class="panel-body">
 									<p>Vhub description here</p>
@@ -162,21 +158,33 @@
 									<div class="container-fluid">
 										<div class="row">
 											<div id="site_contacts" class="col-md-4"><hr>
-												<h5><span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232</h5>
-												<h5><span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com</h5>
-												<h5><span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city</h5>
+												<h5>
+													<span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232
+												</h5>
+												<h5>
+													<span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com
+												</h5>
+												<h5>
+													<span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city
+												</h5>
 											</div>
 											<div id="social_site" class="col-md-8"><hr>
 												<div class="text-center center-block">
 													<div class="row">
 														<div id="social_icons" class="col-md-4">
-															<a href="facebook.com/vhub"><img class="social_fb" id="social" src="icons/facebook.png"></a>
+															<a href="facebook.com/vhub">
+																<img class="social_fb" id="social" src="icons/facebook.png">
+															</a>
 														</div>
 														<div id="social_icons" class="col-md-4">
-															<a href="twitter.com/vhub"><img  class="social_tw" id="social" src="icons/twitter.png"></a>
+															<a href="twitter.com/vhub">
+																<img  class="social_tw" id="social" src="icons/twitter.png">
+															</a>
 														</div>
 														<div id="social_icons" class="col-md-4">
-															<a href="goggle.com/vhub"><img class="social_gp" id="social" src="icons/google.png"></a>
+															<a href="goggle.com/vhub">
+																<img class="social_gp" id="social" src="icons/google.png">
+															</a>
 														</div>
 													</div>
 												</div><!--text-center-->
@@ -197,6 +205,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
-		<script src="js/videos.js"></script>
+		<script src="js/upload.js"></script>
 	</body>
 </html>

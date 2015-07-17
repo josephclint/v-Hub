@@ -74,64 +74,37 @@ body{
   color: green;
 }
 
-/*videos panel*/
-
-/*header*/
-#vid_search {
-  margin-top: 15px;
-  width: 45%;
+/*Upload panel*/
+#browse_vid_btn {
+  position: relative;
+  overflow: hidden;
 }
 
-/*body*/
-.videos_panel{
-  background-color: white;
+.file_input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  cursor: inherit;
+  display: block;
 }
 
-.no_vid {
-  text-align: center;
-  font-weight: bolder;
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+#up_vid_des {
+  resize: none;
+}
+
+.upload_btn {
   text-transform: uppercase;
-}
-
-.vid_list {
-  height: 350px;
-  overflow-y: scroll;
-}
-
-#vid_item:hover {
-  color: green;
-}
-
-#vid_item span{
-  color: green;
-}
-
-.top_row div a:hover {
-  color: green;
-} 
-
-#vid_thumb {
-  margin-right: 20px;
-  height: 100px;
-  width: 200px;
-}
-
-#vid_des {
-  margin-left: 20px;
-}
-
-#vid_time {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-#remove_vid {
-  margin-top: -5px;
-}
-
-#delete_vid .btn {
-  margin-left: 15px;
 }
 
 /*footer*/
