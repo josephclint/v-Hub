@@ -21,11 +21,10 @@
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="">Title</a></li>
                         <li><a href="">Duration</a></li>
-                        <li role="separator" class="divider"></li>
                     </ul>
                 </span>
             </span>
-            <h3>Videos <span class="badge">0</span></h3>
+            <h3>Videos <span class="badge">3</span></h3>
         </div><!--panel-heading-->
         <div class="panel-body">
             <div class="top_row row">
@@ -35,59 +34,72 @@
                     </button>
                 </div>
             </div>
+            <!--For no uploaded videos-->
+           <!--  <div class="jumbotron">
+                <div class="container-fluid">
+                    <h1 class="no_vid">NO VIDEOS</h1>
+                </div>
+            </div> -->
+            <!--For Having existing videos-->
             <div class="list-group vid_list">
                 <!-- iterate videos here -->
                 <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid">
+                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
-                    <a href="" class="container-fluid" id="vid_item">
+                    <a href="{% url 'app:detail' %}" class="container-fluid" id="vid_item">
                         <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        
+                        <h3 class="list-group-item-heading" id="vid_title">Test Video</h3>
+                        <caption class="list-group-item-text" id="vid_des">video for testing</caption>
+                        <time class="list-group-item-text pull-right" id="vid_time" >1:00</time>
+                    </a>
+                </div>
+                <div class="list-group-item">
+                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <a href="#" class="container-fluid" id="vid_item">
+                        <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
                         <h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
                         <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
                         <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
                     </a>
                 </div>
                 <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid">
+                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
-                    <a href="" class="container-fluid" id="vid_item">
+                    <a href="#" class="container-fluid" id="vid_item">
                         <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        
                         <h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
                         <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
                         <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
                     </a>
                 </div>
-                <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <a href="" class="container-fluid" id="vid_item">
-                        <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        
-                        <h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
-                        <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
-                        <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-                    </a>
-                </div>
-                <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <a href="" class="container-fluid" id="vid_item">
-                        <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        
-                        <h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
-                        <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
-                        <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-                    </a>
-                </div>
-
                 <!-- end loop -->
             </div><!--vid_list-->
+            <div class="modal fade" id="delete_vid" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove-sign"></span>
+                            </button>
+                            <h4 class="modal-title">Remove video?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid" align="center">
+                                <button type="submit" class="btn btn-danger">Remove 
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel 
+                                    <span class="glyphicon glyphicon-ban-circle"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--delete_vid-->
             <div class="modal fade" id="upload_vid" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -173,7 +185,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" id="tags_label">Tags 
-                                            <span class="glyphicon glyphicon-info-sign" id="tags_info" data-toggle="tooltip"title="Use a semi-colon (;) to separate tags"></span>
+                                            <span class="glyphicon glyphicon-info-sign" id="tags_info" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
                                         </label>
                                         <input type="text" class="form-control" id="tags_panel" placeholder="Tags">
                                     </div>-->

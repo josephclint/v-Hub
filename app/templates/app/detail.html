@@ -1,4 +1,103 @@
-<html>
+{% extends 'app/base_profile.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ 'VHub | Title Of Video' }}{% endblock %}
+
+{% block link %}  <link href="{% static 'styles/detail.css' %}" rel="stylesheet"> {% endblock %} 
+
+{% block body %}
+    <div class="container col-md-8 col-md-offset-2">
+        <div class="video-body">
+
+            <h3>Motivation Speech - Shia LaBeouf</h3>
+
+            <video id="video" autoplay muted>
+                <source src="{% static 'video/video.mp4' %}" type="video/mp4">
+            </video>
+
+            <div id="vid-control">
+
+                <input type="range" id="seek-bar" value="0">
+
+                <div id="users-comments">
+                    <img id="usercomment" src="{% static 'icons/profile.png' %}" class="small-icons-comments" data-toggle="tooltip" data-placement="top" title="COMMENT">
+                </div>
+
+                <div class="pull-right">
+                    <div class="time" id="cur">0:00</div> 
+                    <div id="cur">/</div>
+                    <div class="time" id="dur">0:00</div>
+                </div>
+
+                <div class="conts">
+
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-success btn-circle btn-lg" id="play-pause"><i id="icon" class="glyphicon glyphicon-pause"></i></button>
+                    </div>
+                
+                    <div class="col-md-8">
+                        <div id="vol-controls">
+                            <button type="button" id="mute" class="glyphicon glyphicon-volume-up btns"></button>
+                            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+                        </div>
+                        <button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen btns" style="margin-top: 5px;"></button>
+                    </div>
+
+                    <div class="pull-right" data-toggle="buttons" style="margin-top: 5px;">
+                        <label class="btn btn-sm btn-success">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                            <i class="fa fa-check"></i> Start
+                        </label>
+                        <label class="btn btn-sm btn-danger active loading">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <i class="fa fa-warning"></i> Stop
+                        </label>          
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment-section">
+            <div class="widget-area no-padding blank">
+                <img src="{% static 'icons/profile.png' %}" class="img-responsive propic pull-left">
+                <div class="status-upload">
+                    <form method="GET">
+                        <input id="myComment" placeholder="Write a comment..." rows="1" maxlength="100"></input>
+                        <div class="ctime" id="com-time">0:00</div> 
+                    </form>
+                </div><!-- Status Upload  -->
+            </div><!-- Widget Area -->
+        </div>
+
+        <div class="col-md-8">
+            <a class="btn btn-default btn-xs" href="#">
+                <span class="glyphicon glyphicon-tag"></span> Music
+            </a>
+            <a class="btn btn-default btn-xs" href="#">
+                <span class="glyphicon glyphicon-tag"></span> Video
+            </a>
+            <a class="btn btn-default btn-xs" href="#">
+                <span class="glyphicon glyphicon-tag"></span> Audio
+            </a>
+            <a class="btn btn-default btn-xs" href="#">
+                <span class="glyphicon glyphicon-tag"></span> Sound
+            </a>
+        </div>
+
+        <div class="col-md-4 pull-right" align="right">
+            <a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a> &nbsp; 
+    
+            <a class="btn icon-btn btn-info btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>Share</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %} <script src="{% static 'scripts/detail.js' %}"></script>
+{% endblock %}
+
+
+<!-- <html>
 <head>
     <title>{{ video }}</title>
 </head>
@@ -15,4 +114,4 @@
         Dislikes: {{ video.dislikes }}<br>
     </p>
 </body>
-</html>
+</html> -->

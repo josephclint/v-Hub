@@ -32,4 +32,10 @@ urlpatterns = [
         views.VideosView.as_view(),
         name='videos'
     ),
+
+     url(
+        r'^detail/$',
+        views.DetailView.as_view(),
+        name='detail'
+    ),
 ]

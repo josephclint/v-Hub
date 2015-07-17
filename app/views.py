@@ -69,3 +69,8 @@ class VideosView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         return render(request, 'app/videos.html',)
+
+class DetailView(generic.TemplateView):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        return render(request, 'app/detail.html',)

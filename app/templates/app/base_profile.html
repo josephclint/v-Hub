@@ -80,7 +80,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <button type="button" class="close" data-dismiss="modal"> <span class="glyphicon glyphicon-remove-sign"></span></button>
                                                         <h3 class="modal-title" id="lineModalLabel">Creators</h3>
                                                     </div>
                                                     <div class="modal-body">
@@ -105,7 +105,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <button type="button" class="close" data-dismiss="modal"> <span class="glyphicon glyphicon-remove-sign"></span></button>
                                                         <h3 class="modal-title" id="lineModalLabel">Policy & Safety</h3>
                                                     </div>
                                                     <div class="modal-body">
@@ -130,7 +130,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        <button type="button" class="close" data-dismiss="modal"> <span class="glyphicon glyphicon-remove-sign"></span></button>
                                                         <h3 class="modal-title" id="lineModalLabel">Terms & Privacy</h3>
                                                     </div>
                                                     <div class="modal-body">
@@ -200,5 +200,6 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="{% static 'scripts/profile.js' %}"></script>
+        {% block js %}{% endblock %}
     </body>
 </html>
