@@ -6,230 +6,236 @@
 
 {% block body %}
 
-    <!--videos-->
-    <div class="videos_panel panel-default">
-        <div class="panel-heading">
-            <span class="input-group pull-right" id="vid_search">
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" value="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Sort By <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="">Title</a></li>
-                        <li><a href="">Duration</a></li>
-                    </ul>
-                </span>
-            </span>
-            <h3>Videos <span class="badge">3</span></h3>
-        </div><!--panel-heading-->
-        <div class="panel-body">
-            <div class="top_row row">
-                <div class="btn-group btn-lg pull-right" role="group">
-                    <a type="button" class="btn btn-default" href="{% url 'videos:upload' %}">
-                        <span class="glyphicon glyphicon-upload"></span> Upload
+    <div class="profile_pan">
+        <div class="container-fluid">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <a href="{% url 'accounts:user_profile' %}">
+                        <h3 class="panel-title">{{user.username}}</h3>
                     </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row overview">
+                            <div class="container-fluid">
+                                <div class="btn-group btn-group-justified col-md-8 col-xs-12" role="group"> 
+                                    <div class="btn-group" role"group">
+                                        <a href="{% url 'videos:videos' %}">
+                                            <button type="button" class="overview_btn btn-default btn-block"id="noborderbtn">
+                                                <h3 class="active">Videos</h3><h4 class="active">20</h4>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="btn-group" role"group">
+                                        <a href="{% url 'videos:followers' %}">
+                                            <button type="button" class="overview_btn btn-default btn-block" id="lrborderbtn">
+                                                <h3>Followers</h3><h4>20</h4>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="btn-group" role"group">
+                                        <a href="{% url 'videos:following' %}">
+                                            <button type="button" class="overview_btn btn-default btn-block" id="noborderbtn">
+                                                <h3>Following</h3><h4>20</h4>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div><!--overview_buttons-->
+                            </div>
+                        </div><!--overview-->
+                        <br>
+                        <!-- videos -->
+                        <div class="profile_pan" style="background-color: white;">
+                            <div class="container-fluid" style="background-color: white;">
+                                <div class="panel-body" style="background-color: white;">
+                                    <span class="input-group pull-right" id="vid_search">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" value="submit">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                Sort By <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="">Title</a></li>
+                                                <li><a href="">Duration</a></li>
+                                            </ul>
+                                        </span>
+                                    </span>
+
+                                    <div class="btn-group btn-lg pull-left" role="group" style="padding-top: 15px;">
+                                        <a type="button" class="btn btn-default" href="{% url 'videos:upload' %}">
+                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                        </a>
+                                    </div>
+
+                                    
+                                    <!-- loop videos here -->
+                                    {% if videos %}
+                                        {% for video in videos %}
+                                            <div class="list-group vid_list">
+                                                <div class="list-group-item">
+                                                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </button>
+                                                    <a href="{% url 'videos:detail' video.id %}" class="container-fluid" id="vid_item">
+                                                        <img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+                                                        <h3 class="list-group-item-heading" id="vid_title">{{ video.title }}</h3>
+                                                        <caption class="list-group-item-text" id="vid_des">{{ video.description }}</caption>
+                                                        <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <!--For no uploaded videos-->
+                                        <div class="jumbotron">
+                                            <div class="container-fluid"> <br><br>
+                                                <h1 class="no_vid" align="center">NO VIDEOS</h1>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <!-- end loop here -->
+                                </div>
+
+                                <div class="modal fade" id="delete_vid" tabindex="-1" role="dialog">
+                                <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon-remove-sign"></span>
+                                            </button>
+                                            <h4 class="modal-title">Remove video?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid" align="center">
+                                                <button type="submit" class="btn btn-danger">Remove 
+                                                    <span class="glyphicon glyphicon-remove"></span>
+                                                </button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel 
+                                                    <span class="glyphicon glyphicon-ban-circle"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--delete_vid-->
+                            <div class="modal fade" id="upload_vid" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon-remove-sign"></span>
+                                            </button>
+                                            <h4 class="modal-title" id="upload_mod_title">Upload Video</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                                <form action="{% url 'videos:upload' %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                                    
+                                                    <!-- Video Title -->
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{ video_upload_form.title.label }}</label>
+                                                        {{ video_upload_form.title }}
+                                                    </div>
+
+                                                    <!-- Video Description -->
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{ video_upload_form.description.label }}</label>
+                                                        {{ video_upload_form.description }}
+                                                    </div>
+
+                                                    <!-- Video Categories -->
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{ video_upload_form.categories.label }}</label>
+                                                        {{ video_upload_form.categories }}
+                                                    </div>
+
+                                                    <!-- Video Tags -->
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{ video_upload_form.tags.label }} 
+                                                            <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Use a semi-colon (;) to separate tags"></span>
+                                                        </label>
+                                                        {{ video_upload_form.tags }}
+                                                    </div>
+
+                                                    <!-- The actual Video -->
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-default btn-file">
+                                                                    Browse&hellip; {{ video_upload_form.video }}
+                                                                </button>
+                                                            </span>
+                                                            <input type="text" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-default btn-file">
+                                                                    Browse&hellip; <input type="file" name="vid_up" accept="video/*">
+                                                                </button>
+                                                            </span>
+                                                            <input type="text" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Title</label>
+                                                        <input type="text" class="form-control" id="up_vid_title" placeholder="Title">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Description</label>
+                                                        <textarea class="form-control" id="up_vid_des" placeholder="Description" rows="3" 
+                                                        wrap="hard"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Category</label>
+                                                        <select class="form-control" id="up_vid_cat" name="Category">
+                                                            <option value="-">-----</option>
+                                                            <option value="anf">Animation & Film</option>
+                                                            <option value="mus">Music</option>
+                                                            <option value="nnp">News & Politics</option>
+                                                            <option value="pnb">People & Blogs</option>
+                                                            <option value="snt">Science & Technology</option>
+                                                            <option value="spt">Sports</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" id="tags_label">Tags 
+                                                            <span class="glyphicon glyphicon-info-sign" id="tags_info" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="tags_panel" placeholder="Tags">
+                                                    </div>-->
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Upload</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                        </div> -->
+                                        <div class="modal-footer">
+                                            <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                                                <div class="btn-group" role="group">
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-success">Upload</button>
+                                                    </a>
+                                                </div>
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--modal-content-->
+                                </div><!--modal-dialog-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            {% if videos %}
-                {% for video in videos %}
-                    <div class="list-group vid_list">
-                        <div class="list-group-item">
-                            <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                            <a href="{% url 'videos:detail' video.id %}" class="container-fluid" id="vid_item">
-                                <img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
-                                <h3 class="list-group-item-heading" id="vid_title">{{ video.title }}</h3>
-                                <caption class="list-group-item-text" id="vid_des">{{ video.description }}</caption>
-                                <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <!--For no uploaded videos-->
-                <div class="jumbotron">
-                    <div class="container-fluid">
-                        <h1 class="no_vid">NO VIDEOS</h1>
-                    </div>
-                </div>
-            {% endif %}
-            <!-- 
-            <div class="list-group vid_list">
-                <!-- iterate videos here -
-                <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <a href="{% url 'videos:detail' 1 %}" class="container-fluid" id="vid_item">
-                        <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        <h3 class="list-group-item-heading" id="vid_title">Test Video</h3>
-                        <caption class="list-group-item-text" id="vid_des">video for testing</caption>
-                        <time class="list-group-item-text pull-right" id="vid_time" >1:00</time>
-                    </a>
-                </div>
-                <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <a href="#" class="container-fluid" id="vid_item">
-                        <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        <h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
-                        <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
-                        <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-                    </a>
-                </div>
-                <div class="list-group-item">
-                    <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <a href="#" class="container-fluid" id="vid_item">
-                        <img src="{% static 'images/minion.jpg' %}" class="img-thumbnail pull-left" id="vid_thumb">
-                        <h3 class="list-group-item-heading" id="vid_title">Minions_2015_Trailer</h3>
-                        <caption class="list-group-item-text" id="vid_des">see how it all began. . .BANANA!</caption>
-                        <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
-                    </a>
-                </div> -->
-                <!-- end loop -->
-            </div><!--vid_list-->
-            <div class="modal fade" id="delete_vid" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove-sign"></span>
-                            </button>
-                            <h4 class="modal-title">Remove video?</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid" align="center">
-                                <button type="submit" class="btn btn-danger">Remove 
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel 
-                                    <span class="glyphicon glyphicon-ban-circle"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--delete_vid-->
-            <div class="modal fade" id="upload_vid" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove-sign"></span>
-                            </button>
-                            <h4 class="modal-title" id="upload_mod_title">Upload Video</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <form action="{% url 'videos:upload' %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
-                                    
-                                    <!-- Video Title -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.title.label }}</label>
-                                        {{ video_upload_form.title }}
-                                    </div>
-
-                                    <!-- Video Description -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.description.label }}</label>
-                                        {{ video_upload_form.description }}
-                                    </div>
-
-                                    <!-- Video Categories -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.categories.label }}</label>
-                                        {{ video_upload_form.categories }}
-                                    </div>
-
-                                    <!-- Video Tags -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.tags.label }} 
-                                            <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Use a semi-colon (;) to separate tags"></span>
-                                        </label>
-                                        {{ video_upload_form.tags }}
-                                    </div>
-
-                                    <!-- The actual Video -->
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-file">
-                                                    Browse&hellip; {{ video_upload_form.video }}
-                                                </button>
-                                            </span>
-                                            <input type="text" class="form-control" readonly>
-                                        </div>
-                                    </div>
-
-                                    <!--
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-file">
-                                                    Browse&hellip; <input type="file" name="vid_up" accept="video/*">
-                                                </button>
-                                            </span>
-                                            <input type="text" class="form-control" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Title</label>
-                                        <input type="text" class="form-control" id="up_vid_title" placeholder="Title">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Description</label>
-                                        <textarea class="form-control" id="up_vid_des" placeholder="Description" rows="3" 
-                                        wrap="hard"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Category</label>
-                                        <select class="form-control" id="up_vid_cat" name="Category">
-                                            <option value="-">-----</option>
-                                            <option value="anf">Animation & Film</option>
-                                            <option value="mus">Music</option>
-                                            <option value="nnp">News & Politics</option>
-                                            <option value="pnb">People & Blogs</option>
-                                            <option value="snt">Science & Technology</option>
-                                            <option value="spt">Sports</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" id="tags_label">Tags 
-                                            <span class="glyphicon glyphicon-info-sign" id="tags_info" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
-                                        </label>
-                                        <input type="text" class="form-control" id="tags_panel" placeholder="Tags">
-                                    </div>-->
-                                </form>
-                            </div>
-                        </div>
-                        <!-- <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Upload</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        </div> -->
-                        <div class="modal-footer">
-                            <div class="btn-group btn-group-justified" role="group" aria-label="group button">
-                                <div class="btn-group" role="group">
-                                    <a href="">
-                                        <button type="button" class="btn btn-success">Upload</button>
-                                    </a>
-                                </div>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--modal-content-->
-                </div><!--modal-dialog-->
-            </div><!--upload_vid-->
-        </div><!--panel-body-->
-    </div><!--videos-->
+        </div>
+    </div>
 {% endblock %}
