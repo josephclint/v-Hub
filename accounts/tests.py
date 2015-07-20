@@ -1,13 +1,12 @@
 from django.test import TestCase
-
 from django.contrib.auth.models import User
-
+from django.core.urlresolvers import reverse
 
 HTTP_OK = 200
 HTTP_FOUND = 302
 
 
-class UserRoutineTests():
+class UserRoutineTests(TestCase):
 
     @classmethod
     def setUpTestData(clazz):
@@ -20,11 +19,11 @@ class UserRoutineTests():
 
     def test_user_registration_should_work(self):
         # browse to the registration page
-        request = self.client.get(reverse('accounts:signup'))
-        self.assertEqual(request.STATUS_CODE, HTTP_OK)
+        response = self.client.get(reverse('accounts:signup'))
+        self.assertEqual(response.status_code, HTTP_OK)
 
         # register using the form (assuming the form is there)
-        request = self.client.post(
+        response = self.client.post(
             reverse('accounts:signup'),
             {
                 'username': self.user_username,
@@ -34,12 +33,8 @@ class UserRoutineTests():
                 'first_name': self.user_first_name,
                 'last_name': self.user_last_name
             },
-            follow=True,
+            follow=True
         )
-
-        # make sure everything is OK
-        for redirection in request.request_chain:
-            self.assertEqual(redirection[1], HTTP_FOUND)
 
         # make sure the user we just registered was really registered
         # username check is enough since it must be unique
@@ -49,4 +44,39 @@ class UserRoutineTests():
         self.assertTrue(a)
 
         # make sure it is logged in
-        self.assertTrue(request.user.is_authenticated())
+        self.assertTrue(response.context['request'].user.is_authenticated())
+
+    def test_user_login_should_work(self):
+        # create the test user
+        User.objects.create_user(
+            self.user_username,
+            password=self.user_password
+        )
+
+        # browse to the login page
+        response = self.client.get(reverse('accounts:login'))
+        self.assertEqual(response.status_code, HTTP_OK)
+
+        # login using the form
+        response = self.client.post(
+            reverse('accounts:login'),
+            {
+                'username': self.user_username,
+                'password': self.user_password
+            },
+            follow=True
+        )
+
+        # make sure it successfully logged the test user in
+        self.assertTrue(response.context['request'].user.is_authenticated())
+
+    def test_user_logout_should_word(self):
+        # create the test user
+        User.objects.create_user(
+            self.user_username,
+            password=self.user_password
+        )
+
+        response = self.client.get(reverse('accounts:logout'))
+        self.assertEqual(response.status_code, HTTP_OK)
+        self.assertFalse(response.context['request'].user.is_authenticated())
