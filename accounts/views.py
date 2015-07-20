@@ -1,18 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.contrib.auth import views as auth_views
-
+from django.conf import settings
+from django.contrib.auth import views as auth_views, authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.views import generic
 
 from app import views as app_views
 from sitemap import views as sitemap_views
 from forms import UserSignupForm, UpdateProfileForm
-
-from django.conf import settings
-from django.shortcuts import redirect
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse, reverse_lazy
 from models import User  # UserProfile
 
 
@@ -41,6 +38,14 @@ class SignupView(generic.View):
         if form.is_valid():
             form.save()
             request.session['post_register_user'] = form.cleaned_data
+
+            user = authenticate(
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password1']
+            )
+
+            login(request, user)
+
             return HttpResponseRedirect(reverse('accounts:post_register'))
         else:
             return render(request, 'accounts/signup.html', {
