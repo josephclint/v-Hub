@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
 from django.contrib.auth import views as auth_views
 
 from django.views import generic
 
 from app import views as app_views
 from sitemap import views as sitemap_views
-from forms import UserSignupForm
+from forms import UserSignupForm, UpdateProfileForm
 
 from django.conf import settings
 from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse, reverse_lazy
+from models import User  # UserProfile
 
 
 def anonymous_required(function):
@@ -74,6 +74,16 @@ class UserProfileView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         return render(request, 'accounts/profile.html',)
+
+
+class EditProfileView(generic.UpdateView):
+    model = User
+    form_class = UpdateProfileForm
+    template_name = "accounts/edit_profile.html"
+    success_url = '/profile'
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class LogOutView(generic.TemplateView):
