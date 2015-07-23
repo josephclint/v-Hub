@@ -44,4 +44,10 @@ urlpatterns = [
         views.AddComment.as_view(),
         name='add_comment'
     ),
+
+    url(
+        r'^home/$',
+        views.HomeView.as_view(),
+        name='home'
+    ),
 ]

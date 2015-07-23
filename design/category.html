@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>V-hub</title>
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/category.css">
+		<link rel="shortcut icon" href="images/icon.png">
+	</head>
+	<body>
+		<!--Navigation Bar-->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+			<!--Logo-->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#profile.html">
+						<img class="logo" src="images/logo.png" alt="">
+					</a>
+				</div><!--navbar-header-->
+			
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<!--Navbar Icons -->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="search"><!--Search icon & bar-->
+								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
+								<button type="submit" class="btn-search btn-default">
+									<img src="icons/search.png" height="25" width="25">
+								</button>
+							</div>
+						</li>
+						<li class="dropdown"><!--Profile icon & dropdown-->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								<img class="profile_logo" src="icons/profile.png">
+							</a>
+						    <ul class="dropdown-menu" role="menu">
+						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span>
+						       	</a></li>
+						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span>
+						        </a></li>
+						        <li class="divider"></li>
+						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span>
+						        </a></li>
+						    </ul>
+						</li>
+					</ul>
+				</div><!--navbar-collapse-->
+			</div><!--container-fluid-->
+		</nav><!--navbar-->
+
+		<div class="header" align="center">
+			<a href="#"><img src="icons/music.png" alt=""> <br> <br> <h1 class="text-header">MUSIC</h1></a>
+		</div>
+
+		<div class="header-body">
+
+			<div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+	          <!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#thumbnail-preview-indicators" data-slide-to="0" class="active">
+						<div class="thumbnail">
+							<img class="img-responsive" src="http://www.filmindustrynetwork.biz/wp-content/uploads/2014/01/Justin-Bieber-all-that-matters-chair.jpg">
+						</div>
+					</li>
+					<li data-target="#thumbnail-preview-indicators" data-slide-to="1">
+						<div class="thumbnail">
+							<img class="img-responsive" src="http://cache.vevo.com/Content/VevoImages/video/C699C09C60845463F3722E17DF38DE0C.jpg">
+						</div>
+					</li>
+					<li data-target="#thumbnail-preview-indicators" data-slide-to="2">
+						<div class="thumbnail">
+							<img class="img-responsive" src="http://images5.fanpop.com/image/photos/30700000/boyfriend-music-video-justin-bieber-30723834-1007-496.jpg">
+						</div>
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item slides active">
+						<div class="slide-1" style="background-image: url(http://www.filmindustrynetwork.biz/wp-content/uploads/2014/01/Justin-Bieber-all-that-matters-chair.jpg);"></div>
+						<div class="container">
+							<div class="carousel-caption">
+								<h1 class="title">TITLE</h1>
+								<p><a href="#"> 
+									<button type="button" class="btn btn-success btn-circle btn-xl"><i id="icon" class="glyphicon glyphicon-play"></i></button>
+								</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="item slides">
+						<div class="slide-2" style="background-image: url(http://cache.vevo.com/Content/VevoImages/video/C699C09C60845463F3722E17DF38DE0C.jpg);"></div>
+						<div class="container">
+							<div class="carousel-caption">
+								<h1 class="title">TITLE</h1>
+								<p><a href="#">
+									<button type="button" class="btn btn-success btn-circle btn-xl"><i id="icon" class="glyphicon glyphicon-play"></i></button>
+								</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="item slides">
+						<div class="slide-3" style="background-image: url(http://images5.fanpop.com/image/photos/30700000/boyfriend-music-video-justin-bieber-30723834-1007-496.jpg);"></div>
+						<div class="container">
+							<div class="carousel-caption">
+								<h1 class="title">TITLE</h1>
+								<p><a href="#">
+									<button type="button" class="btn btn-success btn-circle btn-xl"><i id="icon" class="glyphicon glyphicon-play"></i></button>
+								</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+				<a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+	      	</div> 
+		</div>
+
+		<!--Footer-->
+		<section class="footer">
+			<div class="footer_panel panel-default">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="abt_panel panel-default">
+								<div class="panel-heading">
+									<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right">
+									</span></h3>
+								</div>
+								<div id="abt_body" class="panel-body">
+									<p>Vhub description here</p>
+									<div class="abt_btns btn-group-vertical">
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
+										</button>
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
+										</button>
+										<button type="button" class="abt_btn btn-lg btn-block">
+											<h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
+										</button>
+									</div><!--abt_btns-->
+									<hr>
+								</div><!--abt_body-->
+							</div><!--abt_panel-->
+						</div>
+						<div class="col-md-8">
+							<div class="ctc_panel panel-default">
+								<div class="panel-heading">
+									<h3 class="cont_text">Contact us
+									<span id="icon_ft" class="glyphicon glyphicon-phone-alt pull-right"></span>
+									</h3>
+								</div>
+								<div id="cont_body" class="panel-body">
+									<div class="container-fluid">
+										<div class="row">
+											<div id="site_contacts" class="col-md-4"><hr>
+												<h5>
+													<span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232
+												</h5>
+												<h5>
+													<span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com
+												</h5>
+												<h5>
+													<span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city
+												</h5>
+											</div>
+											<div id="social_site" class="col-md-8"><hr>
+												<div class="text-center center-block">
+													<div class="row">
+														<div id="social_icons" class="col-md-4">
+															<a href="facebook.com/vhub">
+																<img class="social_fb" id="social" src="icons/facebook.png">
+															</a>
+														</div>
+														<div id="social_icons" class="col-md-4">
+															<a href="twitter.com/vhub">
+																<img  class="social_tw" id="social" src="icons/twitter.png">
+															</a>
+														</div>
+														<div id="social_icons" class="col-md-4">
+															<a href="goggle.com/vhub">
+																<img class="social_gp" id="social" src="icons/google.png">
+															</a>
+														</div>
+													</div>
+												</div><!--text-center-->
+											</div><!--social_site-->
+										</div>	
+									</div>
+								</div><!--cont_body-->
+							</div><!--ctc_panel--><hr>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<h6><span class="glyphicon glyphicon-copyright-mark"></span>VHUB</h6>
+				</div>
+			</div>
+		</section><!--footer-->
+		<!-- for javascrpit plugins -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/category.js"></script>
+	</body>
+</html>
+
+<!--
+cd something
+source venv/bin/activate
+runserver
+-->

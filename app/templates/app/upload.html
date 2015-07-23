@@ -1,264 +1,127 @@
+{% extends 'app/base_profile.html' %}
+
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>V-hub</title>
-		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="{% static 'styles/upload.css' %}">
-		<link rel="shortcut icon" href="{% static 'images/icon.png' %}">
-	</head>
-	<body>
-		<!--Navigation Bar-->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container-fluid">
-			<!--Logo-->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#profile.html">
-						<img class="logo" src="{% static 'images/logo.png' %}" alt="">
-					</a>
-				</div><!--navbar-header-->
-			
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<!--Navbar Icons -->
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<div class="search"><!--Search icon & bar-->
-								<input type="text" class="form-control" maxlength="64" placeholder="Search" />
-								<button type="submit" class="btn-search btn-default">
-									<img src="{% static 'images/search.png' %}" height="25" width="25">
-								</button>
-							</div>
-						</li>
-						<li class="dropdown"><!--Profile icon & dropdown-->
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-								<img class="profile_logo" src="{% static 'images/profile.png' %}">
-							</a>
-						    <ul class="dropdown-menu" role="menu">
-						       	<li><a href="#">Profile<span id="user_icon" class="glyphicon glyphicon-user pull-right"></span>
-						       	</a></li>
-						        <li><a href="#">Settings <span id="user_icon" class="glyphicon glyphicon-cog pull-right"></span>
-						        </a></li>
-						        <li class="divider"></li>
-						        <li><a href="#">Log Out<span id="user_icon" class="glyphicon glyphicon-log-out pull-right"></span>
-						        </a></li>
-						    </ul>
-						</li>
-					</ul>
-				</div><!--navbar-collapse-->
-			</div><!--container-fluid-->
-		</nav><!--navbar-->
+{% block title %}{{ 'VHub | Upload Video' }}{% endblock %}
 
-		<!--Upload Video Panel-->
-			<div class="container">
-				<div class="row">
-					<div class="panel panel-success col-md-8 col-md-offset-2">
-						<div class="panel-heading">
-							<h3 class="panel-title"><span class="glyphicon glyphicon-upload pull-right"></span> Upload Video</h3>
-						</div>
+{% block link %} <link rel="stylesheet" href="{% static 'styles/upload.css' %}"> {% endblock %}
 
-						<form class="form-horizontal" enctype="multipart/form-data" action="{% url 'videos:upload' %}" method="post">
-						{% csrf_token %}
-						<div class="panel-body">
-								{% if form.errors %}
-									<p>{{ form.errors }}</p>
-								{% endif %}
-								<!-- The actual Video -->
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <span class="btn btn-success" id="browse_vid_btn">
-                                       		<span class="glyphicon glyphicon-folder-open"></span>
-                                            Browse&hellip; {{ video_upload_form.video }}
-                                        </span>
-                                    </span>
-                                    <input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
-                                </div>
-                                    
-
-								<!-- Video Title -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.title.label }}</label>
-                                        {{ video_upload_form.title }}
-                                    </div>
-
-                                    <!-- Video Description -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.description.label }}</label>
-                                        {{ video_upload_form.description }}
-                                    </div>
-
-                                    <!-- Video Categories -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.categories.label }}</label>
-                                        {{ video_upload_form.categories }}
-                                    </div>
-
-                                    <!-- Video Tags -->
-                                    <div class="form-group">
-                                        <label class="control-label">{{ video_upload_form.tags.label }} 
-                                            <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Use a semi-colon (;) to separate tags"></span>
-                                        </label>
-                                        {{ video_upload_form.tags }}
-                                    </div>
-<!-- 
-							<div class="input-group">
-                                    <span class="input-group-btn">
-                                        <span class="btn btn-success" id="browse_vid_btn">
-                                       		<span class="glyphicon glyphicon-folder-open"></span>
-                                            Browse&hellip; <input accept="video/*" id="id_video" name="video" type="file" />
-                                        </span>
-                                    </span>
-                                    <input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
-                                </div>
-
-
-								<div class="input-group">
-									<span class="input-group-btn">
-										<span class="btn btn-success" id="browse_vid_btn">
-											<span class="glyphicon glyphicon-folder-open"></span>
-											Browse&hellip; <input type="file" class="file_input" name="video_file" accept="video/*">
-										</span>
-									</span>
-									<input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
-								</div>
-								<div class="form-group vid_title">
-									<label for="up_vid_title" class="control-label">
-										<h4>Title</h4>
-									</label>
-									<input type="text" class="form-control" id="up_vid_title" maxlength="50" placeholder="Title">
-								</div>
-								<div class="form-group vid_description">
-									<label for="up_vid_des" class="control-label">
-										<h4>Description</h4>
-									</label>
-									<textarea class="form-control" id="up_vid_des" wrap="hard" maxlength="160" placeholder="Description"></textarea>
-								</div>
-								<div class="form-group vid_category">
-									<label for="up_vid_cat" class="control-label">
-										<h4>Category</h4>
-									</label>
-									<select class="form-control" id="up_vid_cat">
-										<option value="">Choose Category. . .</option>
-										<option value="af">Animation & Film</option>
-										<option value="m">Music</option>
-										<option value="np">News & Politics</option>
-										<option value="pb">People & Blogs</option>
-										<option value="st">Science & Technology</option>
-										<option value="s">Sports</option>
-									</select>
-								</div>
-								<div class="form-group vid_tags">
-									<label for="tags_panel" class="control-label">
-										<h4>Tags <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
-										</h4>
-									</label>
-									<input type="text" id="tags_panel" class="form-control" placeholder="Tags">
-								</div> -->
-						</div>
-						<div class="panel-footer">
-							<button type="submit" class="btn btn-success btn-lg btn-block upload_btn" disabled>
-								upload <span class="glyphicon glyphicon-upload"></span>
-							</button>
-						</div>
-						</form>
-					</div><!--panel-->
+{% block body %}
+	<!--Upload Video Panel-->
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-success col-md-8 col-md-offset-2" style="padding-right: 0px; padding-left:0px;">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-upload pull-right"></span> Upload Video</h3>
 				</div>
-			</div><!--upload_vid-->
 
-		<!--Footer--><!--
-		<section class="footer">
-			<div class="footer_panel panel-default">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="abt_panel panel-default">
-								<div class="panel-heading">
-									<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right">
-									</span></h3>
-								</div>
-								<div id="abt_body" class="panel-body">
-									<p>Vhub description here</p>
-									<div class="abt_btns btn-group-vertical">
-										<button type="button" class="abt_btn btn-lg btn-block">
-											<h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
-										</button>
-										<button type="button" class="abt_btn btn-lg btn-block">
-											<h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
-										</button>
-										<button type="button" class="abt_btn btn-lg btn-block">
-											<h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
-										</button>
-									</div><!--abt_btns->
-									<hr>
-								</div><!--abt_body->
-							</div><!--abt_panel->
+				<form class="form-horizontal" enctype="multipart/form-data" action="{% url 'videos:upload' %}" method="post" style="padding-right: 15px; padding-left:15px;">
+				{% csrf_token %}
+				<div class="panel-body">
+						{% if form.errors %}
+							<p>{{ form.errors }}</p>
+						{% endif %}
+						<!-- The actual Video -->
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-success" id="browse_vid_btn">
+                               		<span class="glyphicon glyphicon-folder-open"></span>
+                                    Browse&hellip; {{ video_upload_form.video }}
+                                </span>
+                            </span>
+                            <input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
+                        </div>
+                            
+
+						<!-- Video Title -->
+                            <div class="form-group">
+                                <label class="control-label">{{ video_upload_form.title.label }}</label>
+                                {{ video_upload_form.title }}
+                            </div>
+
+                            <!-- Video Description -->
+                            <div class="form-group">
+                                <label class="control-label">{{ video_upload_form.description.label }}</label>
+                                {{ video_upload_form.description }}
+                            </div>
+
+                            <!-- Video Categories -->
+                            <div class="form-group">
+                                <label class="control-label">{{ video_upload_form.categories.label }}</label>
+                                {{ video_upload_form.categories }}
+                            </div>
+
+                            <!-- Video Tags -->
+                            <div class="form-group">
+                                <label class="control-label">{{ video_upload_form.tags.label }} 
+                                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
+                                </label>
+                                {{ video_upload_form.tags }}
+                            </div>
+<!-- 
+					<div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-success" id="browse_vid_btn">
+                               		<span class="glyphicon glyphicon-folder-open"></span>
+                                    Browse&hellip; <input accept="video/*" id="id_video" name="video" type="file" />
+                                </span>
+                            </span>
+                            <input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
+                        </div>
+
+
+						<div class="input-group">
+							<span class="input-group-btn">
+								<span class="btn btn-success" id="browse_vid_btn">
+									<span class="glyphicon glyphicon-folder-open"></span>
+									Browse&hellip; <input type="file" class="file_input" name="video_file" accept="video/*">
+								</span>
+							</span>
+							<input type="text" class="form-control file_name" placeholder="No file chosen..." readonly>
 						</div>
-						<div class="col-md-8">
-							<div class="ctc_panel panel-default">
-								<div class="panel-heading">
-									<h3 class="cont_text">Contact us
-									<span id="icon_ft" class="glyphicon glyphicon-phone-alt pull-right"></span>
-									</h3>
-								</div>
-								<div id="cont_body" class="panel-body">
-									<div class="container-fluid">
-										<div class="row">
-											<div id="site_contacts" class="col-md-4"><hr>
-												<h5>
-													<span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232
-												</h5>
-												<h5>
-													<span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com
-												</h5>
-												<h5>
-													<span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city
-												</h5>
-											</div>
-											<div id="social_site" class="col-md-8"><hr>
-												<div class="text-center center-block">
-													<div class="row">
-														<div id="social_icons" class="col-md-4">
-															<a href="facebook.com/vhub">
-																<img class="social_fb" id="social" src="{% static 'icons/facebook.png' %}">
-															</a>
-														</div>
-														<div id="social_icons" class="col-md-4">
-															<a href="twitter.com/vhub">
-																<img  class="social_tw" id="social" src="{% static 'icons/twitter.png' %}">
-															</a>
-														</div>
-														<div id="social_icons" class="col-md-4">
-															<a href="goggle.com/vhub">
-																<img class="social_gp" id="social" src="{% static 'icons/google.png' %}">
-															</a>
-														</div>
-													</div>
-												</div><!--text-center->
-											</div><!--social_site->
-										</div>	
-									</div>
-								</div><!--cont_body->
-							</div><!--ctc_panel-><hr>
+						<div class="form-group vid_title">
+							<label for="up_vid_title" class="control-label">
+								<h4>Title</h4>
+							</label>
+							<input type="text" class="form-control" id="up_vid_title" maxlength="50" placeholder="Title">
 						</div>
-					</div>
+						<div class="form-group vid_description">
+							<label for="up_vid_des" class="control-label">
+								<h4>Description</h4>
+							</label>
+							<textarea class="form-control" id="up_vid_des" wrap="hard" maxlength="160" placeholder="Description"></textarea>
+						</div>
+						<div class="form-group vid_category">
+							<label for="up_vid_cat" class="control-label">
+								<h4>Category</h4>
+							</label>
+							<select class="form-control" id="up_vid_cat">
+								<option value="">Choose Category. . .</option>
+								<option value="af">Animation & Film</option>
+								<option value="m">Music</option>
+								<option value="np">News & Politics</option>
+								<option value="pb">People & Blogs</option>
+								<option value="st">Science & Technology</option>
+								<option value="s">Sports</option>
+							</select>
+						</div>
+						<div class="form-group vid_tags">
+							<label for="tags_panel" class="control-label">
+								<h4>Tags <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Use a semi-colon (;) to separate tags"></span>
+								</h4>
+							</label>
+							<input type="text" id="tags_panel" class="form-control" placeholder="Tags">
+						</div> -->
 				</div>
 				<div class="panel-footer">
-					<h6><span class="glyphicon glyphicon-copyright-mark"></span>VHUB</h6>
+					<button type="submit" class="btn btn-success btn-lg btn-block upload_btn" disabled>
+						upload <span class="glyphicon glyphicon-upload"></span>
+					</button>
 				</div>
-			</div>
-		</section><!--footer-->
-		<!-- for javascrpit plugins -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="{% static 'scripts/upload.js' %}"></script>
-	</body>
-</html>
+				</form>
+			</div><!--panel-->
+		</div>
+	</div><!--upload_vid-->
+{% endblock %}
+
+{% block js %} <script src="{% static 'scripts/upload.js' %}"></script> {% endblock %}

@@ -4,132 +4,131 @@
 
 {% block title %}{{ 'VHub | Settings' }}{% endblock %}
 
-{% block link %} <link href="{% static 'styles/login.css' %}" rel="stylesheet"> {% endblock %}
-
-
 {% block body %}
 
-	<div class="container col-md-6 col-md-offset-3">
-		<div class="panel panel-success">
-	        <div class="panel-heading">
-	            <h3 class="panel-title">Change Password</h3>
-	        </div>
-	        <div class="panel-body">
-	        	Enter a new password for your V-Hub account.
-	        	<button name="show_password" id="show_password" class="btn btn-save btn-sm pull-right" >Edit</button>
-	        	<form id="" action="" name="changepassword" method="post" role="form" style="display: block;"> 
-					{% csrf_token %}
-	        		<div id="change_password" class="col-md-6 col-md-offset-3">
-	        			<br><br>
-						<div class="form-group">
-							<input type="password" name="cur_password" id="password" tabindex="2" class="form-control" placeholder="Current Password" required autofocus >
-						</div>
-						<div class="form-group">
-							<input type="password" name="new_password" id="passwordd" tabindex="2" class="form-control" placeholder="New Password" required>
-						</div>
-						<div class="form-group">
-							<input type="password" name="confirm_password" id="password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
-						</div>
-						<div align="center">
-							<input type="submit" id="save_password" class="btn btn-sm btn-save" data-toggle="modal" data-target="#save_pw" value="Save"/>
+	<div class="profile_pan">
+        <div class="container-fluid">
+            <div class="panel panel-success col-md-8 col-md-offset-2" style="padding-right: 0px; padding-left:0px;">
+		        <div class="panel-heading">
+		            <h3 class="panel-title">Change Password</h3>
+		        </div>
+		        <div class="panel-body">
+		        	Enter a new password for your V-Hub account.
+		        	<button name="show_password" id="show_password" class="btn btn-save btn-sm pull-right" >Edit</button>
+		        	<form id="" action="/" name="changepassword" method="post" role="form" style="display: block;"> 
+						{% csrf_token %}
+		        		<div id="change_password" class="col-md-6 col-md-offset-3">
+		        			<br><br>
+							<div class="form-group">
+								<input type="password" name="cur_password" id="cur_password" tabindex="2" class="form-control" placeholder="Current Password" required autofocus >
+							</div>
+							<div class="form-group">
+								<input type="password" name="new_password" id="new_password" tabindex="2" class="form-control" placeholder="New Password" required>
+							</div>
+							<div class="form-group">
+								<input type="password" name="confirm_password" id="confirm_password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
+							</div>
+							<div align="center">
+								<input type="submit" id="save_password" class="btn btn-sm btn-save" data-toggle="modal" data-target="#save_pw" value="Save" /> 
 
-							<!-- Modal still needs error checking since it will still appear even if fields are empty -->
+								<!-- Modal still needs error checking since it will still appear even if fields are empty -->
 
-							<!-- modal -->
-	                        <div class="modal fade" id="save_pw" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-	                            <div class="modal-dialog" style="width: 40%;">
-	                                <div class="modal-content">
-	                                    <div class="modal-header">
-	                                        <h3 class="modal-title" id="lineModalLabel">Password Updated</h3>
+								<!-- modal -->
+		                       <!--  <div class="modal fade" id="save_pw" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		                            <div class="modal-dialog" style="width: 40%;">
+		                                <div class="modal-content">
+		                                    <div class="modal-header">
+		                                        <h3 class="modal-title" id="lineModalLabel">Password Updated</h3>
+		                                    </div>
+		                                    <div class="modal-body">
+		                                        You have successfully changed your password!
+		                                    </div>
+		                                    <div class="modal-footer">
+		                                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+		                                            <div class="btn-group" role="group">
+		                                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button" id="close_password">Close</button>
+		                                            </div>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>  --><!-- modal -->
+
+								<button id="cancel_password" class="btn btn-sm btn-save">Cancel</button>
+							</div>
+						</div>
+					</form>
+				</div>
+		    </div>
+
+		    <div class="panel panel-success col-md-8 col-md-offset-2" style="padding-right: 0px; padding-left:0px;">
+		        <div class="panel-heading">
+		            <h3 class="panel-title">Privacy</h3>
+		        </div>
+		        <div class="panel-body">
+		        	Who can look me up
+					<select id="myselect" class="btn btn-save btn-sm dropdown-toggle pull-right" style="width: auto">
+						<option class="op" value="everyone">Everyone</option>
+						<option class="op" value="followers">Followers</option>
+						<option class="op" value="followers2">Followers of followers</option>
+					</select> <hr>
+					Who can see my videos
+					<select id="myselect" class="btn btn-save btn-sm dropdown-toggle pull-right" style="width: auto">
+						<option class="op" value="everyone">Everyone</option>
+						<option class="op" value="followers">Followers</option>
+						<option class="op" value="followers2">Followers of followers</option>
+					</select> <hr>
+					Who can can follow me
+					<select id="myselect" class="btn btn-save btn-sm dropdown-toggle pull-right" style="width: auto">
+						<option class="op" value="everyone">Everyone</option>
+						<option class="op" value="followers">Followers</option>
+						<option class="op" value="followers2">Followers of followers</option>
+					</select>
+		        </div>
+		    </div>
+
+		    <div class="panel panel-success col-md-8 col-md-offset-2" style="padding-right: 0px; padding-left:0px;">
+		        <div class="panel-heading">
+		            <h3 class="panel-title">Deactivate Account</h3>
+		        </div>
+		        <div class="panel-body">
+		        	Disable your V-Hub account
+					<!-- <a href="{% url 'accounts:deactivate' %}">
+						<button class="btn btn-save btn-sm pull-right" data-toggle="modal" data-target="#deactivate" style="width: auto;">Deactivate</button>
+					</a> -->
+
+					<button class="btn btn-save btn-sm pull-right" data-toggle="modal" data-target="#deactivate" style="width: auto;">Deactivate</button>
+
+					<!-- modal -->
+	                <div class="modal fade" id="deactivate" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+	                    <div class="modal-dialog" style="width: 40%;">
+	                        <div class="modal-content">
+	                            <div class="modal-header">
+	                            	<button type="button" class="close" data-dismiss="modal"> <span class="glyphicon glyphicon-remove-sign"></span></button>
+	                                <h3 class="modal-title" id="lineModalLabel">Deactivate Account Confirmation</h3>
+	                            </div>
+	                            <div class="modal-body">
+	                                Are you sure you want to deactivate your V-Hub account?<br><br>
+	                                <b>Note:</b> All your information will be deleted. No takebacks.
+	                            </div>
+	                            <div class="modal-footer">
+	                                <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+	                                    <div class="btn-group" role="group">
+	                                    	<a href="{% url 'accounts:deactivate' %}">
+	                                        	<button type="button" class="btn btn-default">Yes</button>
+	                                        </a>
 	                                    </div>
-	                                    <div class="modal-body">
-	                                        You have successfully changed your password!
-	                                    </div>
-	                                    <div class="modal-footer">
-	                                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
-	                                            <div class="btn-group" role="group">
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button" id="close_password">Close</button>
-	                                            </div>
-	                                        </div>
+	                                    <div class="btn-group" role="group">
+	                                        <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cancel</button>
 	                                    </div>
 	                                </div>
 	                            </div>
-	                        </div> <!-- modal -->
-
-							<button id="cancel_password" class="btn btn-sm btn-save">Cancel</button>
-						</div>
-					</div>
-				</form>
-			</div>
-	    </div>
-
-	    <div class="panel panel-success">
-	        <div class="panel-heading">
-	            <h3 class="panel-title">Privacy</h3>
-	        </div>
-	        <div class="panel-body">
-	        	Who can look me up
-				<select id="myselect" class="btn btn-save btn-sm dropdown-toggle pull-right" style="width: auto">
-					<option class="op" value="everyone">Everyone</option>
-					<option class="op" value="followers">Followers</option>
-					<option class="op" value="followers2">Followers of followers</option>
-				</select> <hr>
-				Who can see my videos
-				<select id="myselect" class="btn btn-save btn-sm dropdown-toggle pull-right" style="width: auto">
-					<option class="op" value="everyone">Everyone</option>
-					<option class="op" value="followers">Followers</option>
-					<option class="op" value="followers2">Followers of followers</option>
-				</select> <hr>
-				Who can can follow me
-				<select id="myselect" class="btn btn-save btn-sm dropdown-toggle pull-right" style="width: auto">
-					<option class="op" value="everyone">Everyone</option>
-					<option class="op" value="followers">Followers</option>
-					<option class="op" value="followers2">Followers of followers</option>
-				</select>
-	        </div>
-	    </div>
-
-	    <div class="panel panel-success">
-	        <div class="panel-heading">
-	            <h3 class="panel-title">Deactivate Account</h3>
-	        </div>
-	        <div class="panel-body">
-	        	Disable your V-Hub account
-				<!-- <a href="{% url 'accounts:deactivate' %}">
-					<button class="btn btn-save btn-sm pull-right" data-toggle="modal" data-target="#deactivate" style="width: auto;">Deactivate</button>
-				</a> -->
-
-				<button class="btn btn-save btn-sm pull-right" data-toggle="modal" data-target="#deactivate" style="width: auto;">Deactivate</button>
-
-				<!-- modal -->
-                <div class="modal fade" id="deactivate" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                    <div class="modal-dialog" style="width: 40%;">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                <h3 class="modal-title" id="lineModalLabel">Deactivate Account Confirmation</h3>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure you want to deactivate your V-Hub account?<br><br>
-                                <b>Note:</b> All your information will be deleted. No takebacks.
-                            </div>
-                            <div class="modal-footer">
-                                <div class="btn-group btn-group-justified" role="group" aria-label="group button">
-                                    <div class="btn-group" role="group">
-                                    	<a href="{% url 'accounts:deactivate' %}">
-                                        	<button type="button" class="btn btn-default">Yes</button>
-                                        </a>
-                                    </div>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- modal -->
-	        </div>
-	    </div>
-	</div>					   
+	                        </div>
+	                    </div>
+	                </div> <!-- modal -->
+		        </div>
+		    </div>
+        </div>
+    </div>
 
 {% endblock %}

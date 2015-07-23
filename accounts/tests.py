@@ -17,7 +17,7 @@ class UserRoutineTests(TestCase):
         clazz.user_last_name = 'test_last_name'
         clazz.user_email = 'test@test.com'
 
-    def test_user_registration_should_work(self):
+    def test_user_registration_should_work_with_correct_inputs(self):
         # browse to the registration page
         response = self.client.get(reverse('accounts:signup'))
         self.assertEqual(response.status_code, HTTP_OK)
@@ -46,7 +46,7 @@ class UserRoutineTests(TestCase):
         # make sure it is logged in
         self.assertTrue(response.context['request'].user.is_authenticated())
 
-    def test_user_login_should_work(self):
+    def test_user_login_should_work_with_existing_user(self):
         # create the test user
         User.objects.create_user(
             self.user_username,
@@ -70,7 +70,10 @@ class UserRoutineTests(TestCase):
         # make sure it successfully logged the test user in
         self.assertTrue(response.context['request'].user.is_authenticated())
 
-    def test_user_logout_should_word(self):
+    def test_user_login_should_not_work_with_nonexistent_user(self):
+        pass
+
+    def test_user_logout_should_work(self):
         # create the test user
         User.objects.create_user(
             self.user_username,

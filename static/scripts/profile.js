@@ -40,18 +40,22 @@ $( document ).ready(function() {
  		}
  	);
 
-    // $("#passwordd").change(function(){
-    //     var enablebtn = true;
-    //     $("#passwordd").each(function(){
-    //         if($(this).val() == '')
-    //             enablebtn = false;
-    //     });
+    $("#save_password").attr('disabled', true);
 
-    //     if(enablebtn)
-    //         $("#save_password").attr('disabled', false);
-    //     else
-    //         $("#save_password").attr('disabled', true);
-    // });
+    $('.form-group > input').keyup(function() {
+        var empty = false;
+        $('.form-group > input').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#save_password').attr('disabled', true);
+        } else {
+            $('#save_password').attr('disabled', false);
+        }
+    });
 
     $( document ).ready(function() {
         $('[data-toggle="tooltip"]').tooltip(); 

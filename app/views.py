@@ -74,3 +74,9 @@ class VideosView(generic.TemplateView):
 class AddComment(generic.View):
     def post(self, request):
         pass
+
+
+class HomeView(generic.TemplateView):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        return render(request, 'app/home.html',)
