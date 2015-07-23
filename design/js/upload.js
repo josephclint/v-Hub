@@ -1,11 +1,22 @@
 $(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip(); 
+	$('[data-toggle="tooltip"]').tooltip();
 
-	$('.file_input').change(function() {
+	$('.upload_btn').attr('disabled', true);
+	;
+	$('.file_input').change(function() { /*function for browse button*/
 		var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+		var file = $(this).val();
 
 		$('.file_name').val(filename);
-
-		$('.upload_btn').removeProp('disabled');  
+		
+		if (file != '') {
+			$('.upload_btn').attr('disabled', false); 
+		}
+		else{
+			$('.upload_btn').attr('disabled', true);
+		}
+		 
 	});
+
+	
 });

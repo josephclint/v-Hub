@@ -104,6 +104,30 @@ body{
     z-index:2;
 }
 
+#browse_photo_btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.prf_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  cursor: inherit;
+  display: block;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
 .caption btn {
   background-color: transparent;
   border: none;
