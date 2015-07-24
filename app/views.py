@@ -45,6 +45,7 @@ class UploadView(generic.View):
             obj = form.save(commit=False)
             obj.owner = request.user
             obj.save()
+            form.save_m2m()
             return HttpResponseRedirect(reverse('accounts:index'))
         else:
             self.context['form'] = form
