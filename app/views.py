@@ -1,14 +1,14 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
 from django.utils.decorators import method_decorator
-
 from django.views import generic
 
 from models import Video
 from forms import VideoForm
+from utils import do_the_tags_magic
 
 
 class IndexView(generic.View):
@@ -37,6 +37,9 @@ class UploadView(generic.View):
 
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def post(self, request):
+        tags = do_the_tags_magic(request.POST.get('tags', ''))
+        request.POST['tags'] = tags
+
         form = VideoForm(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save(commit=False)
@@ -63,12 +66,6 @@ class FollowingView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         return render(request, 'app/following.html',)
-
-
-class VideosView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
-    def get(self, request):
-        return render(request, 'app/videos.html',)
 
 
 class AddComment(generic.View):

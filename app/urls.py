@@ -34,12 +34,6 @@ urlpatterns = [
     ),
 
     url(
-        r'^videos/$',
-        views.VideosView.as_view(),
-        name='videos'
-    ),
-
-    url(
         r'^add_comment/$',
         views.AddComment.as_view(),
         name='add_comment'
