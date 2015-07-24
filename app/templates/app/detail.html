@@ -72,18 +72,11 @@
         </div>
 
         <div class="col-md-8">
+            {% for tag in video.tags.all %}
             <a class="btn btn-default btn-xs" href="#">
-                <span class="glyphicon glyphicon-tag"></span> Music
+                <span class="glyphicon glyphicon-tag"></span> {{ tag.tag_text }}
             </a>
-            <a class="btn btn-default btn-xs" href="#">
-                <span class="glyphicon glyphicon-tag"></span> Video
-            </a>
-            <a class="btn btn-default btn-xs" href="#">
-                <span class="glyphicon glyphicon-tag"></span> Audio
-            </a>
-            <a class="btn btn-default btn-xs" href="#">
-                <span class="glyphicon glyphicon-tag"></span> Sound
-            </a>
+            {% endfor %}
         </div>
 
         <div class="col-md-4 pull-right" align="right">
@@ -96,23 +89,3 @@
 
 {% block js %} <script src="{% static 'scripts/detail.js' %}"></script>
 {% endblock %}
-
-
-<!-- <html>
-<head>
-    <title>{{ video }}</title>
-</head>
-<body>
-    <h1>{{ video }}</h1>
-
-    <video src="{{ MEDIA_URL }}{{ video.video }}"></video>
-
-    <p>{{ video.description }}</p>
-    <p>
-        Views: {{ video.views }}<br>
-        Shares: {{ video.shares }}<br>
-        Likes: {{ video.likes }}<br>
-        Dislikes: {{ video.dislikes }}<br>
-    </p>
-</body>
-</html> -->
