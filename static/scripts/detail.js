@@ -26,6 +26,10 @@ $(document).ready(function(){
 	var commentsBar = document.getElementById("users-comments");
 	var userPic = document.getElementById("usercomment");
 
+	var start_clip_btn = document.getElementById("start-clip");
+	var clip_controls = document.getElementById("clip-controls");
+	var cancel_clip_btn = document.getElementById("cancel-clip");
+
 	//Play-Pause Video on clicking the video
 	$(video).on('click', 
 		function() {
@@ -248,5 +252,19 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	$(start_clip_btn).on('click', 
+		function() {
+			clip_controls.style.display = "block";
+			start_clip_btn.style.display = "none";
+		}
+	);
+
+	$(cancel_clip_btn).on('click', 
+		function() {
+			clip_controls.style.display = "none";
+			start_clip_btn.style.display = "block";
+		}
+	);
 
 });

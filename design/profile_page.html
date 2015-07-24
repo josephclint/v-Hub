@@ -61,7 +61,7 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<form id="profile_pic" class="thumbnail col-md-3 col-lg-3" align="center" action="/upload_pic/" method="POST" enctype="multipart/form-data">
+							<form id="profile_pic" class="thumbnail col-md-3 col-lg-3" align="center">
 								<div class="caption btn-group-vertical">
 									<button type="button" class="btn btn-default btn-block btn-lg" data-toggle="modal" data-target="#pp_modal" title="Upload">
 										Upload<span class="glyphicon glyphicon-upload pull-right"></span>
@@ -159,7 +159,7 @@
 			<div class="modal fade" id="pp_modal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
-						<form id="upload_pic" enctype="multipart/form-data" role="form">
+						<form id="upload_pic" enctype="multipart/form-data" role="form" action="/upload_pic/" method="POST">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">
 									<span class="glyphicon glyphicon-remove-sign"></span>

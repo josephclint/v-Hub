@@ -9,11 +9,11 @@ class UserProfile(models.Model):
     )
 
     user = models.OneToOneField(User)
-    picture = models.ImageField(
-        upload_to='profile_pictures',
-        null=True,
-        blank=True
-    )
+    # picture = models.ImageField(
+    #     upload_to='profile_pictures',
+    #     null=True,
+    #     blank=True
+    # )
     gender = models.CharField(
         max_length=2,
         choices=GENDER_CHOICES,

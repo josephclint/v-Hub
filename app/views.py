@@ -69,6 +69,12 @@ class FollowingView(generic.TemplateView):
         return render(request, 'app/following.html',)
 
 
+class VideosView(generic.TemplateView):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def get(self, request):
+        return render(request, 'app/videos.html',)
+
+
 class AddComment(generic.View):
     def post(self, request):
         pass

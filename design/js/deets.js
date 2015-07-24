@@ -26,6 +26,10 @@ $(document).ready(function(){
 	var commentsBar = document.getElementById("users-comments");
 	var userPic = document.getElementById("usercomment");
 
+	var start_clip_btn = document.getElementById("start-clip");
+	var clip_controls = document.getElementById("clip-controls");
+	var cancel_clip_btn = document.getElementById("cancel-clip");
+
 	//Play-Pause Video on clicking the video
 	$(video).on('click', 
 		function() {
@@ -169,16 +173,14 @@ $(document).ready(function(){
 
 			commentTime = video.currentTime / 60;
 
-			cur.innerHTML = (Math.round(curr * 100) / 100).toString().replace(".", ":");
-			dur.innerHTML = (Math.round(durr * 100) / 100).toString().replace(".", ":");
+			cur.innerHTML = parseFloat(Math.round(curr * 100) / 100).toFixed(2).toString().replace(".", ":");
+			dur.innerHTML = parseFloat(Math.round(durr * 100) / 100).toFixed(2).toString().replace(".", ":");
 
 			time_comment.innerHTML = (Math.round(commentTime * 100) / 100).toString().replace(".", ":");
 
 			if (curr == durr) {
 				glyphButton.className = "glyphicon glyphicon-repeat";
 			}
-
-			console.log(curr);
 
 			timehead = video.currentTime / 60;
 			time_of_comment = 0.2;
@@ -242,5 +244,27 @@ $(document).ready(function(){
 	// $().change(function() {
 	// 	
 	// });
+
+	$("#myComment").keypress(function (event) {
+		if (event.keyCode === 13) {
+			$.post('/videos/add_comment', {'time': video.currentTime, 'comment': $(this).val(), 'video': ''}, function () {
+				
+			});
+		}
+	});
+
+	$(start_clip_btn).on('click', 
+		function() {
+			clip_controls.style.display = "block";
+			start_clip_btn.style.display = "none";
+		}
+	);
+
+	$(cancel_clip_btn).on('click', 
+		function() {
+			clip_controls.style.display = "none";
+			start_clip_btn.style.display = "block";
+		}
+	);
 
 });

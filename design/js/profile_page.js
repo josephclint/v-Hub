@@ -38,5 +38,4 @@ $( document ).ready(function() {
  	);
 
  	/*function for uploading profile picture*/
- 	
 });

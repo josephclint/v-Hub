@@ -8,6 +8,7 @@
 		<link rel="shortcut icon" href="images/icon.png">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/home.css" rel="stylesheet">
+		<link href="css/category.css" rel="stylesheet">
 		<link href="css/detail.css" rel="stylesheet">
 
 	</head>
@@ -51,12 +52,13 @@
 	</nav><!--navbar-->
 
 
+
 	<div class="container col-md-8 col-md-offset-2">
 		<div class="video-body">
 
-			<h3>Motivation Speech - Shia LaBeouf</h3>
+			<h3>Title</h3>
 
-			<video id="video" autoplay muted>
+			<video id="video" autoplay>
 				<source src="video.mp4" type="video/mp4">
 			</video>
 
@@ -77,10 +79,10 @@
 			    <div class="conts">
 
 			    	<div class="col-md-1">
-			    		<button type="button" class="btn btn-success btn-circle btn-lg" id="play-pause"><i id="icon" class="glyphicon glyphicon-pause"></i></button>
+			    		<button type="button" class="btn btn-success btn-circle btn-xl" id="play-pause"><i id="icon" class="glyphicon glyphicon-pause"></i></button>
 			    	</div>
 				
-					<div class="col-md-8">
+					<div class="col-md-2" style="padding: 10px 10px 20px 25px;">
 						<div id="vol-controls">
 							<button type="button" id="mute" class="glyphicon glyphicon-volume-up btns"></button>
 							<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
@@ -88,17 +90,41 @@
 						<button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen btns" style="margin-top: 5px;"></button>
 					</div>
 
-					<div class="pull-right" data-toggle="buttons" style="margin-top: 5px;">
-			            <label class="btn btn-sm btn-success">
-			                <input type="radio" name="options" id="option1" autocomplete="off" checked>
-			                <i class="fa fa-check"></i> Start
-			            </label>
-			            <label class="btn btn-sm btn-danger active loading">
-			                <input type="radio" name="options" id="option2" autocomplete="off">
-			                <i class="fa fa-warning"></i> Stop
-			            </label>          
+			        <div class="col-md-6">
+
+			        	<div class="start-clip" align="center" id="start-clip">
+			        		 <button type="button" class="btn btn-success btn-round-lg btn-lg">Start Clipping</button>
+			        	</div>
+
+			        	<div class="clip-controls" id="clip-controls">
+
+				        	<button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-chevron-left"></i></button>
+				        	<button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-chevron-right"></i></button>
+
+				        	<div class="time-clip pull-right">
+				        		Start  <input type="time" name="start_time">
+				        		End  <input type="time" name="end_time">
+				        	</div>
+
+				        	<div class="row" align="center" style="margin-top: 10px;">
+					        	<!-- <a class="btn icon-btn btn-danger btn-xs" id="cancel-clip" href="#" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</a>
+					        	<a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a> -->
+
+					        	<button type="button" class="btn icon-btn btn-danger btn-xs" id="cancel-clip" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</button>
+
+					        	<a class="btn icon-btn btn-primary btn-xs" data-toggle="modal" data-target="#share_clip"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a>
+				        	</div>
+				        </div>
 			        </div>
 			    </div>
+			    <div class="pull-right">
+		            <label style="display: block;">
+		            	<button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-thumbs-up"></i></button> 103,543,875
+		            </label>
+		            <label style="display: block;">
+		                <span class="glyphicon btn-glyphicon btn-circle-xs glyphicon-share-alt share-logo"></span> 103,543,875 
+		            </label>          
+		        </div>
 			</div>
 		</div>
 
@@ -129,12 +155,111 @@
 	    	</a>
 	   	</div>
 
-    	<div class="col-md-4 pull-right" align="right">
-    		<a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a> &nbsp; 
-	
-			<a class="btn icon-btn btn-info btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>Share</a>
+	</div>
+
+	<!--share_clip_modal-->
+	<div class="modal fade" id="share_clip" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove-sign"></span>
+					</button>
+					<h4 class="modal-title">Share clip. . .</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<img class="clip_thumb thumbnail pull-left" src="images/minion.jpg">
+						<h4 class="clip_title">Minions</h4>
+						<time class="pull-right">00:30</time>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	<!--Footer-->
+	<section class="footer">
+		<div class="footer_panel panel-default">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="abt_panel panel-default">
+							<div class="panel-heading">
+								<h3 class="abt_text">About us<span id="icon_ft" class="glyphicon glyphicon-info-sign pull-right">
+								</span></h3>
+							</div>
+							<div id="abt_body" class="panel-body">
+								<p>Vhub description here</p>
+								<div class="abt_btns btn-group-vertical">
+									<button type="button" class="abt_btn btn-lg btn-block">
+										<h5>Creators<span class="glyphicon glyphicon-wrench pull-right"></span></h5>
+									</button>
+									<button type="button" class="abt_btn btn-lg btn-block">
+										<h5>Policy & Safety<span class="glyphicon glyphicon-briefcase pull-right"></span></h5>
+									</button>
+									<button type="button" class="abt_btn btn-lg btn-block">
+										<h5>Terms & Privacy<span class="glyphicon glyphicon-lock pull-right"></span></h5>
+									</button>
+								</div><!--abt_btns-->
+								<hr>
+							</div><!--abt_body-->
+						</div><!--abt_panel-->
+					</div>
+					<div class="col-md-8">
+						<div class="ctc_panel panel-default">
+							<div class="panel-heading">
+								<h3 class="cont_text">Contact us
+								<span id="icon_ft" class="glyphicon glyphicon-phone-alt pull-right"></span>
+								</h3>
+							</div>
+							<div id="cont_body" class="panel-body">
+								<div class="container-fluid">
+									<div class="row">
+										<div id="site_contacts" class="col-md-4"><hr>
+											<h5>
+												<span id="ctc_icon" class="glyphicon glyphicon-phone-alt pull-left"></span>088-221-3232
+											</h5>
+											<h5>
+												<span id="ctc_icon" class="glyphicon glyphicon-envelope pull-left"></span>vhub@gmail.com
+											</h5>
+											<h5>
+												<span id="ctc_icon" class="glyphicon glyphicon-map-marker pull-left"></span>Lahug, Cebu city
+											</h5>
+										</div>
+										<div id="social_site" class="col-md-8"><hr>
+											<div class="text-center center-block">
+												<div class="row">
+													<div id="social_icons" class="col-md-4">
+														<a href="facebook.com/vhub">
+															<img class="social_fb" id="social" src="icons/facebook.png">
+														</a>
+													</div>
+													<div id="social_icons" class="col-md-4">
+														<a href="twitter.com/vhub">
+															<img  class="social_tw" id="social" src="icons/twitter.png">
+														</a>
+													</div>
+													<div id="social_icons" class="col-md-4">
+														<a href="goggle.com/vhub">
+															<img class="social_gp" id="social" src="icons/google.png">
+														</a>
+													</div>
+												</div>
+											</div><!--text-center-->
+										</div><!--social_site-->
+									</div>	
+								</div>
+							</div><!--cont_body-->
+						</div><!--ctc_panel--><hr>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<h6><span class="glyphicon glyphicon-copyright-mark"></span>VHUB</h6>
+			</div>
+		</div>
+	</section><!--footer-->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -48,28 +48,29 @@
                         <div class="profile_pan" style="background-color: white;">
                             <div class="container-fluid" style="background-color: white;">
                                 <div class="panel-body" style="background-color: white;">
-                                    <span class="input-group pull-right" id="vid_search" style="padding-right: 16px;">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" value="submit">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                Sort By <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="">Title</a></li>
-                                                <li><a href="">Duration</a></li>
-                                            </ul>
+                                    <div class="row">
+                                        <span class="input-group pull-right" id="vid_search" style="padding-right: 16px;">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" value="submit">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </button>
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                    Sort By <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li><a href="">Title</a></li>
+                                                    <li><a href="">Duration</a></li>
+                                                </ul>
+                                            </span>
                                         </span>
-                                    </span>
 
-                                    <div class="btn-group btn-lg pull-left" role="group" style="padding-top: 15px;">
-                                        <a type="button" class="btn btn-default" href="{% url 'videos:upload' %}">
-                                            <span class="glyphicon glyphicon-upload"></span> Upload
-                                        </a>
+                                        <div class="btn-group btn-lg pull-left" role="group" style="padding-top: 15px;">
+                                            <a type="button" class="btn btn-default" href="{% url 'videos:upload' %}">
+                                                <span class="glyphicon glyphicon-upload"></span> Upload
+                                            </a>
+                                        </div>
                                     </div>
-
                                     
                                     <!-- loop videos here -->
                                     {% if videos %}
