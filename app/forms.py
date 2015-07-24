@@ -34,7 +34,3 @@ class VideoForm(forms.ModelForm):
                 'class': 'file_input'
             }),
         }
-
-    def save(self, commit=True):
-        self.data['tags'] = self.data['tags'].strip().split(";")
-        return super(VideoForm, self).save(commit=commit)
