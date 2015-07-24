@@ -73,8 +73,9 @@
                                     
                                     <!-- loop videos here -->
                                     {% if videos %}
+                                        <div class="list-group vid_list">
                                         {% for video in videos %}
-                                            <div class="list-group vid_list">
+                                           
                                                 <div class="list-group-item">
                                                     <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
                                                         <span class="glyphicon glyphicon-trash"></span>
@@ -86,8 +87,8 @@
                                                         <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
                                                     </a>
                                                 </div>
-                                            </div>
                                         {% endfor %}
+                                        </div>
                                     {% else %}
                                         <!--For no uploaded videos-->
                                         <div class="jumbotron" style="background-color: white;">
