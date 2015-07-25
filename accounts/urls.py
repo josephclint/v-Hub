@@ -105,4 +105,22 @@ urlpatterns = [
         views.SettingsView.as_view(),
         name='settings'
     ),
+
+    url(
+        r'^profile/edit_firstname/$',
+        views.EditFirstNameView.as_view(),
+        name='profile_edit_firstname'
+    ),
+
+    url(
+        r'^profile/edit_lastname/$',
+        views.EditLastNameView.as_view(),
+        name='profile_edit_lastname'
+    ),
+
+    url(
+        r'^profile/edit_email/$',
+        views.EditEmailView.as_view(),
+        name='profile_edit_email'
+    ),
 ]

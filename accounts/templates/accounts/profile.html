@@ -122,19 +122,24 @@
                             <div class="user_det">
                                 <div class="row names">
                                     <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input id="fn_txt" type="text" class="form-control" value="{{user.first_name}}" disabled>
-                                            <span class="input-group-btn">
-                                                <button id="fn_btn" type="button" class="btn btn-default toggle" 
-                                                data-target="#fn_txt">
-                                                    <span class="glyphicon glyphicon-cog"></span>
-                                                </button>
-                                            </span>
-                                        </div>
+                                        <form action="{% url 'accounts:profile_edit_firstname' %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="input-group">
+                                                    <input id="fn_txt" type="text" class="form-control" name="first_name" value="{{user.first_name}}" disabled>
+                                                    <span class="input-group-btn">
+                                                        <button id="fn_btn" type="button" class="btn btn-default toggle" 
+                                                        data-target="#fn_txt">
+                                                            <span class="glyphicon glyphicon-cog"></span>
+                                                        </button>
+                                                    </span>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="col-md-6">
+                                        <form action="{% url 'accounts:profile_edit_lastname' %}" method="POST">
+                                            {% csrf_token %}
                                         <div class="input-group">
-                                            <input id="ln_txt" type="text" class="form-control" value="{{user.last_name}}" disabled>
+                                            <input id="ln_txt" type="text" class="form-control" name="last_name" value="{{user.last_name}}" disabled>
                                             <span class="input-group-btn">
                                                 <button id="ln_btn" type="button" class="btn btn-default toggle" 
                                                 data-target="#ln_txt">
@@ -142,6 +147,7 @@
                                                 </button>
                                             </span>
                                         </div>
+                                        </form>
                                     </div>
                                 </div><!--row names-->
                                 <div class="row dob_gen">
@@ -163,15 +169,18 @@
                                 </div><!--row dob_gen-->
                                 <div class="row email">
                                     <div class="col-md-12">
+                                    <form action="{% url 'accounts:profile_edit_email' %}" method="POST">
+                                            {% csrf_token %}
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                            <input id="email_bar" type="email" value="{{user.email}}" class="form-control" disabled>
+                                            <input id="email_bar" type="email" name="email" value="{{user.email}}" class="form-control" disabled>
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-default toggle" data-target="#email_bar">
                                                     <span class="glyphicon glyphicon-cog"></span>
                                                 </button>
                                             </span> 
                                         </div>
+                                        </form>
                                     </div>
                                 </div>  
                             </div><!--user_det-->

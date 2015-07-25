@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.contrib.auth import views as auth_views, authenticate, login
+from django.contrib.auth import views as authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.views import generic
@@ -106,3 +106,36 @@ class DisableAccountView(generic.TemplateView):
     def get(self, request):
         request.user.delete()
         return render(request, 'accounts/account_disabled.html',)
+
+
+class EditFirstNameView(generic.View):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def post(self, request):
+        first_name = request.POST.get('first_name', None)
+        if first_name is not None:
+            user = request.user
+            user.first_name = first_name
+            user.save()
+        return redirect('/profile')
+
+
+class EditLastNameView(generic.View):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def post(self, request):
+        last_name = request.POST.get('last_name', None)
+        if last_name is not None:
+            user = request.user
+            user.last_name = last_name
+            user.save()
+        return redirect('/profile')
+
+
+class EditEmailView(generic.View):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def post(self, request):
+        email = request.POST.get('email', None)
+        if email is not None:
+            user = request.user
+            user.email = email
+            user.save()
+        return redirect('/profile')
