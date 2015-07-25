@@ -152,18 +152,27 @@
                                 </div><!--row names-->
                                 <div class="row dob_gen">
                                     <div class="col-md-6">
-                                        <label class="gen_label"><h4>Gender</h4></label>
+                                        <label class="gen_label"><h4>Gender : {{ user.userprofile.get_verbose_gender }}</h4></label>
+                                        {% if user.userprofile.gender %}
                                         <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="m_rad" value="Male"> Male
+                                            <input type="radio" name="inlineRadioOptions" id="m_rad" value="Male" checked disabled> Male
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="f_rad" value="Female"> Female
+                                            <input type="radio" name="inlineRadioOptions" id="f_rad" value="Female" disabled> Female
                                         </label>
+                                        {% else %}
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="m_rad" value="Male" disabled> Male
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="f_rad" value="Female" checked disabled> Female
+                                        </label>
+                                        {% endif %}
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">Date of Birth</span>
-                                            <input id="dob_pan" type="date" name="dob" class="form-control" min="1920-01-01">
+                                            <input id="dob_pan" type="date" name="birthday" class="form-control" min="1920-01-01" value="{{ user.userprofile.birthday | date:"c" }}">
                                         </div>
                                     </div>
                                 </div><!--row dob_gen-->
