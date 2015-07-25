@@ -12,7 +12,7 @@ class UserProfileInline(admin.StackedInline):
 
 class UserAdmin(admin.ModelAdmin):
     fieldsets = (
-        ('Account Information', {'fields': ['username', 'email']}),
+        ('Account Information', {'fields': ['username', 'password', 'email']}),
         ('Personal Information', {'fields': ['first_name', 'last_name']})
     )
 
