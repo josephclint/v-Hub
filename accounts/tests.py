@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+import datetime
+
 HTTP_OK = 200
 HTTP_FOUND = 302
 
@@ -16,6 +18,8 @@ class UserRoutineTests(TestCase):
         clazz.user_first_name = 'test_first_name'
         clazz.user_last_name = 'test_last_name'
         clazz.user_email = 'test@test.com'
+        clazz.birthday = '7/7/1996'
+        clazz.gender = 'M'
 
     def test_user_registration_should_work_with_correct_inputs(self):
         # browse to the registration page
@@ -31,7 +35,9 @@ class UserRoutineTests(TestCase):
                 'password2': self.user_password,
                 'email': self.user_email,
                 'first_name': self.user_first_name,
-                'last_name': self.user_last_name
+                'last_name': self.user_last_name,
+                'birthday': self.birthday,
+                'gender': self.gender
             },
             follow=True
         )
@@ -69,10 +75,7 @@ class UserRoutineTests(TestCase):
 
         # make sure it successfully logged the test user in
         self.assertTrue(response.context['request'].user.is_authenticated())
-
-    def test_user_login_should_not_work_with_nonexistent_user(self):
-        pass
-
+        
     def test_user_logout_should_work(self):
         # create the test user
         User.objects.create_user(
