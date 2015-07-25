@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
-from django.core.urlresolvers import reverse_lazy
 
 from . import views
 
@@ -27,8 +26,7 @@ urlpatterns = [
 
     url(
         r'^password_change/$',
-        auth_views.password_change,
-        {'post_change_redirect': reverse_lazy('accounts:settings')},
+        views.ChangePasswordView.as_view(),
         name='password_change',
     ),
 

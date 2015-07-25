@@ -84,7 +84,24 @@ $( document ).ready(function() {
     $('#change-password-form').on('submit', function (event) {
         var form = $(this);
         $.post(form.attr('action'), form.serialize(), function (response) {
-            $('#save_pw').modal('show');
+            if (response.success === false) {
+                var string = "<ul>";
+                $.each(response.errors, function (key, itemValue) {
+                    $.each(itemValue, function (index, value) {
+                        string += "<li>" + value + "</li>";
+                    });
+                });
+                $('#password-change-alert').removeClass('alert-success');
+                $('#password-change-alert').addClass('alert-danger');
+                $('#password-change-alert').html('<strong>Errors</strong>' + string + '</ul>');
+                $('#password-change-alert').show();
+            } else {
+                $('#password-change-alert').removeClass('alert-danger');
+                $('#password-change-alert').addClass('alert-success');
+                $('#password-change-alert').html('<strong>Success!</strong> You successfully changed your password!');
+                $('#password-change-alert').show();
+                $('input[type="password"]').val('');
+            }
         });
         event.preventDefault();
     });

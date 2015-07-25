@@ -1,8 +1,12 @@
 from django.conf import settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.http import HttpResponseRedirect
+from django.http import (
+    HttpResponseRedirect, HttpResponseForbidden,
+    JsonResponse
+)
 from django.shortcuts import render, redirect
 from django.utils.dateparse import parse_date
 from django.utils.decorators import method_decorator
@@ -141,3 +145,21 @@ class EditBirthdayView(generic.View):
             user.birthday = parse_date(birthday)
             user.save()
         return redirect('/profile')
+
+
+class ChangePasswordView(generic.View):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def post(self, request):
+        if request.is_ajax():
+            form = PasswordChangeForm(user=request.user, data=request.POST)
+            if form.is_valid():
+                form.save()
+                update_session_auth_hash(request, form.user)
+                return JsonResponse({'success': True})
+            else:
+                return JsonResponse({'success': False, 'errors': form.errors})
+        else:
+            return HttpResponseForbidden()
+
+    def get(self, request):
+        return JsonResponse({'success': True})
