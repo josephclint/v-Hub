@@ -22,5 +22,11 @@ class UserProfile(models.Model):
     )
     birthday = models.DateField(blank=True, null=True)
 
+    def get_verbose_gender(self):
+        for gender in self.GENDER_CHOICES:
+            if gender[0] == self.gender:
+                return gender[1]
+        return 'X'  # this should not happen
+
     def __unicode__(self):
         return self.user.username
