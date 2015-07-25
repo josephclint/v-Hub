@@ -89,12 +89,6 @@ urlpatterns = [
     ),
 
     url(
-        r'^profile/edit/$',
-        views.EditProfileView.as_view(),
-        name='edit_profile'
-    ),
-
-    url(
         r'^deactivate/$',
         views.DisableAccountView.as_view(),
         name='deactivate'
