@@ -295,4 +295,13 @@ h3 {
 .clip_thumb {
 	width: 200px;
 	height: 100px; 
+	margin-right: 10px; 
+}
+
+.clip_title {
+	margin-top: 35px;   
+}
+
+.clip_time {
+	margin-top: 40px;  
 }
