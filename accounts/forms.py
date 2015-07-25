@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from models import UserProfile
@@ -56,6 +55,26 @@ class UserSignupForm(UserCreationForm):
         widget=forms.TextInput(attrs=attributes)
     )
 
+    attributes['placeholder'] = 'Gender'
+    gender = forms.CharField(
+        required=True,
+        label=_("Gender"),
+        widget=forms.Select(
+            attrs=attributes,
+            choices=UserProfile.GENDER_CHOICES
+        )
+    )
+
+    attributes['placeholder'] = 'Birthday'
+    attributes['type'] = 'date'
+    birthday = forms.DateField(
+        required=True,
+        label=_("Birthday"),
+        widget=forms.DateInput(
+            attrs=attributes
+        )
+    )
+
     def save(self, commit=True):
         user = super(UserSignupForm, self).save(commit=commit)
         user.email = self.cleaned_data['email']
@@ -63,13 +82,8 @@ class UserSignupForm(UserCreationForm):
         user.last_name = self.cleaned_data['last_name']
         user.save()
 
-
-class UpdateProfileForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = (
-            'username',
-            'email',
-            'first_name',
-            'last_name',
-        )
+        profile = UserProfile()
+        profile.birthday = self.cleaned_data['birthday']
+        profile.gender = self.cleaned_data['gender']
+        profile.user = user
+        profile.save()

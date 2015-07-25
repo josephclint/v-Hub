@@ -1,16 +1,16 @@
 from django.conf import settings
-from django.contrib.auth import views as authenticate, login
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.utils.dateparse import parse_date
 from django.utils.decorators import method_decorator
 from django.views import generic
 
 from app import views as app_views
 from sitemap import views as sitemap_views
-from forms import UserSignupForm, UpdateProfileForm
-from models import User  # UserProfile
+from forms import UserSignupForm
 
 
 def anonymous_required(function):
@@ -37,13 +37,14 @@ class SignupView(generic.View):
         form = UserSignupForm(request.POST)
         if form.is_valid():
             form.save()
-            request.session['post_register_user'] = form.cleaned_data
 
-            user = authenticate(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password1']
-            )
+            # data = form.cleaned_data
+            # request.session['post_register_user'] = data
 
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+
+            user = authenticate(username=username, password=password)
             login(request, user)
 
             return HttpResponseRedirect(reverse('accounts:post_register'))
@@ -79,16 +80,6 @@ class UserProfileView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         return render(request, 'accounts/profile.html',)
-
-
-class EditProfileView(generic.UpdateView):
-    model = User
-    form_class = UpdateProfileForm
-    template_name = "accounts/edit_profile.html"
-    success_url = '/profile'
-
-    def get_object(self, queryset=None):
-        return self.request.user
 
 
 class LogOutView(generic.TemplateView):
@@ -137,5 +128,16 @@ class EditEmailView(generic.View):
         if email is not None:
             user = request.user
             user.email = email
+            user.save()
+        return redirect('/profile')
+
+
+class EditBirthdayView(generic.View):
+    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+    def post(self, request):
+        birthday = request.POST.get('birthday', None)
+        if birthday is not None:
+            user = request.user
+            user.birthday = parse_date(birthday)
             user.save()
         return redirect('/profile')
