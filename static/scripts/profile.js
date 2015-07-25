@@ -40,8 +40,6 @@ $( document ).ready(function() {
  		}
  	);
 
-    $("#save_password").attr('disabled', true);
-
     $('.form-group > input').keyup(function() {
         var empty = false;
         $('.form-group > input').each(function() {
@@ -81,5 +79,13 @@ $( document ).ready(function() {
             }
             
         });
+    });
+
+    $('#change-password-form').on('submit', function (event) {
+        var form = $(this);
+        $.post(form.attr('action'), form.serialize(), function (response) {
+            $('#save_pw').modal('show');
+        });
+        event.preventDefault();
     });
 });
