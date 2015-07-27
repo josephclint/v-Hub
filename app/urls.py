@@ -34,9 +34,9 @@ urlpatterns = [
     ),
 
     url(
-        r'^videos/$',
-        views.VideosView.as_view(),
-        name='videos'
+        r'^tags/([A-Za-z0-9]+)/$',
+        views.TagVideosView.as_view(),
+        name='tag_videos'
     ),
 
     url(

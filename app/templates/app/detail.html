@@ -12,9 +12,8 @@
 
             <h3>{{ video.title }}</h3>
 
-            <video id="video" autoplay muted>
-                <source src="{{ MEDIA_URL }}{{ video.video }}" type="video/mp4">
-                <!-- <source src="{% static 'video/video.mp4' %}" type="video/mp4"> -->
+            <video id="video" src="{{ video.video.url }}" autoplay muted>
+                <!-- <source src="{{ MEDIA_URL }}{{ video.video }}" type="video/mp4"> -->
             </video>
 
             <div id="vid-control">
@@ -74,10 +73,10 @@
                 </div>
                 <div class="pull-right">
                     <label style="display: block;">
-                        <button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-thumbs-up"></i></button> 103,543,875
+                        <button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-thumbs-up"></i></button> {{ video.like_set.count }}
                     </label>
                     <label style="display: block;">
-                        <span class="glyphicon btn-glyphicon btn-circle-xs glyphicon-share-alt share-logo"></span> 103,543,875 
+                        <span class="glyphicon btn-glyphicon btn-circle-xs glyphicon-share-alt share-logo"></span> {{ video.share_set.count }} 
                     </label>          
                 </div>
             </div>
@@ -97,7 +96,7 @@
 
         <div class="col-md-8">
             {% for tag in video.tags.all %}
-            <a class="btn btn-default btn-xs" href="#">
+            <a class="btn btn-default btn-xs" href="{% url 'videos:tag_videos' tag.tag_text %}">
                 <span class="glyphicon glyphicon-tag"></span> {{ tag.tag_text }}
             </a>
             {% endfor %}
