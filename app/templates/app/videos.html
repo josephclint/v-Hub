@@ -19,21 +19,21 @@
                         <div class="row overview">
                             <div class="container-fluid">
                                 <div class="btn-group btn-group-justified col-md-8 col-xs-12" role="group"> 
-                                    <div class="btn-group" role"group">
+                                    <div class="btn-group" role="group">
                                         <a href="{% url 'videos:index' %}">
-                                            <button type="button" class="overview_btn btn-default btn-block"id="noborderbtn">
-                                                <h3 class="active">Videos</h3><h4 class="active">20</h4>
+                                            <button type="button" class="overview_btn btn-default btn-block" id="noborderbtn">
+                                                <h3 class="active">Videos</h3><h4 class="active">{{ user.video_set.count }}</h4>
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="btn-group" role"group">
+                                    <div class="btn-group" role="group">
                                         <a href="{% url 'videos:followers' %}">
                                             <button type="button" class="overview_btn btn-default btn-block" id="lrborderbtn">
                                                 <h3>Followers</h3><h4>20</h4>
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="btn-group" role"group">
+                                    <div class="btn-group" role="group">
                                         <a href="{% url 'videos:following' %}">
                                             <button type="button" class="overview_btn btn-default btn-block" id="noborderbtn">
                                                 <h3>Following</h3><h4>20</h4>
