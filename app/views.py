@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
 from models import Video, Tag, Category
@@ -82,20 +82,17 @@ class TagVideosView(generic.ListView):
 class CategoryVideosView(generic.ListView):
     template_name = 'app/category_video_list.html'
     context_object_name = 'videos'
-    category = None
 
     def get_queryset(self):
-        try:
-            arg = self.args[0].replace('-', ' ').replace(' and ', ' & ')
-            category = Category.objects.get(category_text__iexact=arg)
-            self.category = category
-            return category.video_set.all()
-        except Category.DoesNotExist:
-            return []
+        arg = self.args[0].replace('-', ' ').replace(' and ', ' & ')
+        category = get_object_or_404(Category, category_text__iexact=arg)
+        return category.video_set.all()
 
     def get_context_data(self, **kwargs):
+        arg = self.args[0].replace('-', ' ').replace(' and ', ' & ')
+        category = get_object_or_404(Category, category_text__iexact=arg)
         context = super(CategoryVideosView, self).get_context_data(**kwargs)
-        context['category'] = self.category
+        context['category'] = category
         return context
 
 
