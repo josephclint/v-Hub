@@ -4,6 +4,20 @@ from __future__ import unicode_literals
 from django.db import models, migrations
 from django.conf import settings
 
+INITIAL_CATEGORIES = (
+    'Science & Technology',
+    'Music',
+    'News & Politics',
+    'Education',
+    'Entertainment',
+)
+
+
+def populate_categories(apps, schema_editor):
+    Category = apps.get_model("app", "Category")
+    for category in INITIAL_CATEGORIES:
+        Category.objects.create(category_text=category)
+
 
 class Migration(migrations.Migration):
 
@@ -109,4 +123,5 @@ class Migration(migrations.Migration):
             name='video',
             field=models.ForeignKey(to='app.Video'),
         ),
+        migrations.RunPython(populate_categories),
     ]
