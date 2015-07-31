@@ -351,3 +351,23 @@ h3 {
 	display: none;
 	position: absolute;
 }
+
+.btn-circle-xss {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  color: white;
+  background-color: red;
+  border: 2px solid white;
+  margin-right: 10px;
+}
+
+.btn-circle-xss:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid  red;
+}
