@@ -20,23 +20,23 @@
 					        <div class="container-fluid">
 					            <div class="btn-group btn-group-justified col-md-8 col-xs-12" role="group"> 
 					                <div class="btn-group" role"group">
-					                	<a href="{% url 'videos:videos' %}">
+					                	<a href="{% url 'accounts:index' %}">
 						                    <button type="button" class="overview_btn btn-default btn-block"id="noborderbtn">
-						                        <h3>Videos</h3><h4>20</h4>
+						                        <h3>Videos</h3><h4>{{ user.video_set.count }}</h4>
 						                    </button>
 						                </a>
 					                </div>
 					                <div class="btn-group" role"group">
 					                    <a href="{% url 'videos:followers' %}">
 					                        <button type="button" class="overview_btn btn-default btn-block" id="lrborderbtn">
-					                            <h3>Followers</h3><h4>20</h4>
+					                            <h3>Followers</h3><h4>{{ user.followers.count }}</h4>
 					                        </button>
 					                    </a>
 					                </div>
 					                <div class="btn-group" role"group">
 					                    <a href="{% url 'videos:following' %}">
 					                        <button type="button" class="overview_btn btn-default btn-block" id="noborderbtn">
-					                            <h3 class="active">Following</h3><h4 class="active">20</h4>
+					                            <h3 class="active">Following</h3><h4 class="active">{{ user.following.count }}</h4>
 					                        </button>
 					                    </a>
 					                </div>
@@ -49,87 +49,28 @@
 							<div class="container-fluid">
 								<div class="panel-body">
 									<!-- loop followers here -->
+									{% if user.following.count %}
 									<ul class="thumbnails" style="list-style-type:none; padding-left:0;">
+										{% for following in user.following.all %}
 										<li class="span4 clearfix col-md-4">
 											<div class="thumbnail clearfix">
 												<a href="#">
-													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
+													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{ following.first_name }}" class="pull-left span2 clearfix" >
 												</a>
 												<div class="caption" class="pull-left">
 													<a href="#" class="btn btn-success icon  pull-right">Following</a>
 													<h4>      
-														<a href="#" >Following 1</a>
+														<a href="#" >{{ following.first_name }} {{ following.last_name }}</a>
 													</h4>  
 												</div>
 											</div>
 										</li>
-										<li class="span4 clearfix col-md-4">
-											<div class="thumbnail clearfix">
-												<a href="#">
-													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
-												</a>
-												<div class="caption" class="pull-left">
-													<a href="#" class="btn btn-success icon  pull-right">Following</a>
-													<h4>      
-														<a href="#" >Following 2</a>
-													</h4>  
-												</div>
-											</div>
-										</li>
-										<li class="span4 clearfix col-md-4">
-											<div class="thumbnail clearfix">
-												<a href="#">
-													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
-												</a>
-												<div class="caption" class="pull-left">
-													<a href="#" class="btn btn-success icon  pull-right">Following</a>
-													<h4>      
-														<a href="#" >Following 3</a>
-													</h4>  
-												</div>
-											</div>
-										</li>
-										<li class="span4 clearfix col-md-4">
-											<div class="thumbnail clearfix">
-												<a href="#">
-													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
-												</a>
-												<div class="caption" class="pull-left">
-													<a href="#" class="btn btn-success icon  pull-right">Following</a>
-													<h4>      
-														<a href="#" >Following 4</a>
-													</h4>  
-												</div>
-											</div>
-										</li>
-										<li class="span4 clearfix col-md-4">
-											<div class="thumbnail clearfix">
-												<a href="#">
-													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
-												</a>
-												<div class="caption" class="pull-left">
-													<a href="#" class="btn btn-success icon  pull-right">Following</a>
-													<h4>      
-														<a href="#" >Following 5</a>
-													</h4>  
-												</div>
-											</div>
-										</li>
-										<li class="span4 clearfix col-md-4">
-											<div class="thumbnail clearfix">
-												<a href="#">
-													<img id="propic" src="{% static 'icons/profile.png' %}" alt="{{user.username}}" class="pull-left span2 clearfix" >
-												</a>
-												<div class="caption" class="pull-left">
-													<a href="#" class="btn btn-success icon  pull-right">Following</a>
-													<h4>      
-														<a href="#" >Following 6</a>
-													</h4>  
-												</div>
-											</div>
-										</li>
+										{% endfor %}
 						            </ul>
 									<!-- end loop here -->
+									{% else %}
+										<h3 style="text-align: center;">You should start to follow other users.</h3>
+									{% endif %}
 								</div>
 							</div>
 						</div>

@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import (
     HttpResponseRedirect, HttpResponseForbidden,
@@ -84,6 +85,11 @@ class UserProfileView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         return render(request, 'accounts/profile.html',)
+
+
+class ProfileView(generic.DetailView):
+    model = User
+    template_name = 'accounts/profile.html'
 
 
 class LogOutView(generic.TemplateView):

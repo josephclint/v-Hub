@@ -9,11 +9,11 @@ class UserProfile(models.Model):
     )
 
     user = models.OneToOneField(User)
-    # picture = models.ImageField(
-    #     upload_to='profile_pictures',
-    #     null=True,
-    #     blank=True
-    # )
+    picture = models.ImageField(
+        upload_to='profile_pictures',
+        null=True,
+        blank=True,
+    )
     gender = models.CharField(
         max_length=2,
         choices=GENDER_CHOICES,
@@ -21,6 +21,9 @@ class UserProfile(models.Model):
         null=True
     )
     birthday = models.DateField(blank=True, null=True)
+
+    following = models.ManyToManyField(User, related_name='following')
+    followers = models.ManyToManyField(User, related_name='followers')
 
     def get_verbose_gender(self):
         for gender in self.GENDER_CHOICES:
