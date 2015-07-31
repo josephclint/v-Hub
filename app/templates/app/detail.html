@@ -7,101 +7,279 @@
 {% block link %}  <link href="{% static 'styles/detail.css' %}" rel="stylesheet"> {% endblock %} 
 
 {% block body %}
+    <!--<div class="container col-md-8 col-md-offset-2">-->
+        <!--<div class="video-body">-->
+
+            <!--<h3>{{ video.title }}</h3>-->
+
+            <!--<video id="video" src="{{ video.video.url }}" autoplay muted>-->
+                <!--&lt;!&ndash; <source src="{{ MEDIA_URL }}{{ video.video }}" type="video/mp4"> &ndash;&gt;-->
+            <!--</video>-->
+
+            <!--<div id="vid-control">-->
+
+                <!--<input type="range" id="seek-bar" value="0">-->
+
+                <!--<div id="users-comments">-->
+                    <!--<img id="usercomment" src="{% static 'icons/profile.png' %}" class="small-icons-comments" data-toggle="tooltip" data-placement="top" title="COMMENT">-->
+                <!--</div>-->
+
+                <!--<div class="pull-right">-->
+                    <!--<div class="time" id="cur">0:00</div> -->
+                    <!--<div id="cur">/</div>-->
+                    <!--<div class="time" id="dur">0:00</div>-->
+                <!--</div>-->
+
+                <!--<div class="conts">-->
+
+                    <!--<div class="col-md-1">-->
+                        <!--<button type="button" class="btn btn-success btn-circle btn-xl" id="play-pause"><i id="icon" class="glyphicon glyphicon-pause"></i></button>-->
+                    <!--</div>-->
+                <!---->
+                    <!--<div class="col-md-2" style="padding: 10px 10px 20px 25px;">-->
+                        <!--<div id="vol-controls">-->
+                            <!--<button type="button" id="mute" class="glyphicon glyphicon-volume-up btns"></button>-->
+                            <!--<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">-->
+                        <!--</div>-->
+                        <!--<button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen btns" style="margin-top: 5px;"></button>-->
+                    <!--</div>-->
+
+                    <!--<div class="col-md-6">-->
+
+                        <!--<div class="start-clip" align="center" id="start-clip">-->
+                             <!--<button type="button" class="btn btn-success btn-round-lg btn-lg">Start Clipping</button>-->
+                        <!--</div>-->
+
+                        <!--<div class="clip-controls" id="clip-controls">-->
+
+                            <!--<button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-chevron-left"></i></button>-->
+                            <!--<button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-chevron-right"></i></button>-->
+
+                            <!--<div class="time-clip pull-right">-->
+                                <!--Start  <input type="time" name="start_time">-->
+                                <!--End  <input type="time" name="end_time">-->
+                            <!--</div>-->
+
+                            <!--<div class="row" align="center" style="margin-top: 10px;">-->
+                                <!--&lt;!&ndash; <a class="btn icon-btn btn-danger btn-xs" id="cancel-clip" href="#" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</a>-->
+                                <!--<a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a> &ndash;&gt;-->
+
+                                <!--<button type="button" class="btn icon-btn btn-danger btn-xs" id="cancel-clip" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</button>-->
+
+                                <!--<a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="pull-right">-->
+                    <!--<label style="display: block;">-->
+                        <!--<button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-thumbs-up"></i></button> {{ video.like_set.count }}-->
+                    <!--</label>-->
+                    <!--<label style="display: block;">-->
+                        <!--<span class="glyphicon btn-glyphicon btn-circle-xs glyphicon-share-alt share-logo"></span> {{ video.share_set.count }} -->
+                    <!--</label>          -->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="comment-section">-->
+            <!--<div class="widget-area no-padding blank">-->
+                <!--<img src="{% static 'icons/profile.png' %}" class="img-responsive propic pull-left">-->
+                <!--<div class="status-upload">-->
+                    <!--<form method="GET">-->
+                        <!--<input id="myComment" placeholder="Write a comment..." rows="1" maxlength="100"></input>-->
+                        <!--<div class="ctime" id="com-time">0:00</div> -->
+                    <!--</form>-->
+                <!--</div>&lt;!&ndash; Status Upload  &ndash;&gt;-->
+            <!--</div>&lt;!&ndash; Widget Area &ndash;&gt;-->
+        <!--</div>-->
+
+        <!--<div class="col-md-8">-->
+            <!--{% for tag in video.tags.all %}-->
+            <!--<a class="btn btn-default btn-xs" href="{% url 'videos:tag_videos' tag.tag_text %}">-->
+                <!--<span class="glyphicon glyphicon-tag"></span> {{ tag.tag_text }}-->
+            <!--</a>-->
+            <!--{% endfor %}-->
+        <!--</div>-->
+    <!--</div>-->
+
     <div class="container col-md-8 col-md-offset-2">
-        <div class="video-body">
+		<div class="video-body">
 
-            <h3>{{ video.title }}</h3>
+			<h3>{{ video.title }}</h3>
 
-            <video id="video" src="{{ video.video.url }}" autoplay muted>
-                <!-- <source src="{{ MEDIA_URL }}{{ video.video }}" type="video/mp4"> -->
+			<video id="video" src="{{ video.video.url }}" autoplay >
+                <source src="{{ MEDIA_URL }}{{ video.video }}" type="video/mp4">
             </video>
 
-            <div id="vid-control">
+			<div id="vid-control">
 
-                <input type="range" id="seek-bar" value="0">
+				<div id="markings" style="padding-bottom: 20px;">
+					<div id="startmarker" class="start">
+						<i class="glyphicon glyphicon-chevron-left"></i>
+					</div>
+					<div id="endmarker" class="end">
+						<i class="glyphicon glyphicon-chevron-right"></i>
+					</div>
+				</div>
 
-                <div id="users-comments">
-                    <img id="usercomment" src="{% static 'icons/profile.png' %}" class="small-icons-comments" data-toggle="tooltip" data-placement="top" title="COMMENT">
-                </div>
+				<input type="range" id="seek-bar" value="0">
 
-                <div class="pull-right">
-                    <div class="time" id="cur">0:00</div> 
-                    <div id="cur">/</div>
-                    <div class="time" id="dur">0:00</div>
-                </div>
+				<div id="users-comments" style="margin-bottom: 30px;">
+					<!-- <div class="user-img">
+						<img id="usercomment" src="icons/profile.png" class="small-icons-comments" data-toggle="tooltip" data-placement="top" title="COMMENT">
+					</div> -->
 
-                <div class="conts">
 
-                    <div class="col-md-1">
-                        <button type="button" class="btn btn-success btn-circle btn-xl" id="play-pause"><i id="icon" class="glyphicon glyphicon-pause"></i></button>
-                    </div>
-                
-                    <div class="col-md-2" style="padding: 10px 10px 20px 25px;">
-                        <div id="vol-controls">
-                            <button type="button" id="mute" class="glyphicon glyphicon-volume-up btns"></button>
-                            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-                        </div>
-                        <button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen btns" style="margin-top: 5px;"></button>
-                    </div>
+					<div class="col-sm-1" style="padding: 0px; display: inline; position: absolute;" id="usercomment">
+						<div class="thumbnail small">
+							<img class="img-responsive user-photo" src="{% static 'icons/profile.png' %}" data-toggle="popover" data-placement="top" data-content="This is my Comment!">
+						</div>
+					</div>
 
-                    <div class="col-md-6">
+					<div class="col-sm-1" style="padding: 0px; display: inline; position: absolute;" id="usercomment1">
+						<div class="thumbnail small">
+							<img class="img-responsive user-photo" src="{% static 'icons/profile.png' %}" data-toggle="popover two" data-placement="top" data-content="This is my OTHER Comment!">
+						</div>
+					</div>
+				</div>
 
-                        <div class="start-clip" align="center" id="start-clip">
-                             <button type="button" class="btn btn-success btn-round-lg btn-lg">Start Clipping</button>
-                        </div>
+				<div class="pull-right">
+					<div class="time" id="cur">0:00</div>
+					<div id="cur">/</div>
+			    	<div class="time" id="dur">0:00</div>
+			    </div>	<br>
 
-                        <div class="clip-controls" id="clip-controls">
+			    <div class="conts">
 
-                            <button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-chevron-left"></i></button>
-                            <button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-chevron-right"></i></button>
+			    	<div class="col-md-1">
+			    		<button type="button" class="btn btn-success btn-circle btn-xl" id="play-pause"><i id="icon" class="glyphicon glyphicon-pause"></i></button>
+			    	</div>
 
-                            <div class="time-clip pull-right">
-                                Start  <input type="time" name="start_time">
-                                End  <input type="time" name="end_time">
-                            </div>
+					<div class="col-md-2" style="padding: 10px 10px 20px 25px; margin-left: 20px;">
+						<!-- <div id="vol-controls">
+							<button type="button" id="mute" class="glyphicon glyphicon-volume-up btns"></button>
+							<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+						</div> -->
 
-                            <div class="row" align="center" style="margin-top: 10px;">
-                                <!-- <a class="btn icon-btn btn-danger btn-xs" id="cancel-clip" href="#" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</a>
-                                <a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a> -->
+						<!-- <button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen btns" style="margin-top: 5px;"></button> -->
 
-                                <button type="button" class="btn icon-btn btn-danger btn-xs" id="cancel-clip" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</button>
+						<table class="table">
+							<tr id="vol-controls">
+								<td style="border-top: none; padding: 0px;">
+									<button type="button" id="mute" class="glyphicon glyphicon-volume-up btns"></button>
+								</td>
+								<td style="border-top: none; padding: 0px;">
+									<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+								</td>
+							</tr>
+							<tr>
+								<td style="border-top: none; padding: 0px;">
+									<button type="button" id="full-screen" class="glyphicon glyphicon-fullscreen btns" style="margin-top: 5px;"></button>
+								</td>
+							</tr>
+						</table>
+					</div>
 
-                                <a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pull-right">
-                    <label style="display: block;">
-                        <button type="button" class="btn btn-default btn-circle-xs"><i class="glyphicon glyphicon-thumbs-up"></i></button> {{ video.like_set.count }}
-                    </label>
-                    <label style="display: block;">
-                        <span class="glyphicon btn-glyphicon btn-circle-xs glyphicon-share-alt share-logo"></span> {{ video.share_set.count }} 
-                    </label>          
-                </div>
-            </div>
-        </div>
+			        <div class="col-md-6">
 
-        <div class="comment-section">
-            <div class="widget-area no-padding blank">
-                <img src="{% static 'icons/profile.png' %}" class="img-responsive propic pull-left">
-                <div class="status-upload">
-                    <form method="GET">
-                        <input id="myComment" placeholder="Write a comment..." rows="1" maxlength="100"></input>
-                        <div class="ctime" id="com-time">0:00</div> 
-                    </form>
-                </div><!-- Status Upload  -->
-            </div><!-- Widget Area -->
-        </div>
+			        	<div class="start-clip" align="center" id="start-clip">
+			        		 <button type="button" class="btn btn-success btn-round-lg btn-lg">Start Clipping</button>
+			        	</div>
 
-        <div class="col-md-8">
-            {% for tag in video.tags.all %}
+			        	<div class="clip-controls" id="clip-controls">
+
+			        		<table class="table" style="width:100%;">
+								<tr>
+									<td class="pull-right" style="border-top: none; padding: 3px;">
+										<button type="button" class="btn btn-default btn-circle-xs" id="start-clip-btn"><i class="glyphicon glyphicon-chevron-left"></i></button>
+									</td>
+									<td style="border-top: none; padding: 3px;">
+										<button type="button" class="btn btn-default btn-circle-xs" id="end-clip-btn"><i class="glyphicon glyphicon-chevron-right"></i></button>
+									</td>
+								</tr>
+								<tr align="center">
+									<td style="border-top: none; padding: 3px;">
+										<label> Start </label>
+									</td>
+									<td style="border-top: none; padding: 3px;">
+										<label> End </label>
+									</td>
+								</tr>
+								<tr align="center">
+									<td style="border-top: none; padding: 3px;">
+										<input type="text" id="start_time" disabled>
+									</td>
+									<td style="border-top: none; padding: 3px;">
+										<input type="text" id="end_time" disabled>
+									</td>
+								</tr>
+								<tr>
+									<td style="border-top: none; padding: 3px;">
+										<button type="button" class="btn icon-btn btn-danger btn-xs pull-right" id="cancel-clip" style="margin-right: 15px;"><span class="glyphicon btn-glyphicon glyphicon-remove img-circle text-danger"></span>Cancel</button>
+									</td>
+									<td style="border-top: none; padding: 3px; padding-left: 10px;">
+										<a class="btn icon-btn btn-primary btn-xs" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-primary"></span>Share!</a>
+									</td>
+								</tr>
+							</table>
+				        </div>
+			        </div>
+			        <div class="col-md-4" style="padding-right: 0px;">
+
+			        	<table class="table">
+							<tr class="pull-right">
+								<td style="border-top: none; padding: 3px;">
+									<button type="button" class="btn btn-default btn-circle-xs pull-right"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+								</td>
+								<td style="border-top: none; padding: 3px;">
+									<label>103,543,875</label>
+								</td>
+							</tr>
+							<tr class="pull-right">
+								<td style="border-top: none; padding: 3px;">
+									<span class="glyphicon btn-glyphicon btn-circle-xs glyphicon-share-alt share-logo pull-right" style="padding-top: 0px;"></span>
+								</td>
+								<td style="border-top: none; padding: 3px; padding-bottom: 0px;">
+									<label>103,543,875</label>
+								</td>
+							</tr>
+						</table>
+			        </div>
+			    </div>
+			</div>
+		</div>
+
+		<div class="comment-section">
+			<div class="col-sm-1">
+				<div class="thumbnail">
+					<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+				</div><!-- /thumbnail -->
+			</div><!-- /col-sm-1 -->
+
+			<div class="col-sm-11">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>{{user.username}}</strong> <div class="ctime pull-right" id="com-time">0:00</div>
+					</div>
+					<div class="panel-body">
+						<form method="GET">
+							<input id="myComment" placeholder="Write a comment..." rows="1" maxlength="100"></input>
+						</form>
+					</div><!-- /panel-body -->
+				</div><!-- /panel panel-default -->
+			</div>
+		</div>
+
+		<div class="tags-panel">
+			{% for tag in video.tags.all %}
             <a class="btn btn-default btn-xs" href="{% url 'videos:tag_videos' tag.tag_text %}">
                 <span class="glyphicon glyphicon-tag"></span> {{ tag.tag_text }}
             </a>
             {% endfor %}
-        </div>
-    </div>
+	   	</div>
+
+	</div>
 {% endblock %}
 
 {% block js %} <script src="{% static 'scripts/detail.js' %}"></script>
