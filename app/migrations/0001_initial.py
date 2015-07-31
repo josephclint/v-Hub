@@ -125,5 +125,5 @@ class Migration(migrations.Migration):
             name='video',
             field=models.ForeignKey(to='app.Video'),
         ),
-        # migrations.RunPython(populate_categories),
+        migrations.RunPython(populate_categories),
     ]
