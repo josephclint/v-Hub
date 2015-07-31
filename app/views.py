@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import generic
@@ -67,19 +67,18 @@ class FollowingView(generic.TemplateView):
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         return render(request, 'app/following.html',)
-        
+
 
 class TagVideosView(generic.ListView):
     template_name = 'app/video_list.html'
     context_object_name = 'videos'
-    
+
     def get_queryset(self):
         try:
             tag = Tag.objects.get(tag_text__iexact=self.args[0])
             return tag.video_set.all()
         except Tag.DoesNotExist:
             return Video.objects.all()
-            
 
 
 class AddComment(generic.View):

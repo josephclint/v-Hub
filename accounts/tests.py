@@ -2,8 +2,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
-import datetime
-
 HTTP_OK = 200
 HTTP_FOUND = 302
 
@@ -44,9 +42,7 @@ class UserRoutineTests(TestCase):
 
         # make sure the user we just registered was really registered
         # username check is enough since it must be unique
-        a = User.objects.filter(
-            username=self.user_username,
-        )
+        a = User.objects.filter(username=self.user_username)
         self.assertTrue(a)
 
         # make sure it is logged in
@@ -75,7 +71,7 @@ class UserRoutineTests(TestCase):
 
         # make sure it successfully logged the test user in
         self.assertTrue(response.context['request'].user.is_authenticated())
-        
+
     def test_user_logout_should_work(self):
         # create the test user
         User.objects.create_user(

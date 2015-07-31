@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import Video, Tag, Comment, Category, View, Like, Dislike, Share
+from models import Video, Tag, Category, View, Like, Dislike, Share
 
 
 class ViewInline(admin.TabularInline):
