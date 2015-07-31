@@ -82,14 +82,21 @@ class TagVideosView(generic.ListView):
 class CategoryVideosView(generic.ListView):
     template_name = 'app/category_video_list.html'
     context_object_name = 'videos'
+    category = None
 
     def get_queryset(self):
         try:
             arg = self.args[0].replace('-', ' ').replace(' and ', ' & ')
             category = Category.objects.get(category_text__iexact=arg)
+            self.category = category
             return category.video_set.all()
         except Category.DoesNotExist:
             return []
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryVideosView, self).get_context_data(**kwargs)
+        context['category'] = self.category
+        return context
 
 
 class AddComment(generic.View):
