@@ -9,6 +9,7 @@ window.onload = function (){
 		video.play();
 		draw(video, canvas);
 		duration = document.getElementById('duration' + i);
+		video.pause();
 
 		minutes = parseInt(video.duration / 60);
 		seconds = parseInt(video.duration % 60);
