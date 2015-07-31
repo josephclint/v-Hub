@@ -29,12 +29,6 @@ class DetailView(generic.DetailView):
 
 
 class UploadView(generic.View):
-    context = {
-        'title': 'Add Video',
-        'form_action': reverse_lazy('videos:add'),
-        'submit_label': 'Upload',
-    }
-
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def post(self, request):
         tags = do_the_tags_magic(request.POST.get('tags', ''))
@@ -46,15 +40,16 @@ class UploadView(generic.View):
             obj.owner = request.user
             obj.save()
             form.save_m2m()
+
             return HttpResponseRedirect(reverse('accounts:index'))
         else:
-            self.context['form'] = form
-            return render(request, 'app/upload.html', self.context)
+            context = {'video_upload_form': form}
+            return render(request, 'app/upload.html', context)
 
     @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
-        self.context['video_upload_form'] = VideoForm()
-        return render(request, 'app/upload.html', self.context)
+        context = {'video_upload_form': VideoForm()}
+        return render(request, 'app/upload.html', context)
 
 
 class FollowersView(generic.TemplateView):

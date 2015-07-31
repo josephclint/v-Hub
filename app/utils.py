@@ -2,6 +2,9 @@ from models import Tag
 
 
 def do_the_tags_magic(tags):
+    if tags == '':
+        return []
+
     tags = tags.strip().split(';')
     values = []
 
