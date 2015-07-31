@@ -28,6 +28,13 @@ def anonymous_required(function):
     return as_view
 
 
+class LoginRequiredMixin(object):
+    @classmethod
+    def as_view(cls, **kwargs):
+        view = super(LoginRequiredMixin, cls).as_view(**kwargs)
+        return login_required(view, login_url=reverse_lazy('accounts:login'))
+
+
 class IndexView(generic.View):
     def get(self, request):
         if request.user.is_authenticated():
@@ -80,8 +87,7 @@ class PostRegisterView(generic.View):
         })
 
 
-class UserProfileView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class UserProfileView(LoginRequiredMixin, generic.TemplateView):
     def get(self, request):
         return render(request, 'accounts/profile.html',)
 
@@ -95,14 +101,12 @@ class LogOutView(generic.TemplateView):
     template_name = 'accounts/logout.html'
 
 
-class SettingsView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class SettingsView(LoginRequiredMixin, generic.TemplateView):
     def get(self, request):
         return render(request, 'accounts/settings.html',)
 
 
-class DisableAccountView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class DisableAccountView(LoginRequiredMixin, generic.TemplateView):
     def get(self, request):
         request.user.delete()
         return render(request, 'accounts/account_disabled.html',)
@@ -134,8 +138,7 @@ class EditProfileView(generic.View):
             })
 
 
-class ChangePasswordView(generic.View):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class ChangePasswordView(LoginRequiredMixin, generic.View):
     def post(self, request):
         if request.is_ajax():
             form = PasswordChangeForm(user=request.user, data=request.POST)
