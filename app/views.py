@@ -3,12 +3,18 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.utils.decorators import method_decorator
 from django.views import generic
 
 from models import Video, Tag, Category
 from forms import VideoForm
 from utils import do_the_tags_magic
+
+
+class LoginRequiredMixin(object):
+    @classmethod
+    def as_view(cls, **kwargs):
+        view = super(LoginRequiredMixin, cls).as_view(**kwargs)
+        return login_required(view, login_url=reverse_lazy('accounts:login'))
 
 
 class IndexView(generic.View):
@@ -28,8 +34,8 @@ class DetailView(generic.DetailView):
     template_name = 'app/detail.html'
 
 
-class UploadView(generic.View):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class UploadView(LoginRequiredMixin, generic.View):
+
     def post(self, request):
         tags = do_the_tags_magic(request.POST.get('tags', ''))
         request.POST['tags'] = tags
@@ -46,20 +52,17 @@ class UploadView(generic.View):
             context = {'video_upload_form': form}
             return render(request, 'app/upload.html', context)
 
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
     def get(self, request):
         context = {'video_upload_form': VideoForm()}
         return render(request, 'app/upload.html', context)
 
 
-class FollowersView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class FollowersView(LoginRequiredMixin, generic.TemplateView):
     def get(self, request):
             return render(request, 'app/followers.html',)
 
 
-class FollowingView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class FollowingView(LoginRequiredMixin, generic.TemplateView):
     def get(self, request):
         return render(request, 'app/following.html',)
 
@@ -94,7 +97,6 @@ class AddComment(generic.View):
         pass
 
 
-class HomeView(generic.TemplateView):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class HomeView(LoginRequiredMixin, generic.TemplateView):
     def get(self, request):
         return render(request, 'app/home.html',)
