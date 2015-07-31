@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import generic
 
-from models import Video, Tag
+from models import Video, Tag, Category
 from forms import VideoForm
 from utils import do_the_tags_magic
 
@@ -78,7 +78,20 @@ class TagVideosView(generic.ListView):
             tag = Tag.objects.get(tag_text__iexact=self.args[0])
             return tag.video_set.all()
         except Tag.DoesNotExist:
-            return Video.objects.all()
+            return []
+
+
+class CategoryVideosView(generic.ListView):
+    template_name = 'app/category_video_list.html'
+    context_object_name = 'videos'
+
+    def get_queryset(self):
+        try:
+            arg = self.args[0].replace('-', ' ').replace(' and ', ' & ')
+            category = Category.objects.get(category_text__iexact=arg)
+            return category.video_set.all()
+        except Category.DoesNotExist:
+            return []
 
 
 class AddComment(generic.View):

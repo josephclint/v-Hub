@@ -5,18 +5,19 @@ from django.db import models, migrations
 from django.conf import settings
 
 INITIAL_CATEGORIES = (
-    'Science & Technology',
-    'Music',
-    'News & Politics',
-    'Education',
-    'Entertainment',
+    ('Animation & Film', 'icons/movie.png'),
+    ('Music', 'icons/music.png'),
+    ('News & Politics', 'icons/news.png'),
+    ('People & Blogs', 'icons/people.png'),
+    ('Science & Technology', 'icons/science.png'),
+    ('Sports', 'icons/sports.png'),
 )
 
 
 def populate_categories(apps, schema_editor):
     Category = apps.get_model("app", "Category")
     for category in INITIAL_CATEGORIES:
-        Category.objects.create(category_text=category)
+        Category.objects.create(category_text=category[0], icon=category[1])
 
 
 class Migration(migrations.Migration):

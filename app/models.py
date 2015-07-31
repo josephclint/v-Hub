@@ -12,6 +12,7 @@ class Tag(models.Model):
 
 class Category(models.Model):
     category_text = models.CharField(max_length=50)
+    icon = models.CharField(max_length=255)
 
     def __unicode__(self):
         return self.category_text

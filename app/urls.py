@@ -13,8 +13,11 @@ urlpatterns = [
 
     url(r'^following/$', views.FollowingView.as_view(), name='following'),
 
-    url(r'^tags/([A-Za-z0-9]+)/$', views.TagVideosView.as_view(),
+    url(r'^tags/([A-Za-z0-9\-]+)/$', views.TagVideosView.as_view(),
         name='tag_videos'),
+
+    url(r'^categories/([A-Za-z0-9\-]+)/$', views.CategoryVideosView.as_view(),
+        name='category_videos'),
 
     url(r'^add_comment/$', views.AddComment.as_view(), name='add_comment'),
 
