@@ -1,8 +1,75 @@
-<h1>Videos on {{ category.category_text }}</h1>
+{% extends 'app/base_profile.html' %}
 
-{% for video in videos %}
-    <h3>{{ video.title }}</h3>
-    <h5>{{ video.description }}</h5>
-{% empty %}
-	<h3>There are no videos in this category.</h3>
-{% endfor %}
+{% load staticfiles %}
+
+{% block title %}{{ 'VHub | '}} {{ category.category_text }}{% endblock %}
+
+{% block body %}
+
+    <!--<h1>Videos on {{ category.category_text }}</h1>-->
+
+    <!--{% for video in videos %}-->
+        <!--<h3>{{ video.title }}</h3>-->
+        <!--<h5>{{ video.description }}</h5>-->
+    <!--{% empty %}-->
+        <!--<h3>There are no videos in this category.</h3>-->
+    <!--{% endfor %}-->
+
+        <div class="header" align="center">
+			<a href="#"><img src='{% static category.icon %}' alt=""> <br> <br> <h1 class="text-header">{{ category.category_text }}</h1></a>
+		</div>
+
+		<!--Video List-->
+		<section class="video_list">
+			<div class="videos_panel panel-success">
+				<div class="container-fluid">
+					<div class="panel-heading">
+						<div class="row">
+                            <span class="input-group pull-right" id="vid_search" style="padding-right: 16px;">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" value="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        Sort By <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="">Title</a></li>
+                                        <li><a href="">Duration</a></li>
+                                    </ul>
+                                </span>
+                            </span>
+                        </div>
+					</div>
+
+					<div class="panel-body">
+						<div class="list-group vid_list">
+                                {% for video in videos %}
+                                    <div class="list-group-item">
+                                        <button type="button" class="btn btn-default pull-right" id="remove_vid" data-toggle="modal" data-target="#delete_vid">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                        <a href="{% url 'videos:detail' video.id %}" class="container-fluid" id="vid_item">
+                                            <img src="images/minion.jpg" class="img-thumbnail pull-left" id="vid_thumb">
+                                            <h3 class="list-group-item-heading" id="vid_title">{{ video.title }}</h3>
+                                            <caption class="list-group-item-text" id="vid_des">{{ video.description }}</caption>
+                                            <time class="list-group-item-text pull-right" id="vid_time" >10:00</time>
+                                        </a>
+                                    </div>
+                                    {% empty %}
+                                        <div class="jumbotron" style="background-color: white;">
+                                            <div class="container-fluid"> <br><br>
+                                                <h1 class="no_vid" align="center">NO VIDEOS</h1>
+                                            </div>
+                                        </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+{% endblock %}

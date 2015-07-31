@@ -490,3 +490,152 @@ input[readonly] {
 #up_vid_des {
   resize: none;
 }
+
+
+/*category */
+
+.header {
+	margin-top: 30px;
+}
+
+.text-header {
+	font-weight: bolder;
+	letter-spacing: 10px;
+	color: black;
+	display: inline;
+}
+
+.header-body {
+	margin-top: 50px;
+}
+
+
+/*
+-----------------------------------
+    Code snippet by @maridlcrmn
+    Credits images: www.unsplash.com
+-----------------------------------
+*/
+
+#thumbnail-preview-indicators {
+  position: relative;
+  overflow: hidden;
+}
+#thumbnail-preview-indicators .slides .slide-1,
+#thumbnail-preview-indicators .slides .slide-2,
+#thumbnail-preview-indicators .slides .slide-3 {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+    #thumbnail-preview-indicators,
+    #thumbnail-preview-indicators .slides,
+    #thumbnail-preview-indicators .slides .slide-1,
+    #thumbnail-preview-indicators .slides .slide-2,
+    #thumbnail-preview-indicators .slides .slide-3 {
+      height: 480px;
+    }
+/*#thumbnail-preview-indicators .slides .slide-1 {
+  background-image: url(http://rack.2.mshcdn.com/media/ZgkyMDEzLzA3LzIzLzBmL1ZFVk9tdXNpY3ZpLjZmNzRlLmpwZwpwCXRodW1iCTk1MHg1MzQjCmUJanBn/8ccb0c08/09a/VEVO-music-videos.jpg);
+}
+#thumbnail-preview-indicators .slides .slide-2 {
+  background-image: url(http://www.fugitivesounds.org/wp-content/uploads/2013/04/Viral-Music-Videos.jpg);
+}
+#thumbnail-preview-indicators .slides .slide-3 {
+  background-image: url(http://cache.vevo.com/Content/VevoImages/video/C699C09C60845463F3722E17DF38DE0C.jpg);
+}*/
+#thumbnail-preview-indicators .carousel-inner .item .carousel-caption {
+  top: 20%;
+  bottom: inherit;
+}
+#thumbnail-preview-indicators .carousel-indicators li,
+#thumbnail-preview-indicators .carousel-indicators li.active {
+  position: relative;
+  width: 100px;
+  height: 8px;
+}
+#thumbnail-preview-indicators .carousel-indicators li > .thumbnail {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  display: none;
+  opacity: 0;
+  left: 50%;
+  margin-top: -80px;
+  margin-left: -50px;
+}
+#thumbnail-preview-indicators .carousel-indicators li:hover > .thumbnail,
+#thumbnail-preview-indicators .carousel-indicators li.active > .thumbnail {
+  display: block;
+  opacity: .8;
+}
+#thumbnail-preview-indicators .carousel-indicators li.active > .thumbnail:hover{
+  opacity: 1;
+}
+@media screen and (max-width : 480px) {
+    #thumbnail-preview-indicators .carousel-indicators li,
+    #thumbnail-preview-indicators .carousel-indicators li.active {
+      width: 50px;
+      height: 8px;
+      position: relative;
+    }
+    #thumbnail-preview-indicators .carousel-indicators li > .thumbnail {
+       width: 50px;
+       left: 50%;
+       margin-top: -50px;
+       margin-left: -25px;
+    }
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+.title {
+	letter-spacing: 5px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#vid_item:hover {
+  color: green;
+}
+
+#vid_item span{
+  color: green;
+}
+
+#vid_thumb {
+  margin-right: 20px;
+  height: 100px;
+  width: 200px;
+}
+
+#vid_des {
+  margin-left: 20px;
+}
+
+#vid_time {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#vid_search {
+  margin-bottom: 10px;
+}
+
+#srch_btn {
+  border-left: none;
+  color: green;
+}
+
+.vid_list {
+  height: 350px;
+  overflow-y: scroll;
+}
