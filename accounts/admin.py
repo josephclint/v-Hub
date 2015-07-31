@@ -16,7 +16,6 @@ class UserAdmin(admin.ModelAdmin):
         ('Personal Information', {'fields': ['first_name', 'last_name']})
     )
 
-    ('username', 'password')
     inlines = (UserProfileInline,)
 
 
