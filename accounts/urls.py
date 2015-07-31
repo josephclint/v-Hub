@@ -44,6 +44,9 @@ urlpatterns = [
     url(r'^profile/$', views.UserProfileView.as_view(),
         name='user_profile'),
 
+    url(r'^profile/edit/$', views.EditProfileView.as_view(),
+        name='edit_profile'),
+
     url(r'^profile/(?P<pk>\w+)/$', views.ProfileView.as_view(),
         name='profile'),
 
@@ -52,12 +55,4 @@ urlpatterns = [
 
     url(r'^settings/$', views.SettingsView.as_view(), name='settings'),
 
-    url(r'^profile/edit_firstname/$', views.EditFirstNameView.as_view(),
-        name='profile_edit_firstname'),
-
-    url(r'^profile/edit_lastname/$', views.EditLastNameView.as_view(),
-        name='profile_edit_lastname'),
-
-    url(r'^profile/edit_email/$', views.EditEmailView.as_view(),
-        name='profile_edit_email'),
 ]

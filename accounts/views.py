@@ -9,13 +9,12 @@ from django.http import (
     JsonResponse
 )
 from django.shortcuts import render, redirect
-from django.utils.dateparse import parse_date
 from django.utils.decorators import method_decorator
 from django.views import generic
 
 from app import views as app_views
 from sitemap import views as sitemap_views
-from forms import UserSignupForm
+from forms import UserSignupForm, UserEditProfileForm
 
 
 def anonymous_required(function):
@@ -109,48 +108,30 @@ class DisableAccountView(generic.TemplateView):
         return render(request, 'accounts/account_disabled.html',)
 
 
-class EditFirstNameView(generic.View):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
+class EditProfileView(generic.View):
+
+    def get(self, request):
+        user = self.request.user
+        data = {
+            'birthday': user.userprofile.birthday,
+            'gender': user.userprofile.gender,
+        }
+        form = UserEditProfileForm(instance=user, initial=data)
+        return render(request, 'accounts/edit_profile.html', {'form': form})
+
     def post(self, request):
-        first_name = request.POST.get('first_name', None)
-        if first_name is not None:
-            user = request.user
-            user.first_name = first_name
-            user.save()
-        return redirect('/profile')
-
-
-class EditLastNameView(generic.View):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
-    def post(self, request):
-        last_name = request.POST.get('last_name', None)
-        if last_name is not None:
-            user = request.user
-            user.last_name = last_name
-            user.save()
-        return redirect('/profile')
-
-
-class EditEmailView(generic.View):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
-    def post(self, request):
-        email = request.POST.get('email', None)
-        if email is not None:
-            user = request.user
-            user.email = email
-            user.save()
-        return redirect('/profile')
-
-
-class EditBirthdayView(generic.View):
-    @method_decorator(login_required(login_url=reverse_lazy('accounts:login')))
-    def post(self, request):
-        birthday = request.POST.get('birthday', None)
-        if birthday is not None:
-            user = request.user
-            user.birthday = parse_date(birthday)
-            user.save()
-        return redirect('/profile')
+        form = UserEditProfileForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = User.objects.get(pk=request.user.pk)
+            user.userprofile.birthday = form.cleaned_data['birthday']
+            user.userprofile.gender = form.cleaned_data['gender']
+            user.userprofile.save()
+            return HttpResponseRedirect(reverse('accounts:user_profile'))
+        else:
+            return render(request, 'accounts/edit_profile.html', {
+                'form': form
+            })
 
 
 class ChangePasswordView(generic.View):

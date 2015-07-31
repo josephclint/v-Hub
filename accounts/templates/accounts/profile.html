@@ -119,80 +119,47 @@
                                 </div>
                             </div> --><!--user_det-->
 
-                            <div class="user_det">
-                                <div class="row names">
-                                    <div class="col-md-6">
-                                        <form action="{% url 'accounts:profile_edit_firstname' %}" method="POST">
-                                            {% csrf_token %}
-                                            <div class="input-group">
-                                                    <input id="fn_txt" type="text" class="form-control" name="first_name" value="{{user.first_name}}" disabled>
-                                                    <span class="input-group-btn">
-                                                        <button id="fn_btn" type="button" class="btn btn-default toggle" 
-                                                        data-target="#fn_txt">
-                                                            <span class="glyphicon glyphicon-cog"></span>
-                                                        </button>
-                                                    </span>
-                                            </div>
-                                        </form>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <h4><span class="glyphicon glyphicon-user"></span></h4>
                                     </div>
-                                    <div class="col-md-6">
-                                        <form action="{% url 'accounts:profile_edit_lastname' %}" method="POST">
-                                            {% csrf_token %}
-                                        <div class="input-group">
-                                            <input id="ln_txt" type="text" class="form-control" name="last_name" value="{{user.last_name}}" disabled>
-                                            <span class="input-group-btn">
-                                                <button id="ln_btn" type="button" class="btn btn-default toggle" 
-                                                data-target="#ln_txt">
-                                                    <span class="glyphicon glyphicon-cog"></span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                        </form>
+                                    <div class="col-md-11">
+                                        <h4>{{ user.first_name }} {{ user.last_name }}</h4>
                                     </div>
-                                </div><!--row names-->
-                                <div class="row dob_gen">
-                                    <div class="col-md-6">
-                                        <label class="gen_label"><h4>Gender : {{ user.userprofile.get_verbose_gender }}</h4></label>
-                                        {% if user.userprofile.gender %}
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="m_rad" value="Male" checked disabled> Male
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="f_rad" value="Female" disabled> Female
-                                        </label>
-                                        {% else %}
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="m_rad" value="Male" disabled> Male
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="f_rad" value="Female" checked disabled> Female
-                                        </label>
-                                        {% endif %}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <h4><span class="glyphicon glyphicon-gift"></span></h4>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <span class="input-group-addon" id="basic-addon1">Date of Birth</span>
-                                            <input id="dob_pan" type="date" name="birthday" class="form-control" min="1920-01-01" value="{{ user.userprofile.birthday | date:"c" }}">
-                                        </div>
+                                    <div class="col-md-11">
+                                        <h4>
+                                        {{ user.userprofile.birthday }}</h4>
                                     </div>
-                                </div><!--row dob_gen-->
-                                <div class="row email">
-                                    <div class="col-md-12">
-                                    <form action="{% url 'accounts:profile_edit_email' %}" method="POST">
-                                            {% csrf_token %}
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                            <input id="email_bar" type="email" name="email" value="{{user.email}}" class="form-control" disabled>
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default toggle" data-target="#email_bar">
-                                                    <span class="glyphicon glyphicon-cog"></span>
-                                                </button>
-                                            </span> 
-                                        </div>
-                                        </form>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <h4><span class="glyphicon glyphicon-record"></span></h4>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <h4>
+                                        {{ user.userprofile.get_verbose_gender }}</h4>
                                     </div>
                                 </div>  
-                            </div><!--user_det-->
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <h4><span class="glyphicon glyphicon-envelope"></span></h4>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <h4>
+                                        {{ user.email }}</h4>
+                                    </div>
+                                </div>  
+                                <div class="row">
+                                    <br>
+                                    <div class="col-md-12">
+                                        <a href="{% url 'accounts:edit_profile' %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> &nbsp;&nbsp;Edit Profile</a>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
